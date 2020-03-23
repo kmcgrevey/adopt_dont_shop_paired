@@ -1,0 +1,29 @@
+<body style="background-color:lightblue;"">
+  <header style="font-family:arial;text-align:center">
+    <%= link_to "Welcome Page", "/" %>
+    <%= link_to "Pets Index", "/pets" %>
+    <%= link_to "Shelters Index", "/shelters" %>
+  </header>
+    <br/>
+  <h1 style="font-family:arial;font-size:48px;text-align:center"> All Pets </h1>
+    <br/>
+  <div style="text-align:center">
+    <% @pets.each do |pet| %>
+      <section id="pets-<%=pet.id%>">
+        <img style="img-align:center;"><%= image_tag pet.image %></img>
+          <br/>
+        <%= link_to pet.name, "/pets/#{pet.id}" %>
+        <h5><%= pet.city %></h5>
+        <h5><%= pet.approx_age %></h5>
+        <h5><%= pet.description %></h5>
+        <h5><%= pet.sex %></h5>
+        <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}" %>
+          <br/>
+          <br/>
+        <%= link_to "Edit Pet", "/pets/#{pet.id}/edit" %>
+        <%= link_to "Delete Pet", "/pets/#{pet.id}", method: :delete %>
+          <br/>
+          <br/>
+        </section>
+      </body>
+    <% end %>

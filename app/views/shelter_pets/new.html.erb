@@ -1,0 +1,30 @@
+<body style="background-color:lightblue;font-family:arial;text-align:center">
+  <%= link_to "Pets Index", "/pets" %>
+  <%= link_to "Shelters Index", "/shelters" %>
+    <br/>
+    <br/>
+    <br/>
+  <%= form_tag "/shelters/#{@shelter.id}/pets" do %>
+    <%= label_tag :image %>
+    <%= text_field_tag :image %>
+      <br/>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+      <br/>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+      <br/>
+    <%= label_tag :approx_age %>
+    <%= text_field_tag :approx_age %>
+      <br/>
+    <%= label_tag :sex %>
+    <%= text_field_tag :sex %>
+      <br/>
+      <br/>
+    <%= submit_tag 'Create Pet' %>
+      <br/>
+        <br/>
+      <br/>
+    <br/>
+  <%= link_to "Back to Shelter", "/shelters/#{@shelter.id}" %>
+<% end %>

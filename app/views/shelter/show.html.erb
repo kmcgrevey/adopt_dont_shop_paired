@@ -1,0 +1,19 @@
+  <body style="background-color:lightblue;font-family:arial;">
+    <header style="font-family:arial;text-align:center">
+      <%= link_to "Pets Index", "/pets" %>
+      <%= link_to "Shelters Index", "/shelters" %>
+    </header>
+      <br/>
+    <h1 style="text-align:center;font-size:40px"> <%= @shelter.name %> </h1>
+      <br/>
+    <div style="text-align:center">
+      <p> <%= @shelter.address %></p>
+      <p> <%= @shelter.city %></p>
+      <p> <%= @shelter.state %></p>
+      <p> <%= @shelter.zip %></p>
+      <p> <%= @shelter.pets.count %> <%= "Adoptable Pet(s)"%></p>
+        <br/>
+        <br/>
+      <%= link_to "All Pets", "/shelters/#{@shelter.id}/pets" %>
+      <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
+      <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>

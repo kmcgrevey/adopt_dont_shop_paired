@@ -1,0 +1,31 @@
+<body style="background-color:lightblue;font-family:arial;text-align:center">
+  <%= link_to "Pets Index", "/pets" %>
+  <%= link_to "Shelters Index", "/shelters" %>
+    <br/>
+    <br/>
+    <br/>
+  <%= form_tag "/pets/#{@pet_to_edit.id}", method: :patch do %>
+  <%= label_tag :image %>
+  <%= text_field_tag :image %>
+    <br/>
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+    <br/>
+  <%= label_tag :approx_age %>
+  <%= text_field_tag :approx_age %>
+    <br/>
+  <%= label_tag :sex %>
+  <%= text_field_tag :sex %>
+    <br/>
+  <%= label_tag :description %>
+  <%= text_field_tag :description %>
+    <br/>
+  <%= label_tag :status %>
+  <%= text_field_tag :status %>
+    <br/>
+    <br/>
+  <%= submit_tag 'Update Pet' %>
+    <br/>
+    <br/>
+  <%= link_to "Back to Pet", "/pets/#{@pet_to_edit.id}" %>
+<% end %>
