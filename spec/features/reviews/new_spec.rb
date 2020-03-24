@@ -27,4 +27,18 @@ RSpec.describe "test new reviews can be made from shelter show page", type: :fea
       expect(page).to have_content("Just meh. Nothing special here")
       expect(page).to have_css("img[src*='https://www.rd.com/wp-content/uploads/2019/10/puppies-1-760x506.jpg']")
   end
+
+  it "sends flash message if forms are submitted without title, rating, or content" do
+    lakeside_shelter = Shelter.create(name: "Lakeside Shelter",
+                                    address: "2914 Freetown Road",
+                                    city: "Columbia",
+                                    state: "Maryland",
+                                    zip: "21044")
+
+
+    visit "/shelters/#{lakeside_shelter.id}/reviews/new"
+    click_button "Create Review"
+
+      expect(page).to have_content("Please fill in title, rating, and content")
+  end
 end
