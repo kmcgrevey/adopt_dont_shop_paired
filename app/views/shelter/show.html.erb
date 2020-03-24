@@ -15,10 +15,12 @@
         <br/>
         <br/>
       <% @shelter.reviews.each do |review| %>
+      <section id="review-<%= review.id %>">
         <%= review.title %>
         <%= review.rating %>
         <%= review.content %>
         <img src= <%= review.picture %> alt= <%= review.title %>>
+      </section>
           <br/>
           <br/>
         <% end %>

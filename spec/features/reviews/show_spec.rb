@@ -15,9 +15,12 @@ RSpec.describe "test reviews are on shelter show page", type: :feature do
 
     visit "/shelters/#{lakeside_shelter.id}"
 
-    expect(page).to have_content(review_1.title)
-    expect(page).to have_content(review_1.rating)
-    expect(page).to have_content(review_1.content)
-    expect(page).to have_css("img[src*='#{review_1.picture}']")
+    within "#review-#{review_1.id}" do
+
+      expect(page).to have_content(review_1.title)
+      expect(page).to have_content(review_1.rating)
+      expect(page).to have_content(review_1.content)
+      expect(page).to have_css("img[src*='#{review_1.picture}']")
+    end
   end
 end

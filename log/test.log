@@ -11062,3 +11062,1572 @@ Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.0ms)
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:38:00.836731"], ["updated_at", "2020-03-24 21:38:00.836731"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:38:00.838894"], ["updated_at", "2020-03-24 21:38:00.838894"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "4"], ["sex", "Male"], ["created_at", "2020-03-24 21:38:00.853331"], ["updated_at", "2020-03-24 21:38:00.853331"], ["shelter_id", 211]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg"], ["name", "Livia"], ["city", "Columbia"], ["approx_age", "5"], ["sex", "Female"], ["created_at", "2020-03-24 21:38:00.855509"], ["updated_at", "2020-03-24 21:38:00.855509"], ["shelter_id", 212]]
+  [1m[35m (6.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pets/111" for 127.0.0.1 at 2020-03-24 15:38:00 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"111"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 111], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 211], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 117ms (Views: 112.2ms | ActiveRecord: 0.6ms)
+Started DELETE "/pets/111" for 127.0.0.1 at 2020-03-24 15:38:00 -0600
+Processing by PetsController#destroy as HTML
+  Parameters: {"pet_id"=>"111"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 111], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = $1[0m  [["id", 111]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pets/
+Completed 302 Found in 2ms (ActiveRecord: 0.8ms)
+Started GET "/pets/" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 212], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Paula's Precious Puppy Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80014"], ["created_at", "2020-03-24 21:38:01.011062"], ["updated_at", "2020-03-24 21:38:01.011062"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description", "status") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["image", "https://upload.wikimedia.org/wikipedia/commons/3/34/Labrador_on_Quantock_%282175262184%29.jpg"], ["name", "Hadrian"], ["city", "Denver"], ["approx_age", "9"], ["sex", "Male"], ["created_at", "2020-03-24 21:38:01.012877"], ["updated_at", "2020-03-24 21:38:01.012877"], ["shelter_id", 213], ["description", "Hadrian is loyal and friendly"], ["status", "Adoptable"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pets/113" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"113"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 113], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 213], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+Started GET "/pets/113/edit" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#edit as HTML
+  Parameters: {"pet_id"=>"113"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 113], ["LIMIT", 1]]
+  Rendering pets/edit.html.erb within layouts/application
+  Rendered pets/edit.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+Started PATCH "/pets/113" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#update as HTML
+  Parameters: {"utf8"=>"✓", "image"=>"https://www.gannett-cdn.com/presto/2019/01/09/USAT/ebae0b75-b22d-4604-9afb-3047d1f8b6f2-DF-18447.jpg?width=660&height=441&fit=crop&format=pjpg&auto=webp", "name"=>"Cassia", "approx_age"=>"8", "sex"=>"Female", "description"=>"Cassia is an explorer with a heart of gold!", "status"=>"", "commit"=>"Update Pet", "pet_id"=>"113"}
+Unpermitted parameters: :utf8, :_method, :status, :commit, :pet_id
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 113], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mShelter Load (0.5ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 213], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "pets" SET "image" = $1, "name" = $2, "description" = $3, "approx_age" = $4, "sex" = $5, "updated_at" = $6 WHERE "pets"."id" = $7[0m  [["image", "https://www.gannett-cdn.com/presto/2019/01/09/USAT/ebae0b75-b22d-4604-9afb-3047d1f8b6f2-DF-18447.jpg?width=660&height=441&fit=crop&format=pjpg&auto=webp"], ["name", "Cassia"], ["description", "Cassia is an explorer with a heart of gold!"], ["approx_age", "8"], ["sex", "Female"], ["updated_at", "2020-03-24 21:38:01.039262"], ["id", 113]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pets/113
+Completed 302 Found in 7ms (ActiveRecord: 1.8ms)
+Started GET "/pets/113" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"113"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 113], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 213], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:38:01.056354"], ["updated_at", "2020-03-24 21:38:01.056354"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:38:01.058305"], ["updated_at", "2020-03-24 21:38:01.058305"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "4"], ["sex", "Male"], ["created_at", "2020-03-24 21:38:01.060101"], ["updated_at", "2020-03-24 21:38:01.060101"], ["shelter_id", 214], ["description", "Cute as a button"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["image", "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg"], ["name", "Livia"], ["city", "Columbia"], ["approx_age", "5"], ["sex", "Female"], ["created_at", "2020-03-24 21:38:01.061647"], ["updated_at", "2020-03-24 21:38:01.061647"], ["shelter_id", 215], ["description", "She's as fun as she is cute"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pets" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 214], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 215], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms)
+Started GET "/pets/115/edit" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#edit as HTML
+  Parameters: {"pet_id"=>"115"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 115], ["LIMIT", 1]]
+  Rendering pets/edit.html.erb within layouts/application
+  Rendered pets/edit.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+Started PATCH "/pets/115" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#update as HTML
+  Parameters: {"utf8"=>"✓", "image"=>"https://upload.wikimedia.org/wikipedia/commons/3/34/Labrador_on_Quantock_%282175262184%29.jpg", "name"=>"Domitian", "approx_age"=>"8", "sex"=>"Male", "description"=>"Loves parks and frisbees", "status"=>"", "commit"=>"Update Pet", "pet_id"=>"115"}
+Unpermitted parameters: :utf8, :_method, :status, :commit, :pet_id
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 115], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 215], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "pets" SET "image" = $1, "name" = $2, "description" = $3, "approx_age" = $4, "sex" = $5, "updated_at" = $6 WHERE "pets"."id" = $7[0m  [["image", "https://upload.wikimedia.org/wikipedia/commons/3/34/Labrador_on_Quantock_%282175262184%29.jpg"], ["name", "Domitian"], ["description", "Loves parks and frisbees"], ["approx_age", "8"], ["sex", "Male"], ["updated_at", "2020-03-24 21:38:01.121873"], ["id", 115]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pets/115
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+Started GET "/pets/115" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"115"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 115], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 215], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+Started GET "/pets" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 214], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 215], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.5ms)
+Started DELETE "/pets/115" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#destroy as HTML
+  Parameters: {"pet_id"=>"115"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 115], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = $1[0m  [["id", 115]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pets/
+Completed 302 Found in 2ms (ActiveRecord: 0.7ms)
+Started GET "/pets/" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 214], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:38:01.147803"], ["updated_at", "2020-03-24 21:38:01.147803"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:38:01.149453"], ["updated_at", "2020-03-24 21:38:01.149453"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description", "status") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "2"], ["sex", "Male"], ["created_at", "2020-03-24 21:38:01.151417"], ["updated_at", "2020-03-24 21:38:01.151417"], ["shelter_id", 216], ["description", "This little rascal is fiesty and cute as a button!"], ["status", "Adoptable"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description", "status") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["image", "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg"], ["name", "Livia"], ["city", "Columbia"], ["approx_age", "3"], ["sex", "Female"], ["created_at", "2020-03-24 21:38:01.153307"], ["updated_at", "2020-03-24 21:38:01.153307"], ["shelter_id", 217], ["description", "She loves to snuggle up and be rubbed behind her ears!"], ["status", "Adoptable"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pets/116" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"116"}
+  [1m[36mPet Load (0.1ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 116], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 216], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+Started GET "/pets/117" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"117"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 117], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 217], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:38:01.209169"], ["updated_at", "2020-03-24 21:38:01.209169"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "reviews" ("title", "rating", "content", "picture", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Best Shelter"], ["rating", 5], ["content", "These guys really know how to run a shelter!"], ["picture", "https://www.rd.com/wp-content/uploads/2019/10/puppies-1-760x506.jpg"], ["created_at", "2020-03-24 21:38:01.230583"], ["updated_at", "2020-03-24 21:38:01.230583"], ["shelter_id", 218]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/218" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"218"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 218], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 218]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 218]]
+  Rendered shelter/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 12ms (Views: 8.9ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Beachside Shelter"], ["address", "1234 Sandy Street"], ["city", "Rehoboth Beach"], ["state", "Delaware"], ["zip", "19971"], ["created_at", "2020-03-24 21:38:01.256173"], ["updated_at", "2020-03-24 21:38:01.256173"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/219/pets" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterPetsController#index as HTML
+  Parameters: {"shelter_id"=>"219"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 219], ["LIMIT", 1]]
+  Rendering shelter_pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 219]]
+  Rendered shelter_pets/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 0.5ms)
+Started GET "/shelters/219/pets/new" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterPetsController#new as HTML
+  Parameters: {"shelter_id"=>"219"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 219], ["LIMIT", 1]]
+  Rendering shelter_pets/new.html.erb within layouts/application
+  Rendered shelter_pets/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+Started POST "/shelters/219/pets" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterPetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "image"=>"https://cdn2-www.dogtime.com/assets/uploads/gallery/newfoundland-dogs-and-puppies/newfoundland-dogs-puppies-1.jpg", "name"=>"Augustus", "description"=>"Augustus is former guide dog looking for a new home", "approx_age"=>"12", "sex"=>"Male", "commit"=>"Create Pet", "shelter_id"=>"219"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 219], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :commit, :shelter_id
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://cdn2-www.dogtime.com/assets/uploads/gallery/newfoundland-dogs-and-puppies/newfoundland-dogs-puppies-1.jpg"], ["name", "Augustus"], ["approx_age", "12"], ["sex", "Male"], ["created_at", "2020-03-24 21:38:01.298112"], ["updated_at", "2020-03-24 21:38:01.298112"], ["shelter_id", 219], ["description", "Augustus is former guide dog looking for a new home"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/219/pets
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+Started GET "/shelters/219/pets" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterPetsController#index as HTML
+  Parameters: {"shelter_id"=>"219"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 219], ["LIMIT", 1]]
+  Rendering shelter_pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 219]]
+  Rendered shelter_pets/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:38:01.312600"], ["updated_at", "2020-03-24 21:38:01.312600"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:38:01.314159"], ["updated_at", "2020-03-24 21:38:01.314159"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/220" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"220"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 220], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 220]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 220]]
+  Rendered shelter/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.7ms)
+Started DELETE "/shelters/220" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#destroy as HTML
+  Parameters: {"id"=>"220"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 220], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 220]]
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "shelters" WHERE "shelters"."id" = $1[0m  [["id", 220]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/
+Completed 302 Found in 4ms (ActiveRecord: 1.2ms)
+Started GET "/shelters/" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 9ms (Views: 3.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:38:01.348384"], ["updated_at", "2020-03-24 21:38:01.348384"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:38:01.349812"], ["updated_at", "2020-03-24 21:38:01.349812"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "4"], ["sex", "Male"], ["created_at", "2020-03-24 21:38:01.351558"], ["updated_at", "2020-03-24 21:38:01.351558"], ["shelter_id", 222]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg"], ["name", "Livia"], ["city", "Columbia"], ["approx_age", "5"], ["sex", "Female"], ["created_at", "2020-03-24 21:38:01.353264"], ["updated_at", "2020-03-24 21:38:01.353264"], ["shelter_id", 223]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/222/pets" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterPetsController#index as HTML
+  Parameters: {"shelter_id"=>"222"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 222], ["LIMIT", 1]]
+  Rendering shelter_pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 222]]
+  Rendered shelter_pets/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+Started GET "/shelters/new" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#new as HTML
+  Rendering shelter/new.html.erb within layouts/application
+  Rendered shelter/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+Started POST "/shelters" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#create as HTML
+  Parameters: {"utf8"=>"✓", "name"=>"Downtown Puppy Shelter", "address"=>"4567 Broad Street", "city"=>"Philadelphia", "state"=>"Pennsylvania", "zip"=>"19019", "commit"=>"Create Shelter"}
+Unpermitted parameters: :utf8, :commit
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Downtown Puppy Shelter"], ["address", "4567 Broad Street"], ["city", "Philadelphia"], ["state", "Pennsylvania"], ["zip", "19019"], ["created_at", "2020-03-24 21:38:01.386517"], ["updated_at", "2020-03-24 21:38:01.386517"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:38:01.396408"], ["updated_at", "2020-03-24 21:38:01.396408"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:38:01.398131"], ["updated_at", "2020-03-24 21:38:01.398131"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "4"], ["sex", "Male"], ["created_at", "2020-03-24 21:38:01.400090"], ["updated_at", "2020-03-24 21:38:01.400090"], ["shelter_id", 225]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+Started GET "/pets" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 225], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+Started GET "/shelters/225" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"225"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 225], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 225]]
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 225]]
+  Rendered shelter/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 1.0ms)
+Started DELETE "/shelters/225" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#destroy as HTML
+  Parameters: {"id"=>"225"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 225], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 225]]
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = $1[0m  [["id", 121]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "shelters" WHERE "shelters"."id" = $1[0m  [["id", 225]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+Started GET "/shelters/" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:38:01.441508"], ["updated_at", "2020-03-24 21:38:01.441508"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:38:01.443412"], ["updated_at", "2020-03-24 21:38:01.443412"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+Started GET "/shelters/227/edit" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#edit as HTML
+  Parameters: {"id"=>"227"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 227], ["LIMIT", 1]]
+  Rendering shelter/edit.html.erb within layouts/application
+  Rendered shelter/edit.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.2ms)
+Started PATCH "/shelters/227" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#update as HTML
+  Parameters: {"utf8"=>"✓", "name"=>"Riverside Shelter", "address"=>"3197 Sutherland Parkway", "city"=>"Riverside", "state"=>"California", "zip"=>"90217", "commit"=>"Submit", "id"=>"227"}
+Unpermitted parameters: :utf8, :_method, :commit, :id
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 227], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "shelters" SET "name" = $1, "address" = $2, "city" = $3, "state" = $4, "zip" = $5, "updated_at" = $6 WHERE "shelters"."id" = $7[0m  [["name", "Riverside Shelter"], ["address", "3197 Sutherland Parkway"], ["city", "Riverside"], ["state", "California"], ["zip", "90217"], ["updated_at", "2020-03-24 21:38:01.469825"], ["id", 227]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/227
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+Started GET "/shelters/227" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"227"}
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 227], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 227]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 227]]
+  Rendered shelter/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.5ms)
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+Started DELETE "/shelters/227" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#destroy as HTML
+  Parameters: {"id"=>"227"}
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 227], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 227]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "shelters" WHERE "shelters"."id" = $1[0m  [["id", 227]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms)
+Started GET "/shelters/" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:38:01.492347"], ["updated_at", "2020-03-24 21:38:01.492347"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:38:01.493729"], ["updated_at", "2020-03-24 21:38:01.493729"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+Started GET "/shelters/229" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"229"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 229], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 229]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 229]]
+  Rendered shelter/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.7ms)
+Started GET "/shelters/229/pets" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterPetsController#index as HTML
+  Parameters: {"shelter_id"=>"229"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 229], ["LIMIT", 1]]
+  Rendering shelter_pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 229]]
+  Rendered shelter_pets/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Paula's Precious Puppy Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80014"], ["created_at", "2020-03-24 21:38:01.524390"], ["updated_at", "2020-03-24 21:38:01.524390"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/231" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"231"}
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 231], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 231]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 231]]
+  Rendered shelter/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.5ms)
+Started GET "/shelters/231/edit" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#edit as HTML
+  Parameters: {"id"=>"231"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 231], ["LIMIT", 1]]
+  Rendering shelter/edit.html.erb within layouts/application
+  Rendered shelter/edit.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+Started PATCH "/shelters/231" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#update as HTML
+  Parameters: {"utf8"=>"✓", "name"=>"Downtown Puppy Shelter", "address"=>"4567 Broad Street", "city"=>"Philadelphia", "state"=>"Pennsylvania", "zip"=>"19019", "commit"=>"Submit", "id"=>"231"}
+Unpermitted parameters: :utf8, :_method, :commit, :id
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 231], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "shelters" SET "name" = $1, "address" = $2, "city" = $3, "state" = $4, "zip" = $5, "updated_at" = $6 WHERE "shelters"."id" = $7[0m  [["name", "Downtown Puppy Shelter"], ["address", "4567 Broad Street"], ["city", "Philadelphia"], ["state", "Pennsylvania"], ["zip", "19019"], ["updated_at", "2020-03-24 21:38:01.547685"], ["id", 231]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/231
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+Started GET "/shelters/231" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"231"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 231], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 231]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 231]]
+  Rendered shelter/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2020-03-24 15:38:01 -0600
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:03.134051"], ["updated_at", "2020-03-24 21:41:03.134051"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:03.136371"], ["updated_at", "2020-03-24 21:41:03.136371"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "4"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:03.162260"], ["updated_at", "2020-03-24 21:41:03.162260"], ["shelter_id", 232]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg"], ["name", "Livia"], ["city", "Columbia"], ["approx_age", "5"], ["sex", "Female"], ["created_at", "2020-03-24 21:41:03.164776"], ["updated_at", "2020-03-24 21:41:03.164776"], ["shelter_id", 233]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pets/122" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"122"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 122], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 232], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 125ms (Views: 119.5ms | ActiveRecord: 0.6ms)
+Started DELETE "/pets/122" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#destroy as HTML
+  Parameters: {"pet_id"=>"122"}
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 122], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = $1[0m  [["id", 122]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pets/
+Completed 302 Found in 2ms (ActiveRecord: 0.8ms)
+Started GET "/pets/" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 233], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Paula's Precious Puppy Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80014"], ["created_at", "2020-03-24 21:41:03.326663"], ["updated_at", "2020-03-24 21:41:03.326663"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description", "status") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["image", "https://upload.wikimedia.org/wikipedia/commons/3/34/Labrador_on_Quantock_%282175262184%29.jpg"], ["name", "Hadrian"], ["city", "Denver"], ["approx_age", "9"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:03.329285"], ["updated_at", "2020-03-24 21:41:03.329285"], ["shelter_id", 234], ["description", "Hadrian is loyal and friendly"], ["status", "Adoptable"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pets/124" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"124"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 124], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 234], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.7ms)
+Started GET "/pets/124/edit" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#edit as HTML
+  Parameters: {"pet_id"=>"124"}
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 124], ["LIMIT", 1]]
+  Rendering pets/edit.html.erb within layouts/application
+  Rendered pets/edit.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+Started PATCH "/pets/124" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#update as HTML
+  Parameters: {"utf8"=>"✓", "image"=>"https://www.gannett-cdn.com/presto/2019/01/09/USAT/ebae0b75-b22d-4604-9afb-3047d1f8b6f2-DF-18447.jpg?width=660&height=441&fit=crop&format=pjpg&auto=webp", "name"=>"Cassia", "approx_age"=>"8", "sex"=>"Female", "description"=>"Cassia is an explorer with a heart of gold!", "status"=>"", "commit"=>"Update Pet", "pet_id"=>"124"}
+Unpermitted parameters: :utf8, :_method, :status, :commit, :pet_id
+  [1m[36mPet Load (0.9ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 124], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 234], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "pets" SET "image" = $1, "name" = $2, "description" = $3, "approx_age" = $4, "sex" = $5, "updated_at" = $6 WHERE "pets"."id" = $7[0m  [["image", "https://www.gannett-cdn.com/presto/2019/01/09/USAT/ebae0b75-b22d-4604-9afb-3047d1f8b6f2-DF-18447.jpg?width=660&height=441&fit=crop&format=pjpg&auto=webp"], ["name", "Cassia"], ["description", "Cassia is an explorer with a heart of gold!"], ["approx_age", "8"], ["sex", "Female"], ["updated_at", "2020-03-24 21:41:03.365349"], ["id", 124]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pets/124
+Completed 302 Found in 10ms (ActiveRecord: 2.4ms)
+Started GET "/pets/124" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"124"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 124], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 234], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:03.387683"], ["updated_at", "2020-03-24 21:41:03.387683"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:03.389861"], ["updated_at", "2020-03-24 21:41:03.389861"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "4"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:03.391712"], ["updated_at", "2020-03-24 21:41:03.391712"], ["shelter_id", 235], ["description", "Cute as a button"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["image", "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg"], ["name", "Livia"], ["city", "Columbia"], ["approx_age", "5"], ["sex", "Female"], ["created_at", "2020-03-24 21:41:03.394138"], ["updated_at", "2020-03-24 21:41:03.394138"], ["shelter_id", 236], ["description", "She's as fun as she is cute"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pets" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 235], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 236], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.8ms)
+Started GET "/pets/126/edit" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#edit as HTML
+  Parameters: {"pet_id"=>"126"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  Rendering pets/edit.html.erb within layouts/application
+  Rendered pets/edit.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+Started PATCH "/pets/126" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#update as HTML
+  Parameters: {"utf8"=>"✓", "image"=>"https://upload.wikimedia.org/wikipedia/commons/3/34/Labrador_on_Quantock_%282175262184%29.jpg", "name"=>"Domitian", "approx_age"=>"8", "sex"=>"Male", "description"=>"Loves parks and frisbees", "status"=>"", "commit"=>"Update Pet", "pet_id"=>"126"}
+Unpermitted parameters: :utf8, :_method, :status, :commit, :pet_id
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 236], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "pets" SET "image" = $1, "name" = $2, "description" = $3, "approx_age" = $4, "sex" = $5, "updated_at" = $6 WHERE "pets"."id" = $7[0m  [["image", "https://upload.wikimedia.org/wikipedia/commons/3/34/Labrador_on_Quantock_%282175262184%29.jpg"], ["name", "Domitian"], ["description", "Loves parks and frisbees"], ["approx_age", "8"], ["sex", "Male"], ["updated_at", "2020-03-24 21:41:03.470702"], ["id", 126]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pets/126
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+Started GET "/pets/126" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"126"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 236], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+Started GET "/pets" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 235], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 236], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.5ms)
+Started DELETE "/pets/126" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#destroy as HTML
+  Parameters: {"pet_id"=>"126"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 126], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = $1[0m  [["id", 126]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pets/
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms)
+Started GET "/pets/" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 235], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:03.503502"], ["updated_at", "2020-03-24 21:41:03.503502"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:03.505053"], ["updated_at", "2020-03-24 21:41:03.505053"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description", "status") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "2"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:03.506769"], ["updated_at", "2020-03-24 21:41:03.506769"], ["shelter_id", 237], ["description", "This little rascal is fiesty and cute as a button!"], ["status", "Adoptable"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description", "status") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["image", "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg"], ["name", "Livia"], ["city", "Columbia"], ["approx_age", "3"], ["sex", "Female"], ["created_at", "2020-03-24 21:41:03.508521"], ["updated_at", "2020-03-24 21:41:03.508521"], ["shelter_id", 238], ["description", "She loves to snuggle up and be rubbed behind her ears!"], ["status", "Adoptable"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pets/127" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"127"}
+  [1m[36mPet Load (0.1ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 127], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 237], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+Started GET "/pets/128" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"128"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 128], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 238], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:03.569002"], ["updated_at", "2020-03-24 21:41:03.569002"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "reviews" ("title", "rating", "content", "picture", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Best Shelter"], ["rating", 5], ["content", "These guys really know how to run a shelter!"], ["picture", "https://www.rd.com/wp-content/uploads/2019/10/puppies-1-760x506.jpg"], ["created_at", "2020-03-24 21:41:03.592201"], ["updated_at", "2020-03-24 21:41:03.592201"], ["shelter_id", 239]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/239" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"239"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 239], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 239]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 239]]
+  Rendered shelter/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Beachside Shelter"], ["address", "1234 Sandy Street"], ["city", "Rehoboth Beach"], ["state", "Delaware"], ["zip", "19971"], ["created_at", "2020-03-24 21:41:03.617872"], ["updated_at", "2020-03-24 21:41:03.617872"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/240/pets" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterPetsController#index as HTML
+  Parameters: {"shelter_id"=>"240"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 240], ["LIMIT", 1]]
+  Rendering shelter_pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 240]]
+  Rendered shelter_pets/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 11ms (Views: 7.6ms | ActiveRecord: 0.6ms)
+Started GET "/shelters/240/pets/new" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterPetsController#new as HTML
+  Parameters: {"shelter_id"=>"240"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 240], ["LIMIT", 1]]
+  Rendering shelter_pets/new.html.erb within layouts/application
+  Rendered shelter_pets/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.2ms)
+Started POST "/shelters/240/pets" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterPetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "image"=>"https://cdn2-www.dogtime.com/assets/uploads/gallery/newfoundland-dogs-and-puppies/newfoundland-dogs-puppies-1.jpg", "name"=>"Augustus", "description"=>"Augustus is former guide dog looking for a new home", "approx_age"=>"12", "sex"=>"Male", "commit"=>"Create Pet", "shelter_id"=>"240"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 240], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :commit, :shelter_id
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://cdn2-www.dogtime.com/assets/uploads/gallery/newfoundland-dogs-and-puppies/newfoundland-dogs-puppies-1.jpg"], ["name", "Augustus"], ["approx_age", "12"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:03.662395"], ["updated_at", "2020-03-24 21:41:03.662395"], ["shelter_id", 240], ["description", "Augustus is former guide dog looking for a new home"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/240/pets
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+Started GET "/shelters/240/pets" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterPetsController#index as HTML
+  Parameters: {"shelter_id"=>"240"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 240], ["LIMIT", 1]]
+  Rendering shelter_pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 240]]
+  Rendered shelter_pets/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:03.677875"], ["updated_at", "2020-03-24 21:41:03.677875"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:03.679597"], ["updated_at", "2020-03-24 21:41:03.679597"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/241" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"241"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 241], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 241]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 241]]
+  Rendered shelter/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.8ms)
+Started DELETE "/shelters/241" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#destroy as HTML
+  Parameters: {"id"=>"241"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 241], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 241]]
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "shelters" WHERE "shelters"."id" = $1[0m  [["id", 241]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/
+Completed 302 Found in 3ms (ActiveRecord: 1.2ms)
+Started GET "/shelters/" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:03.714292"], ["updated_at", "2020-03-24 21:41:03.714292"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:03.716583"], ["updated_at", "2020-03-24 21:41:03.716583"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "4"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:03.718650"], ["updated_at", "2020-03-24 21:41:03.718650"], ["shelter_id", 243]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg"], ["name", "Livia"], ["city", "Columbia"], ["approx_age", "5"], ["sex", "Female"], ["created_at", "2020-03-24 21:41:03.721982"], ["updated_at", "2020-03-24 21:41:03.721982"], ["shelter_id", 244]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/243/pets" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterPetsController#index as HTML
+  Parameters: {"shelter_id"=>"243"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 243], ["LIMIT", 1]]
+  Rendering shelter_pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 243]]
+  Rendered shelter_pets/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+Started GET "/shelters/new" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#new as HTML
+  Rendering shelter/new.html.erb within layouts/application
+  Rendered shelter/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/shelters" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#create as HTML
+  Parameters: {"utf8"=>"✓", "name"=>"Downtown Puppy Shelter", "address"=>"4567 Broad Street", "city"=>"Philadelphia", "state"=>"Pennsylvania", "zip"=>"19019", "commit"=>"Create Shelter"}
+Unpermitted parameters: :utf8, :commit
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Downtown Puppy Shelter"], ["address", "4567 Broad Street"], ["city", "Philadelphia"], ["state", "Pennsylvania"], ["zip", "19019"], ["created_at", "2020-03-24 21:41:03.758856"], ["updated_at", "2020-03-24 21:41:03.758856"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:03.768927"], ["updated_at", "2020-03-24 21:41:03.768927"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:03.770794"], ["updated_at", "2020-03-24 21:41:03.770794"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "4"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:03.772794"], ["updated_at", "2020-03-24 21:41:03.772794"], ["shelter_id", 246]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+Started GET "/pets" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 246], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms)
+Started GET "/shelters/246" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"246"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 246], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 246]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 246]]
+  Rendered shelter/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.9ms)
+Started DELETE "/shelters/246" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#destroy as HTML
+  Parameters: {"id"=>"246"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 246], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 246]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = $1[0m  [["id", 132]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "shelters" WHERE "shelters"."id" = $1[0m  [["id", 246]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/
+Completed 302 Found in 4ms (ActiveRecord: 1.3ms)
+Started GET "/shelters/" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:03.810089"], ["updated_at", "2020-03-24 21:41:03.810089"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:03.811463"], ["updated_at", "2020-03-24 21:41:03.811463"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.2ms)
+Started GET "/shelters/248/edit" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#edit as HTML
+  Parameters: {"id"=>"248"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 248], ["LIMIT", 1]]
+  Rendering shelter/edit.html.erb within layouts/application
+  Rendered shelter/edit.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+Started PATCH "/shelters/248" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#update as HTML
+  Parameters: {"utf8"=>"✓", "name"=>"Riverside Shelter", "address"=>"3197 Sutherland Parkway", "city"=>"Riverside", "state"=>"California", "zip"=>"90217", "commit"=>"Submit", "id"=>"248"}
+Unpermitted parameters: :utf8, :_method, :commit, :id
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 248], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "shelters" SET "name" = $1, "address" = $2, "city" = $3, "state" = $4, "zip" = $5, "updated_at" = $6 WHERE "shelters"."id" = $7[0m  [["name", "Riverside Shelter"], ["address", "3197 Sutherland Parkway"], ["city", "Riverside"], ["state", "California"], ["zip", "90217"], ["updated_at", "2020-03-24 21:41:03.840097"], ["id", 248]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/248
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+Started GET "/shelters/248" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"248"}
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 248], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 248]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 248]]
+  Rendered shelter/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.7ms)
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+Started DELETE "/shelters/248" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#destroy as HTML
+  Parameters: {"id"=>"248"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 248], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 248]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "shelters" WHERE "shelters"."id" = $1[0m  [["id", 248]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/
+Completed 302 Found in 4ms (ActiveRecord: 1.5ms)
+Started GET "/shelters/" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:03.866592"], ["updated_at", "2020-03-24 21:41:03.866592"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:03.868320"], ["updated_at", "2020-03-24 21:41:03.868320"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+Started GET "/shelters/250" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"250"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 250], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 250]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 250]]
+  Rendered shelter/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.6ms)
+Started GET "/shelters/250/pets" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterPetsController#index as HTML
+  Parameters: {"shelter_id"=>"250"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 250], ["LIMIT", 1]]
+  Rendering shelter_pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 250]]
+  Rendered shelter_pets/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Paula's Precious Puppy Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80014"], ["created_at", "2020-03-24 21:41:03.896527"], ["updated_at", "2020-03-24 21:41:03.896527"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/252" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"252"}
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 252], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 252]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 252]]
+  Rendered shelter/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.7ms)
+Started GET "/shelters/252/edit" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#edit as HTML
+  Parameters: {"id"=>"252"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 252], ["LIMIT", 1]]
+  Rendering shelter/edit.html.erb within layouts/application
+  Rendered shelter/edit.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+Started PATCH "/shelters/252" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#update as HTML
+  Parameters: {"utf8"=>"✓", "name"=>"Downtown Puppy Shelter", "address"=>"4567 Broad Street", "city"=>"Philadelphia", "state"=>"Pennsylvania", "zip"=>"19019", "commit"=>"Submit", "id"=>"252"}
+Unpermitted parameters: :utf8, :_method, :commit, :id
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 252], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "shelters" SET "name" = $1, "address" = $2, "city" = $3, "state" = $4, "zip" = $5, "updated_at" = $6 WHERE "shelters"."id" = $7[0m  [["name", "Downtown Puppy Shelter"], ["address", "4567 Broad Street"], ["city", "Philadelphia"], ["state", "Pennsylvania"], ["zip", "19019"], ["updated_at", "2020-03-24 21:41:03.924826"], ["id", 252]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/252
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+Started GET "/shelters/252" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"252"}
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 252], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 252]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 252]]
+  Rendered shelter/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2020-03-24 15:41:03 -0600
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:56.587948"], ["updated_at", "2020-03-24 21:41:56.587948"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:56.590080"], ["updated_at", "2020-03-24 21:41:56.590080"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "4"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:56.604943"], ["updated_at", "2020-03-24 21:41:56.604943"], ["shelter_id", 253]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg"], ["name", "Livia"], ["city", "Columbia"], ["approx_age", "5"], ["sex", "Female"], ["created_at", "2020-03-24 21:41:56.607347"], ["updated_at", "2020-03-24 21:41:56.607347"], ["shelter_id", 254]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pets/133" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"133"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 133], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 253], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 127ms (Views: 122.3ms | ActiveRecord: 0.6ms)
+Started DELETE "/pets/133" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#destroy as HTML
+  Parameters: {"pet_id"=>"133"}
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 133], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = $1[0m  [["id", 133]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pets/
+Completed 302 Found in 4ms (ActiveRecord: 1.2ms)
+Started GET "/pets/" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 254], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Paula's Precious Puppy Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80014"], ["created_at", "2020-03-24 21:41:56.768237"], ["updated_at", "2020-03-24 21:41:56.768237"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description", "status") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["image", "https://upload.wikimedia.org/wikipedia/commons/3/34/Labrador_on_Quantock_%282175262184%29.jpg"], ["name", "Hadrian"], ["city", "Denver"], ["approx_age", "9"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:56.770406"], ["updated_at", "2020-03-24 21:41:56.770406"], ["shelter_id", 255], ["description", "Hadrian is loyal and friendly"], ["status", "Adoptable"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pets/135" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"135"}
+  [1m[36mPet Load (0.1ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 255], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+Started GET "/pets/135/edit" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#edit as HTML
+  Parameters: {"pet_id"=>"135"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  Rendering pets/edit.html.erb within layouts/application
+  Rendered pets/edit.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+Started PATCH "/pets/135" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#update as HTML
+  Parameters: {"utf8"=>"✓", "image"=>"https://www.gannett-cdn.com/presto/2019/01/09/USAT/ebae0b75-b22d-4604-9afb-3047d1f8b6f2-DF-18447.jpg?width=660&height=441&fit=crop&format=pjpg&auto=webp", "name"=>"Cassia", "approx_age"=>"8", "sex"=>"Female", "description"=>"Cassia is an explorer with a heart of gold!", "status"=>"", "commit"=>"Update Pet", "pet_id"=>"135"}
+Unpermitted parameters: :utf8, :_method, :status, :commit, :pet_id
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 255], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "pets" SET "image" = $1, "name" = $2, "description" = $3, "approx_age" = $4, "sex" = $5, "updated_at" = $6 WHERE "pets"."id" = $7[0m  [["image", "https://www.gannett-cdn.com/presto/2019/01/09/USAT/ebae0b75-b22d-4604-9afb-3047d1f8b6f2-DF-18447.jpg?width=660&height=441&fit=crop&format=pjpg&auto=webp"], ["name", "Cassia"], ["description", "Cassia is an explorer with a heart of gold!"], ["approx_age", "8"], ["sex", "Female"], ["updated_at", "2020-03-24 21:41:56.793428"], ["id", 135]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pets/135
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+Started GET "/pets/135" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"135"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 135], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 255], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:56.809330"], ["updated_at", "2020-03-24 21:41:56.809330"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:56.811125"], ["updated_at", "2020-03-24 21:41:56.811125"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "4"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:56.812595"], ["updated_at", "2020-03-24 21:41:56.812595"], ["shelter_id", 256], ["description", "Cute as a button"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["image", "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg"], ["name", "Livia"], ["city", "Columbia"], ["approx_age", "5"], ["sex", "Female"], ["created_at", "2020-03-24 21:41:56.814192"], ["updated_at", "2020-03-24 21:41:56.814192"], ["shelter_id", 257], ["description", "She's as fun as she is cute"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pets" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 256], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms)
+Started GET "/pets/137/edit" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#edit as HTML
+  Parameters: {"pet_id"=>"137"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 137], ["LIMIT", 1]]
+  Rendering pets/edit.html.erb within layouts/application
+  Rendered pets/edit.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+Started PATCH "/pets/137" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#update as HTML
+  Parameters: {"utf8"=>"✓", "image"=>"https://upload.wikimedia.org/wikipedia/commons/3/34/Labrador_on_Quantock_%282175262184%29.jpg", "name"=>"Domitian", "approx_age"=>"8", "sex"=>"Male", "description"=>"Loves parks and frisbees", "status"=>"", "commit"=>"Update Pet", "pet_id"=>"137"}
+Unpermitted parameters: :utf8, :_method, :status, :commit, :pet_id
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 137], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "pets" SET "image" = $1, "name" = $2, "description" = $3, "approx_age" = $4, "sex" = $5, "updated_at" = $6 WHERE "pets"."id" = $7[0m  [["image", "https://upload.wikimedia.org/wikipedia/commons/3/34/Labrador_on_Quantock_%282175262184%29.jpg"], ["name", "Domitian"], ["description", "Loves parks and frisbees"], ["approx_age", "8"], ["sex", "Male"], ["updated_at", "2020-03-24 21:41:56.852602"], ["id", 137]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pets/137
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+Started GET "/pets/137" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"137"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 137], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+Started GET "/pets" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 256], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 257], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms)
+Started DELETE "/pets/137" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#destroy as HTML
+  Parameters: {"pet_id"=>"137"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 137], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = $1[0m  [["id", 137]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/pets/
+Completed 302 Found in 2ms (ActiveRecord: 0.7ms)
+Started GET "/pets/" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 256], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:56.896845"], ["updated_at", "2020-03-24 21:41:56.896845"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:56.898268"], ["updated_at", "2020-03-24 21:41:56.898268"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description", "status") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "2"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:56.899997"], ["updated_at", "2020-03-24 21:41:56.899997"], ["shelter_id", 258], ["description", "This little rascal is fiesty and cute as a button!"], ["status", "Adoptable"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description", "status") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["image", "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg"], ["name", "Livia"], ["city", "Columbia"], ["approx_age", "3"], ["sex", "Female"], ["created_at", "2020-03-24 21:41:56.901630"], ["updated_at", "2020-03-24 21:41:56.901630"], ["shelter_id", 259], ["description", "She loves to snuggle up and be rubbed behind her ears!"], ["status", "Adoptable"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pets/138" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"138"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 138], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 258], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+Started GET "/pets/139" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"139"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 139], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 259], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:56.937791"], ["updated_at", "2020-03-24 21:41:56.937791"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "reviews" ("title", "rating", "content", "picture", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Best Shelter"], ["rating", 5], ["content", "These guys really know how to run a shelter!"], ["picture", "https://www.rd.com/wp-content/uploads/2019/10/puppies-1-760x506.jpg"], ["created_at", "2020-03-24 21:41:56.955957"], ["updated_at", "2020-03-24 21:41:56.955957"], ["shelter_id", 260]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/260" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"260"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 260], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 260]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 260]]
+  Rendered shelter/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Beachside Shelter"], ["address", "1234 Sandy Street"], ["city", "Rehoboth Beach"], ["state", "Delaware"], ["zip", "19971"], ["created_at", "2020-03-24 21:41:56.977648"], ["updated_at", "2020-03-24 21:41:56.977648"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/261/pets" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by ShelterPetsController#index as HTML
+  Parameters: {"shelter_id"=>"261"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 261], ["LIMIT", 1]]
+  Rendering shelter_pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 261]]
+  Rendered shelter_pets/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.4ms)
+Started GET "/shelters/261/pets/new" for 127.0.0.1 at 2020-03-24 15:41:56 -0600
+Processing by ShelterPetsController#new as HTML
+  Parameters: {"shelter_id"=>"261"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 261], ["LIMIT", 1]]
+  Rendering shelter_pets/new.html.erb within layouts/application
+  Rendered shelter_pets/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.2ms)
+Started POST "/shelters/261/pets" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterPetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "image"=>"https://cdn2-www.dogtime.com/assets/uploads/gallery/newfoundland-dogs-and-puppies/newfoundland-dogs-puppies-1.jpg", "name"=>"Augustus", "description"=>"Augustus is former guide dog looking for a new home", "approx_age"=>"12", "sex"=>"Male", "commit"=>"Create Pet", "shelter_id"=>"261"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 261], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :commit, :shelter_id
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "approx_age", "sex", "created_at", "updated_at", "shelter_id", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://cdn2-www.dogtime.com/assets/uploads/gallery/newfoundland-dogs-and-puppies/newfoundland-dogs-puppies-1.jpg"], ["name", "Augustus"], ["approx_age", "12"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:57.013598"], ["updated_at", "2020-03-24 21:41:57.013598"], ["shelter_id", 261], ["description", "Augustus is former guide dog looking for a new home"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/261/pets
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+Started GET "/shelters/261/pets" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterPetsController#index as HTML
+  Parameters: {"shelter_id"=>"261"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 261], ["LIMIT", 1]]
+  Rendering shelter_pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 261]]
+  Rendered shelter_pets/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:57.027608"], ["updated_at", "2020-03-24 21:41:57.027608"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:57.030455"], ["updated_at", "2020-03-24 21:41:57.030455"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/262" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"262"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 262], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 262]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 262]]
+  Rendered shelter/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.6ms)
+Started DELETE "/shelters/262" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#destroy as HTML
+  Parameters: {"id"=>"262"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 262], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 262]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "shelters" WHERE "shelters"."id" = $1[0m  [["id", 262]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms)
+Started GET "/shelters/" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:57.063994"], ["updated_at", "2020-03-24 21:41:57.063994"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:57.065810"], ["updated_at", "2020-03-24 21:41:57.065810"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "4"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:57.067653"], ["updated_at", "2020-03-24 21:41:57.067653"], ["shelter_id", 264]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg"], ["name", "Livia"], ["city", "Columbia"], ["approx_age", "5"], ["sex", "Female"], ["created_at", "2020-03-24 21:41:57.069686"], ["updated_at", "2020-03-24 21:41:57.069686"], ["shelter_id", 265]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/264/pets" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterPetsController#index as HTML
+  Parameters: {"shelter_id"=>"264"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 264], ["LIMIT", 1]]
+  Rendering shelter_pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 264]]
+  Rendered shelter_pets/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+Started GET "/shelters/new" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#new as HTML
+  Rendering shelter/new.html.erb within layouts/application
+  Rendered shelter/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started POST "/shelters" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#create as HTML
+  Parameters: {"utf8"=>"✓", "name"=>"Downtown Puppy Shelter", "address"=>"4567 Broad Street", "city"=>"Philadelphia", "state"=>"Pennsylvania", "zip"=>"19019", "commit"=>"Create Shelter"}
+Unpermitted parameters: :utf8, :commit
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Downtown Puppy Shelter"], ["address", "4567 Broad Street"], ["city", "Philadelphia"], ["state", "Pennsylvania"], ["zip", "19019"], ["created_at", "2020-03-24 21:41:57.114864"], ["updated_at", "2020-03-24 21:41:57.114864"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:57.125287"], ["updated_at", "2020-03-24 21:41:57.125287"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:57.126996"], ["updated_at", "2020-03-24 21:41:57.126996"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("image", "name", "city", "approx_age", "sex", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image", "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg"], ["name", "Caesar"], ["city", "Denver"], ["approx_age", "4"], ["sex", "Male"], ["created_at", "2020-03-24 21:41:57.128836"], ["updated_at", "2020-03-24 21:41:57.128836"], ["shelter_id", 267]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+Started GET "/pets" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 267], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+Started GET "/shelters/267" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"267"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 267], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 267]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 267]]
+  Rendered shelter/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.6ms)
+Started DELETE "/shelters/267" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#destroy as HTML
+  Parameters: {"id"=>"267"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 267], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 267]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = $1[0m  [["id", 143]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "shelters" WHERE "shelters"."id" = $1[0m  [["id", 267]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+Started GET "/shelters/" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:57.178725"], ["updated_at", "2020-03-24 21:41:57.178725"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:57.180737"], ["updated_at", "2020-03-24 21:41:57.180737"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+Started GET "/shelters/269/edit" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#edit as HTML
+  Parameters: {"id"=>"269"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 269], ["LIMIT", 1]]
+  Rendering shelter/edit.html.erb within layouts/application
+  Rendered shelter/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.2ms)
+Started PATCH "/shelters/269" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#update as HTML
+  Parameters: {"utf8"=>"✓", "name"=>"Riverside Shelter", "address"=>"3197 Sutherland Parkway", "city"=>"Riverside", "state"=>"California", "zip"=>"90217", "commit"=>"Submit", "id"=>"269"}
+Unpermitted parameters: :utf8, :_method, :commit, :id
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 269], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "shelters" SET "name" = $1, "address" = $2, "city" = $3, "state" = $4, "zip" = $5, "updated_at" = $6 WHERE "shelters"."id" = $7[0m  [["name", "Riverside Shelter"], ["address", "3197 Sutherland Parkway"], ["city", "Riverside"], ["state", "California"], ["zip", "90217"], ["updated_at", "2020-03-24 21:41:57.208416"], ["id", 269]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/269
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+Started GET "/shelters/269" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"269"}
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 269], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 269]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 269]]
+  Rendered shelter/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.6ms)
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+Started DELETE "/shelters/269" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#destroy as HTML
+  Parameters: {"id"=>"269"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 269], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Load (0.1ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 269]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "shelters" WHERE "shelters"."id" = $1[0m  [["id", 269]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/
+Completed 302 Found in 3ms (ActiveRecord: 0.9ms)
+Started GET "/shelters/" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Parkside Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80230"], ["created_at", "2020-03-24 21:41:57.236537"], ["updated_at", "2020-03-24 21:41:57.236537"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Lakeside Shelter"], ["address", "2914 Freetown Road"], ["city", "Columbia"], ["state", "Maryland"], ["zip", "21044"], ["created_at", "2020-03-24 21:41:57.238042"], ["updated_at", "2020-03-24 21:41:57.238042"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+Started GET "/shelters/271" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"271"}
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 271], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 271]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 271]]
+  Rendered shelter/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.5ms)
+Started GET "/shelters/271/pets" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterPetsController#index as HTML
+  Parameters: {"shelter_id"=>"271"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 271], ["LIMIT", 1]]
+  Rendering shelter_pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 271]]
+  Rendered shelter_pets/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shelters" ("name", "address", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Paula's Precious Puppy Shelter"], ["address", "1234 Market Street"], ["city", "Denver"], ["state", "Colorado"], ["zip", "80014"], ["created_at", "2020-03-24 21:41:57.262422"], ["updated_at", "2020-03-24 21:41:57.262422"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/shelters/273" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"273"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 273], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 273]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 273]]
+  Rendered shelter/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.8ms)
+Started GET "/shelters/273/edit" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#edit as HTML
+  Parameters: {"id"=>"273"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 273], ["LIMIT", 1]]
+  Rendering shelter/edit.html.erb within layouts/application
+  Rendered shelter/edit.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+Started PATCH "/shelters/273" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#update as HTML
+  Parameters: {"utf8"=>"✓", "name"=>"Downtown Puppy Shelter", "address"=>"4567 Broad Street", "city"=>"Philadelphia", "state"=>"Pennsylvania", "zip"=>"19019", "commit"=>"Submit", "id"=>"273"}
+Unpermitted parameters: :utf8, :_method, :commit, :id
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 273], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "shelters" SET "name" = $1, "address" = $2, "city" = $3, "state" = $4, "zip" = $5, "updated_at" = $6 WHERE "shelters"."id" = $7[0m  [["name", "Downtown Puppy Shelter"], ["address", "4567 Broad Street"], ["city", "Philadelphia"], ["state", "Pennsylvania"], ["zip", "19019"], ["updated_at", "2020-03-24 21:41:57.284191"], ["id", 273]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/shelters/273
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+Started GET "/shelters/273" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by ShelterController#show as HTML
+  Parameters: {"id"=>"273"}
+  [1m[36mShelter Load (0.1ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 273], ["LIMIT", 1]]
+  Rendering shelter/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 273]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 273]]
+  Rendered shelter/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2020-03-24 15:41:57 -0600
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
