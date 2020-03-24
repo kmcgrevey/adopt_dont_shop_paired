@@ -14,26 +14,8 @@ RSpec.describe "test delete shelters", type: :feature do
                                       state: "Maryland",
                                       zip: "21044")
 
-    caesar = Pet.create(image: "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg",
-                        name: "Caesar",
-                        approx_age: "4",
-                        city: "Denver",
-                        sex: "Male",
-                        shelter: parkside_shelter)
-
-    visit "/shelters"
-
-    expect(page).to have_content(parkside_shelter.name)
-    expect(page).to have_content(lakeside_shelter.name)
-
-    visit "/pets"
-
-    expect(page).to have_content(caesar.name)
-
     visit "/shelters/#{parkside_shelter.id}"
     click_link "Delete Shelter"
-
-    visit "/shelters"
 
     expect(page).to have_content(lakeside_shelter.name)
     expect(page).to_not have_content(parkside_shelter.name)
