@@ -16,14 +16,15 @@
         <br/>
       <% @shelter.reviews.each do |review| %>
       <section id="review-<%= review.id %>">
-        <%= review.title %>
-        <%= review.rating %>
-        <%= review.content %>
+        <p><%= review.title %></p>
+        <p><%= review.rating %></p>
+        <p><%= review.content %></p>
         <img src= <%= review.picture %> alt= <%= review.title %>>
       </section>
           <br/>
           <br/>
         <% end %>
+      <%= button_to "New Review", "/shelters/#{@shelter.id}/reviews/new", method: :get %>
       <%= link_to "All Pets", "/shelters/#{@shelter.id}/pets" %>
       <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
       <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
