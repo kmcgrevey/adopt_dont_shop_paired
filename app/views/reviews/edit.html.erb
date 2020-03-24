@@ -1,0 +1,26 @@
+<body style="background-color:lightblue;font-family:arial;text-align:center">
+  <%= link_to "Pets Index", "/pets" %>
+  <%= link_to "Shelters Index", "/shelters" %>
+    <br/>
+    <br/>
+    <br/>
+    <% require "pry"; binding.pry %>
+  <%= form_tag "/shelters/#{@shelter.id}", method: :patch do %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title %>
+    <br/>
+  <%= label_tag :rating %>
+  <%= text_field_tag :rating %>
+    <br/>
+  <%= label_tag :content %>
+  <%= text_field_tag :content %>
+    <br/>
+  <%= label_tag :picture %>
+  <%= text_field_tag :picture %>
+    <br/>
+    <br/>
+  <%= submit_tag 'Update Review' %>
+    <br/>
+    <br/>
+  <%= link_to "Back to Shelter", "/shelters/#{@shelter.id}" %>
+<% end %>
