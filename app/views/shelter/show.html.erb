@@ -14,6 +14,14 @@
       <p> <%= @shelter.pets.count %> <%= "Adoptable Pet(s)"%></p>
         <br/>
         <br/>
+      <% @shelter.reviews.each do |review| %>
+        <%= review.title %>
+        <%= review.rating %>
+        <%= review.content %>
+        <img src= <%= review.picture %> alt= <%= review.title %>>
+          <br/>
+          <br/>
+        <% end %>
       <%= link_to "All Pets", "/shelters/#{@shelter.id}/pets" %>
       <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
       <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
