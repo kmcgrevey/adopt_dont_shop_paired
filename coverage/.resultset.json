@@ -428,16 +428,15 @@
         1,
         1,
         1,
-        null,
-        null,
         1,
         null,
         1,
         null,
         1,
-        1,
-        1,
         null,
+        1,
+        1,
+        1,
         1,
         null,
         null
@@ -797,10 +796,18 @@
         1,
         2,
         null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
         null
       ],
       "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/app/models/review.rb": [
         1,
+        1,
+        null,
         1,
         null
       ],
@@ -949,6 +956,6 @@
         null
       ]
     },
-    "timestamp": 1585089164
+    "timestamp": 1585090220
   }
 }
