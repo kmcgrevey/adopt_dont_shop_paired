@@ -14,14 +14,14 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-25T16:03:30-06:00">2020-03-25T16:03:30-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-25T16:16:18-06:00">2020-03-25T16:16:18-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="green">99.17%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>44</b> files in total.
-    <b>473</b> relevant lines. 
-    <span class="green"><b>473</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed </span>
+    <b>484</b> relevant lines. 
+    <span class="green"><b>480</b> lines covered</span> and
+    <span class="red"><b>4</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -87,7 +87,7 @@
         <td>21</td>
         <td>21</td>
         <td>0</td>
-        <td>2.5</td>
+        <td>2.7</td>
       </tr>
       
       <tr>
@@ -412,12 +412,12 @@
       
       <tr>
         <td class="strong"><a href="#5ae12d4e5d878d4b85d3c548c3a2b7426062586d" class="src_link" title="spec/features/shelters/delete_spec.rb">spec/features/shelters/delete_spec.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>41</td>
-        <td>16</td>
-        <td>16</td>
-        <td>0</td>
-        <td>1.0</td>
+        <td class="yellow strong">85.19 %</td>
+        <td>75</td>
+        <td>27</td>
+        <td>23</td>
+        <td>4</td>
+        <td>0.9</td>
       </tr>
       
       <tr>
@@ -1063,8 +1063,8 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="4">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="11" data-linenumber="4">
+          <span class="hits">11</span>
           
           <code class="ruby">    @shelters = Shelter.all</code>
         </li>
@@ -1213,14 +1213,14 @@
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="29">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="29">
+          <span class="hits">4</span>
           
           <code class="ruby">    shelter_to_delete = Shelter.find(params[:id])</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="30">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="30">
+          <span class="hits">4</span>
           
           <code class="ruby">    shelter_to_delete.destroy</code>
         </li>
@@ -6149,11 +6149,11 @@
         <div class="source_table" id="5ae12d4e5d878d4b85d3c548c3a2b7426062586d">
   <div class="header">
     <h3>spec/features/shelters/delete_spec.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="yellow">85.19 %</span> covered</h4>
     <div>
-      <b>16</b> relevant lines. 
-      <span class="green"><b>16</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>27</b> relevant lines. 
+      <span class="green"><b>23</b> lines covered</span> and
+      <span class="red"><b>4</b> lines missed.</span>
     </div>
   </div>
   
@@ -6401,6 +6401,210 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  it &quot;can delete a shelter that has reviews and pets&quot; do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    parkside_shelter = Shelter.create(name: &quot;Parkside Shelter&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">                                      address: &quot;1234 Market Street&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">                                      city: &quot;Denver&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby">                                      state: &quot;Colorado&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">                                      zip: &quot;80230&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    caesar = Pet.create(image: &quot;https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby">                        name: &quot;Caesar&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">                        approx_age: &quot;4&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">                        city: &quot;Denver&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby">                        sex: &quot;Male&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby">                        shelter: parkside_shelter)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    review_1 = parkside_shelter.reviews.create!(title: &quot;Best Shelter&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">                                    rating: 5,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby">                                    content: &quot;These guys really know how to run a shelter!&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby">                                    picture: &quot;https://www.rd.com/wp-content/uploads/2019/10/puppies-1-760x506.jpg&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="62">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    visit &quot;/shelters&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="64">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(page).to have_content(parkside_shelter.name)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="66">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    click_link &quot;Delete Shelter&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="68">
+          
+          
+          <code class="ruby">    expect(page).to_not have_content(parkside_shelter.name)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="69">
+          
+          
+          <code class="ruby">    expect(page).to_not have_content(review_1.title)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="71">
+          
+          
+          <code class="ruby">    visit &quot;/pets&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="73">
+          
+          
+          <code class="ruby">    expect(page).to_not have_content(caesar.name)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
           
           
           <code class="ruby">end</code>
