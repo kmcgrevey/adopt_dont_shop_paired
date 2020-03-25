@@ -21,6 +21,7 @@
         <p><%= review.content %></p>
         <img src= <%= review.picture %> alt= <%= review.title %>>
         <%= button_to "Edit Review", "/reviews/#{review.id}/edit", method: :get %>
+        <%= button_to "Delete Review", "/reviews/#{review.id}", method: :delete %>
       </section>
           <br/>
           <br/>

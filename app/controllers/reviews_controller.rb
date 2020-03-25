@@ -21,14 +21,19 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:review_id])
-    # review = Review.update(params[:review_id], review_params)
     if @review.update(review_params)
       redirect_to "/shelters/#{@review.shelter.id}"
     else
       flash.now[:notice] = "Please fill in title, rating, and content"
-      # require "pry"; binding.pry
       render :edit
     end
+  end
+
+  def destroy
+    review = Review.find(params[:review_id])
+    shelter = review.shelter
+    review.destroy
+    redirect_to "/shelters/#{shelter.id}"
   end
 
   private
