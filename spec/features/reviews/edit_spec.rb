@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "test reviews can be edited", type: :feature do
   it "shows a new form to edit review" do
 
-    paulas_shelter = Shelter.create(name: "Paula's Precious Puppy Shelter",
+    paulas_shelter = Shelter.create!(name: "Paula's Precious Puppy Shelter",
                             address: "1234 Market Street",
                             city: "Denver",
                             state: "Colorado",
@@ -17,10 +17,9 @@ RSpec.describe "test reviews can be edited", type: :feature do
     visit "/shelters/#{paulas_shelter.id}"
     within "#review-#{review_1.id}" do
       click_button "Edit Review"
-
     end
 
-    expect(current_path).to eq("/shelters/#{shelter.id}/reviews/edit")
+    expect(current_path).to eq("/reviews/#{review_1.id}/edit")
 
     fill_in :title, with: "Jolliest and Most Joyful Home"
     fill_in :rating, with: 4
@@ -28,7 +27,7 @@ RSpec.describe "test reviews can be edited", type: :feature do
 
     click_button "Update Review"
 
-    expect(current_path).to eq("/shelters/#{shelter.id}")
+    expect(current_path).to eq("/shelters/#{paulas_shelter.id}")
     within "#review-#{review_1.id}" do
 
       expect(page).to have_content("Jolliest and Most Joyful Home")

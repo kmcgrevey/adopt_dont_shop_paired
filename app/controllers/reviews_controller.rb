@@ -10,14 +10,19 @@ class ReviewsController < ApplicationController
     if review.save
       redirect_to "/shelters/#{@shelter.id}"
     else
-      flash[:notice] = "Please fill in title, rating, and content"
+      flash.now[:notice] = "Please fill in title, rating, and content"
       render :new
     end
+  end
 
   def edit
-    @shelter = Shelter.find(params[:shelter_id])
+    @review = Review.find(params[:review_id])
   end
-end
+
+  def update
+    review = Review.update(params[:review_id], review_params)
+    redirect_to "/shelters/#{review.shelter.id}"
+  end
 
   private
 

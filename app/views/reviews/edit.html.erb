@@ -4,8 +4,7 @@
     <br/>
     <br/>
     <br/>
-    <% require "pry"; binding.pry %>
-  <%= form_tag "/shelters/#{@shelter.id}", method: :patch do %>
+  <%= form_tag "/reviews/#{@review.id}", method: :patch do %>
   <%= label_tag :title %>
   <%= text_field_tag :title %>
     <br/>
@@ -22,5 +21,5 @@
   <%= submit_tag 'Update Review' %>
     <br/>
     <br/>
-  <%= link_to "Back to Shelter", "/shelters/#{@shelter.id}" %>
+  <%= link_to "Back to Shelter", "/shelters/#{@review.shelter.id}" %>
 <% end %>
