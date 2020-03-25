@@ -1,0 +1,27 @@
+<body style="background-color:lightblue;font-family:arial;text-align:center">
+  <%= link_to "Pets Index", "/pets" %>
+  <%= link_to "Shelters Index", "/shelters" %>
+    <br/>
+    <br/>
+    <br/>
+  <%= form_tag "/shelters/#{@shelter.id}/reviews" do %>
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+      <br/>
+    <%= label_tag :rating %>
+    <%= text_field_tag :rating %>
+      <br/>
+    <%= label_tag :content %>
+    <%= text_field_tag :content %>
+      <br/>
+    <%= label_tag :picture %>
+    <%= text_field_tag :picture %>
+      <br/>
+      <br/>
+    <%= submit_tag 'Create Review' %>
+      <br/>
+        <br/>
+      <br/>
+    <br/>
+  <%= link_to "Back to Shelter", "/shelters/#{@shelter.id}" %>
+<% end %>
