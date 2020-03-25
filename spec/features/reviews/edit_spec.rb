@@ -49,6 +49,15 @@ RSpec.describe "test reviews can be edited", type: :feature do
                             content: "These guys really know how to run a shelter!",
                             picture: "https://www.rd.com/wp-content/uploads/2019/10/puppies-1-760x506.jpg")
 
+    visit "/reviews/#{review_1.id}/edit"
 
+    fill_in :title, with: ""
+    fill_in :rating, with: 4
+    fill_in :content, with: ""
+
+    click_button "Update Review"
+
+    expect(current_path).to eq("/reviews/#{review_1.id}")
+    expect(page).to have_content("Please fill in title, rating, and content")
   end
 end
