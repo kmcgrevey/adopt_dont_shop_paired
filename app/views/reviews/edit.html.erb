@@ -6,16 +6,16 @@
     <br/>
   <%= form_tag "/reviews/#{@review.id}", method: :patch do %>
   <%= label_tag :title %>
-  <%= text_field_tag :title %>
+  <%= text_field_tag :title, "#{@review.title}" %>
     <br/>
   <%= label_tag :rating %>
-  <%= text_field_tag :rating %>
+  <%= text_field_tag :rating, "#{@review.rating}" %>
     <br/>
   <%= label_tag :content %>
-  <%= text_field_tag :content %>
+  <%= text_field_tag :content, "#{@review.content}" %>
     <br/>
   <%= label_tag :picture %>
-  <%= text_field_tag :picture %>
+  <%= text_field_tag :picture, "#{@review.picture}" %>
     <br/>
     <br/>
   <%= submit_tag 'Update Review' %>
