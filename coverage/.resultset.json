@@ -207,6 +207,8 @@
         1,
         1,
         1,
+        null,
+        1,
         null
       ],
       "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/helpers/application_helper.rb": [
@@ -283,7 +285,7 @@
         null,
         null,
         1,
-        2,
+        3,
         null,
         null,
         1,
@@ -314,8 +316,24 @@
         null,
         1,
         null
+      ],
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/controllers/favorites_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1585248525
+    "timestamp": 1585249942
   }
 }
