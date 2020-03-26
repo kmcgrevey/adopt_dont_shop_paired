@@ -14,9 +14,9 @@
           <br/>
         <%= link_to pet.name, "/pets/#{pet.id}" %>
         <h5><%= pet.city %></h5>
-        <h5><%= pet.approx_age %></h5>
+        <h5>Age: <%= pet.approx_age %></h5>
         <h5><%= pet.description %></h5>
-        <h5><%= pet.sex %></h5>
+        <h5>Sex: <%= pet.sex %></h5>
         <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}" %>
           <br/>
           <br/>

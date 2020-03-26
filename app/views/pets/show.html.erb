@@ -4,10 +4,10 @@
   <h1> <%= @pet.name %> </h1>
     <img src= <%= @pet.image %> alt= <%= @pet.name %>>
       <p> <%= @pet.description %></p>
-      <p> <%= @pet.approx_age %></p>
-      <p> <%= @pet.sex %></p>
+      <p>Age: <%= @pet.approx_age %></p>
+      <p>Sex: <%= @pet.sex %></p>
     <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %>
-      <p> <%= @pet.status %></p>
+      <p>Status: <%= @pet.status %></p>
     <%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
     <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
       <br/>

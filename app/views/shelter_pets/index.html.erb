@@ -11,8 +11,8 @@
       <img style="img-align:center;"><%= image_tag pet.image %></img>
         <br/>
       <p style="font-size:30px"><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></p>
-        <h5 style="font-size:20px"><%= pet.approx_age %></h5>
-        <h5 style="font-size:20px"><%= pet.sex %></h5>
+        <h5 style="font-size:20px">Age: <%= pet.approx_age %></h5>
+        <h5 style="font-size:20px">Sex: <%= pet.sex %></h5>
       <% end %>
         <br/>
       <p style="font-size:25px"><%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %></p>
