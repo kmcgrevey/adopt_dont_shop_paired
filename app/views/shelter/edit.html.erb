@@ -4,24 +4,24 @@
       <%= link_to "Shelters Index", "/shelters" %>
   </header>
     <br/>
-  <h1 style="text-align:center;font-size:30px"> <%= "Update Pet" %> </h1>
+  <h1 style="text-align:center;font-size:30px"> <%= "Update Shelter" %> </h1>
     <br/>
   <div style="text-align:center">
     <%= form_tag "/shelters/#{@shelter_to_edit.id}", method: :patch do %>
     <%= label_tag :name %>
-    <%= text_field_tag :name %>
+    <%= text_field_tag :name, "#{@shelter_to_edit.name}" %>
       <br/>
     <%= label_tag :address %>
-    <%= text_field_tag :address %>
+    <%= text_field_tag :address, "#{@shelter_to_edit.address}"  %>
       <br/>
     <%= label_tag :city %>
-    <%= text_field_tag :city %>
+    <%= text_field_tag :city, "#{@shelter_to_edit.city}"  %>
       <br/>
     <%= label_tag :state %>
-    <%= text_field_tag :state %>
+    <%= text_field_tag :state, "#{@shelter_to_edit.state}" %>
       <br/>
     <%= label_tag :zip %>
-    <%= text_field_tag :zip %>
+    <%= text_field_tag :zip, "#{@shelter_to_edit.zip}" %>
       <br/>
     <%= submit_tag 'Submit' %>
       <br/>
