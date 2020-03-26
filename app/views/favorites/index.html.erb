@@ -1,0 +1,11 @@
+<h1>Favorite Pets</h1>
+
+<% favorites.each do |favorite| %>
+      <section id="favorites-<%=favorite%>">
+        <img style="img-align:center;"><%= image_tag favorites.contents[favorite]["image"] %></img>
+          <br/>
+        <%= link_to favorites.contents[favorite]["name"], "/pets/#{favorites.contents[favorite]["id"]}" %>          
+          <br/>
+          <br/>
+        </section>
+<% end %> 
