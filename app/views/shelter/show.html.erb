@@ -27,6 +27,6 @@
           <br/>
         <% end %>
       <%= button_to "New Review", "/shelters/#{@shelter.id}/reviews/new", method: :get %>
-      <%= link_to "All Pets", "/shelters/#{@shelter.id}/pets" %>
+      <%= link_to "Our Pets", "/shelters/#{@shelter.id}/pets" %>
       <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
       <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
