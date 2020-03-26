@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/environment.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/application.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/application.rb": [
         1,
         null,
         1,
@@ -41,12 +41,12 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/boot.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/environments/test.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/environments/test.rb": [
         1,
         null,
         null,
@@ -90,7 +90,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/initializers/application_controller_renderer.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/initializers/application_controller_renderer.rb": [
         null,
         null,
         null,
@@ -100,7 +100,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/initializers/assets.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -116,7 +116,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/initializers/backtrace_silencers.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -125,20 +125,20 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/initializers/cookies_serializer.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/initializers/cookies_serializer.rb": [
         null,
-        null,
-        null,
-        null,
-        1
-      ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/initializers/inflections.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/initializers/filter_parameter_logging.rb": [
+        null,
+        null,
+        null,
+        1
+      ],
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -156,13 +156,13 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/initializers/mime_types.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/initializers/wrap_parameters.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -178,7 +178,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/config/routes.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/config/routes.rb": [
         1,
         null,
         null,
@@ -209,11 +209,11 @@
         1,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/app/helpers/application_helper.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/pets/edit_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/pets/edit_spec.rb": [
         1,
         null,
         1,
@@ -257,153 +257,6 @@
         1,
         1,
         null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/pets/index_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/pets/show_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
         1,
         1,
         1,
@@ -412,7 +265,154 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/reviews/delete_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/pets/index_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/pets/show_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/reviews/delete_spec.rb": [
         1,
         null,
         1,
@@ -454,7 +454,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/reviews/edit_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/reviews/edit_spec.rb": [
         1,
         null,
         1,
@@ -510,112 +510,6 @@
         null,
         1,
         1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/reviews/new_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null
-      ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/reviews/show_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelter_pets/create_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
         1,
         null,
         1,
@@ -625,7 +519,113 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelter_pets/delete_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/reviews/new_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/reviews/show_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelter_pets/create_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelter_pets/delete_spec.rb": [
         1,
         null,
         1,
@@ -650,7 +650,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelter_pets/index_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelter_pets/index_spec.rb": [
         1,
         null,
         1,
@@ -695,10 +695,10 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelter_reviews/show_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelter_reviews/show_spec.rb": [
 
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelters/create_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelters/create_spec.rb": [
         1,
         null,
         1,
@@ -722,7 +722,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelters/delete_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelters/delete_spec.rb": [
         1,
         null,
         1,
@@ -799,7 +799,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelters/index_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelters/index_spec.rb": [
         1,
         null,
         1,
@@ -848,7 +848,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelters/show_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelters/show_spec.rb": [
         1,
         null,
         1,
@@ -884,7 +884,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelters/update_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/shelters/update_spec.rb": [
         1,
         null,
         1,
@@ -917,7 +917,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/features/welcome/welcome_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/features/welcome/welcome_spec.rb": [
         1,
         null,
         1,
@@ -928,7 +928,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/models/pet_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/models/pet_spec.rb": [
         1,
         null,
         1,
@@ -937,17 +937,17 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/app/models/pet.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/models/pet.rb": [
         1,
         1,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/app/models/application_record.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/models/review_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/models/review_spec.rb": [
         1,
         null,
         1,
@@ -962,14 +962,14 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/app/models/review.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/models/review.rb": [
         1,
         1,
         null,
         1,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/spec/models/shelter_spec.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/spec/models/shelter_spec.rb": [
         1,
         null,
         1,
@@ -978,13 +978,13 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/app/models/shelter.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/models/shelter.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/app/controllers/pets_controller.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/controllers/pets_controller.rb": [
         1,
         null,
         1,
@@ -1017,12 +1017,12 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/app/controllers/application_controller.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/app/controllers/shelter_controller.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/controllers/shelter_controller.rb": [
         1,
         null,
         1,
@@ -1063,7 +1063,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/app/controllers/reviews_controller.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/controllers/reviews_controller.rb": [
         1,
         null,
         1,
@@ -1109,7 +1109,7 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/app/controllers/shelter_pets_controller.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/controllers/shelter_pets_controller.rb": [
         1,
         null,
         1,
@@ -1133,13 +1133,13 @@
         null,
         null
       ],
-      "/Users/michaelalexlynch/turing/2module/projects/adopt_dont_shop_paired/app/controllers/welcome_controller.rb": [
+      "/Users/niv3kmcg/turing/2module/projects/adopt_dont_shop_paired/app/controllers/welcome_controller.rb": [
         1,
         1,
         null,
         null
       ]
     },
-    "timestamp": 1585174686
+    "timestamp": 1585243554
   }
 }
