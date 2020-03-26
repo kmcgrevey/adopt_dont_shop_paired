@@ -1426,3 +1426,320 @@ Processing by ShelterController#index as HTML
 Completed 200 OK in 50ms (Views: 36.9ms | ActiveRecord: 9.0ms)
 
 
+Started GET "/shelters" for ::1 at 2020-03-26 14:32:07 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (4.8ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 217ms (Views: 198.0ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/pets" for ::1 at 2020-03-26 14:32:13 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Shelter Load (0.0ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (50.2ms)
+Completed 200 OK in 72ms (Views: 45.1ms | ActiveRecord: 17.5ms)
+
+
+Started GET "/pets/4" for ::1 at 2020-03-26 14:32:15 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"4"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 18ms (Views: 13.6ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/favorites/4" for ::1 at 2020-03-26 14:32:19 -0600
+Processing by FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"pKPRII7OZrI0giu+T0pXfFTXj7yZp6wXKxnXGhrVlCvby1LDb8KXkjAtiYCTWzDlUNZp7cRWFbwJOTqxyx5dwQ==", "pet_id"=>"4"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/pets/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/pets/4" for ::1 at 2020-03-26 14:32:19 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"4"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/favorites/4" for ::1 at 2020-03-26 14:32:36 -0600
+Processing by FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"Zm0YvKQejr61xzSW/7W+gn9NcQ3x98v1mGvAiQlNQDEZBZtfRRJ/nrFolqgjpNkbe0yXXKwGcl66Sy0i2IaJ2w==", "pet_id"=>"4"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/pets/4
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/pets/4" for ::1 at 2020-03-26 14:32:36 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"4"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 19ms (Views: 15.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pets" for ::1 at 2020-03-26 14:32:39 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.5ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Shelter Load (0.0ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/pets/5" for ::1 at 2020-03-26 14:32:50 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"5"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/favorites/5" for ::1 at 2020-03-26 14:32:54 -0600
+Processing by FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"sontDI6kLsgTcNvLYcSFxE56wVbgv5QLWGMnvfQv37jN4W7vb6jf6BffefW91eJdSnsnB71OLaB6Q8oWJeQWUg==", "pet_id"=>"5"}
+  [1m[36mPet Load (1.0ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/pets/5
+Completed 302 Found in 3ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/pets/5" for ::1 at 2020-03-26 14:32:54 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"5"}
+  [1m[36mPet Load (0.1ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 42ms (Views: 39.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pets" for ::1 at 2020-03-26 14:54:19 -0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (50.4ms)
+Completed 500 Internal Server Error in 231ms (ActiveRecord: 10.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `values' for ["4", "4", "5"]:Array
+Did you mean?  values_at):
+    13:   <% end %>
+    14: 
+    15:   <body>
+    16:     <p>Favorites: <%= favorites.total_count %></p>
+    17:     <%= yield %>
+    18:   </body>
+    19: </html>
+  
+app/models/favorites.rb:9:in `total_count'
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___2488542487518291652_70097017906220'
+Started GET "/pets" for ::1 at 2020-03-26 14:54:24 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.5ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Shelter Load (0.0ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (20.2ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 6.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `values' for ["4", "4", "5"]:Array
+Did you mean?  values_at):
+    13:   <% end %>
+    14: 
+    15:   <body>
+    16:     <p>Favorites: <%= favorites.total_count %></p>
+    17:     <%= yield %>
+    18:   </body>
+    19: </html>
+  
+app/models/favorites.rb:9:in `total_count'
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___2488542487518291652_70097004227340'
+Started GET "/pets" for ::1 at 2020-03-26 14:54:25 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Shelter Load (0.0ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `values' for ["4", "4", "5"]:Array
+Did you mean?  values_at):
+    13:   <% end %>
+    14: 
+    15:   <body>
+    16:     <p>Favorites: <%= favorites.total_count %></p>
+    17:     <%= yield %>
+    18:   </body>
+    19: </html>
+  
+app/models/favorites.rb:9:in `total_count'
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___2488542487518291652_70097024305360'
+Started GET "/" for ::1 at 2020-03-26 14:55:03 -0600
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pets" for ::1 at 2020-03-26 14:55:07 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.7ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Shelter Load (0.0ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 23ms (Views: 19.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/pets/4" for ::1 at 2020-03-26 14:55:09 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"4"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 23ms (Views: 18.2ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/favorites/4" for ::1 at 2020-03-26 14:55:12 -0600
+Processing by FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"6Y1+IOLRhjMsgl8ZSKawy+vkdA/d4LglKtXKsTUyuEiyZCvOwqrVcpoEl0ZQER6IMoQKnLyoyANkfeB0ofzaFA==", "pet_id"=>"4"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/pets/4
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/pets/4" for ::1 at 2020-03-26 14:55:12 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"4"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pets" for ::1 at 2020-03-26 14:55:19 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Shelter Load (0.0ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 23ms (Views: 18.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pets/5" for ::1 at 2020-03-26 14:55:22 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"5"}
+  [1m[36mPet Load (1.6ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 24ms (Views: 18.0ms | ActiveRecord: 1.9ms)
+
+
+Started PATCH "/favorites/5" for ::1 at 2020-03-26 14:55:29 -0600
+Processing by FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"PZGnuLmD5Vu0EQwhUZiaZqh4gtyxwUt12gAw+O6atR1mePJWmfi2GgKXxH5JLzQlcRj8T9CJO1OUqBo9elTXQQ==", "pet_id"=>"5"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/pets/5
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/pets/5" for ::1 at 2020-03-26 14:55:29 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"5"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pets" for ::1 at 2020-03-26 14:55:37 -0600
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Shelter Load (0.0ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pets/6" for ::1 at 2020-03-26 14:55:48 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"6"}
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 22ms (Views: 18.5ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/favorites/6" for ::1 at 2020-03-26 14:55:52 -0600
+Processing by FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"9NcmR/qpCzN83d/0IxAmoZigtHO3PnznniC8KlsHT+2vPnOp2tJYcspbF6s7p4jiQcDK4NZ2DMHQiJbvz8ktsQ==", "pet_id"=>"6"}
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://localhost:3000/pets/6
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/pets/6" for ::1 at 2020-03-26 14:55:52 -0600
+Processing by PetsController#show as HTML
+  Parameters: {"pet_id"=>"6"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered pets/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 19ms (Views: 15.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/shelters" for ::1 at 2020-03-26 14:55:55 -0600
+Processing by ShelterController#index as HTML
+  Rendering shelter/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelter/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2020-03-26 14:55:56 -0600
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
