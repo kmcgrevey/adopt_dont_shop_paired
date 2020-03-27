@@ -1,10 +1,10 @@
 <h1>Favorite Pets</h1>
 
-<% favorites.each do |favorite| %>
-      <section id="favorites-<%=favorite%>">
-        <img style="img-align:center;"><%= image_tag favorites.contents[favorite]["image"] %></img>
+<% @fav_pets.each do |pet| %>
+      <section id="favorites-<%=pet.id%>">
+        <img style="img-align:center;"><%= image_tag pet.image %></img>
           <br/>
-        <%= link_to favorites.contents[favorite]["name"], "/pets/#{favorites.contents[favorite]["id"]}" %>          
+        <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>          
           <br/>
           <br/>
         </section>

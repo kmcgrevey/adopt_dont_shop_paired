@@ -22,7 +22,7 @@ RSpec.describe "As visitor" do
                             approx_age: 1,
                             sex: "male")
                             
-      pet3 = shelter_1.pets.create!(image: "https://www.thesun.co.uk/wp-content/uploads/2019/10/NINTCHDBPICT000528091420.jpg?strip=all&w=960",
+      pet_3 = shelter_1.pets.create!(image: "https://www.thesun.co.uk/wp-content/uploads/2019/10/NINTCHDBPICT000528091420.jpg?strip=all&w=960",
                             name: "Francisco",
                             description: "What, behind the rabbit!?",
                             approx_age: 3,
@@ -42,9 +42,9 @@ RSpec.describe "As visitor" do
       visit "/favorites"
 
       expect(page).to have_content("#{pet_1.name}")
-      expect(page).to have_content("#{pet_1.image}")
+      expect(page).to have_css("img[src*='#{pet_1.image}']")
       expect(page).to have_content("#{pet_2.name}")
-      expect(page).to have_content("#{pet_2.image}")
+      expect(page).to have_css("img[src*='#{pet_2.image}']")
       expect(page).to_not have_content("#{pet_3.name}")
 
       click_link "#{pet_1.name}"
@@ -52,7 +52,7 @@ RSpec.describe "As visitor" do
       expect(current_path).to eq("/pets/#{pet_1.id}")
 
       expect(page).to have_content("#{pet_1.name}")
-      expect(page).to have_content("#{pet_1.image}")
+      expect(page).to have_css("img[src*='#{pet_1.image}']")
       expect(page).to have_content("#{pet_1.description}")
     end 
   end

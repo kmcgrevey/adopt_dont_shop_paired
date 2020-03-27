@@ -11,8 +11,6 @@ class FavoritesController < ApplicationController
   end
 
   def index 
-    # favorites.contents["269"]["name"]
-    # binding.pry
-    # @favorites_list = favorites.contents.keys.to_i
+    @fav_pets = Pet.where(id: favorites.contents.keys) # <--- WORKS!!!!!
   end 
 end
