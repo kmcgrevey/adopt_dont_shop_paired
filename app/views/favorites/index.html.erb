@@ -4,7 +4,8 @@
       <section id="favorites-<%=pet.id%>">
         <img style="img-align:center;"><%= image_tag pet.image %></img>
           <br/>
-        <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>          
+        <%= link_to "#{pet.name}", "/pets/#{pet.id}" %> 
+        <%= button_to "Remove From Favorites", "favorite_pets/#{pet.id}", method: :delete %>         
           <br/>
           <br/>
         </section>
