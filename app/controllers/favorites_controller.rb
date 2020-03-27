@@ -13,4 +13,11 @@ class FavoritesController < ApplicationController
   def index 
     @fav_pets = Pet.where(id: favorites.contents.keys) # <--- WORKS!!!!!
   end 
+
+  def destroy
+    pet = Pet.find(params[:pet_id])
+    favorites.contents.delete(pet.id.to_s)
+    flash[:notice] = "#{pet.name} has been removed from your favorites."
+    redirect_to "/pets/#{pet.id}" 
+  end
 end
