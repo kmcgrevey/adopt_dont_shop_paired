@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "As visitor" do
-  describe "when I visit favorites page" do
+  describe "when I visit favorites index page" do
     it "I click to remove pet from favorites and see favorite idicator down by 1" do
       shelter_1 = Shelter.create!(name: "Burt's Barn",
                            address: "123 Sesame Street",
@@ -42,6 +42,13 @@ RSpec.describe "As visitor" do
       expect(page).to have_content("Favorites: 1")
       expect(page).not_to have_content("#{pet_1.name}")
       expect(page).to have_content("#{pet_2.name}")
+    end
+
+    it "I see a message when I have no favorites" do
+      visit '/favorites'
+
+      expect(page).to have_content("You Currently Have No Favorite Pets.")
+    
     end
   end
 end
