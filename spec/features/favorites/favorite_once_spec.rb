@@ -24,6 +24,10 @@ RSpec.describe "As visitor" do
 
       expect(page).to have_content("Penelope has been removed from your favorites.")
       expect(page).to have_content("Favorites: 0")
+
+      visit '/pets'
+
+      expect(page).to have_content("#{pet_1.name}")
     end
   end
 end
