@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "As visitor" do
   describe "I see a favorites index page" do
-    xit "that shows every pet that has been favorited" do
+    it "that shows every pet that has been favorited" do
       
       shelter_1 = Shelter.create!(name: "Burt's Barn",
                            address: "123 Sesame Street",
@@ -20,23 +20,36 @@ RSpec.describe "As visitor" do
                             name: "Petey",
                             description: "Rubber baby bacon booties!",
                             approx_age: 1,
-                            sex: "male") 
+                            sex: "male")
+                            
+      pet3 = shelter_1.pets.create!(image: "https://www.thesun.co.uk/wp-content/uploads/2019/10/NINTCHDBPICT000528091420.jpg?strip=all&w=960",
+                            name: "Francisco",
+                            description: "What, behind the rabbit!?",
+                            approx_age: 3,
+                            sex: "male",
+                            status: "Pending")
 
       visit "/pets/#{pet_1.id}"
       
       click_button "Favorite"
       
-      # expect(page).to have_content("Favorites: 1")
+      expect(page).to have_content("Favorites: 1")
+
+      visit "/pets/#{pet_2.id}"
+      
+      click_button "Favorite"
 
       visit "/favorites"
 
       expect(page).to have_content("#{pet_1.name}")
       expect(page).to have_content("#{pet_1.image}")
-      expect(page).to_not have_content("#{pet_2.name}")
+      expect(page).to have_content("#{pet_2.name}")
+      expect(page).to have_content("#{pet_2.image}")
+      expect(page).to_not have_content("#{pet_3.name}")
 
       click_link "#{pet_1.name}"
 
-      expect(current_path).to eq()
+      expect(current_path).to eq("/pets/#{pet_1.id}")
 
       expect(page).to have_content("#{pet_1.name}")
       expect(page).to have_content("#{pet_1.image}")
