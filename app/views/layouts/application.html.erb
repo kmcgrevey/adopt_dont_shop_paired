@@ -12,8 +12,14 @@
     <p><%= message %></p>
   <% end %>
 
+    <nav class="topnav">
+      <%= link_to "Welcome Page", "/" %>
+      <%= link_to "Pet Index", "/pets" %>
+      <%= link_to "Shelter Index", "/shelters" %>
+    <p style = "text-align: right";><%= link_to "Favorites: #{favorites.total_count}", "/favorites" %></p>
+    </nav>
+
   <body>
-    <p>Favorites: <%= favorites.total_count %></p>
     <%= yield %>
   </body>
 </html>

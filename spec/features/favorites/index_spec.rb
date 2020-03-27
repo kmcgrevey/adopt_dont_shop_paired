@@ -55,5 +55,33 @@ RSpec.describe "As visitor" do
       expect(page).to have_css("img[src*='#{pet_1.image}']")
       expect(page).to have_content("#{pet_1.description}")
     end 
+
+    it "when I click favorites indicator in nav bar" do
+      shelter_1 = Shelter.create!(name: "Burt's Barn",
+                           address: "123 Sesame Street",
+                           city: "New York",
+                           state: "NY",
+                           zip: "12345")
+
+      pet_1 = shelter_1.pets.create!(image: "https://assets.change.org/photos/3/yk/di/kLYkdIaPKknZpoD-800x450-noPad.jpg?1519383791",
+                            name: "Penelope",
+                            description: "A face only everyone could love!",
+                            approx_age: 1,
+                            sex: "female")
+      
+      visit "/pets/#{pet_1.id}"
+      
+      click_button "Favorite"
+
+      within ".topnav" do
+        click_link "Favorites"
+      end
+
+      expect(current_path).to eq('/favorites')
+      expect(page).to have_content(pet_1.name)
+    end
+
+
+
   end
 end
