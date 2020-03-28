@@ -5,3 +5,4 @@ RSpec.describe Pet, type: :model do
     it {should belong_to :shelter}
   end
 end
+

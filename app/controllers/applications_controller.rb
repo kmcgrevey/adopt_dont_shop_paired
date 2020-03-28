@@ -5,7 +5,7 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    # Application.create(application_params)
+    Application.create(application_params)
     # need to remove pets applied for from favorites # <--own method??
     # flash "Your application has been submitted"
     # redirect_to "/favorites"
@@ -14,5 +14,10 @@ class ApplicationsController < ApplicationController
   end
 
   # need application_params
+  private
+
+  def application_params
+    params.permit(:name, :address, :city, :state, :zip, :phone, :description)
+  end
 
 end
