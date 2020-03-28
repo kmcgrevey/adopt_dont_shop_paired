@@ -5,11 +5,21 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    Application.create(application_params)
-    remove_app_pets
-    flash[:notice] = "Your application has been submitted"
-
-    redirect_to "/favorites"
+    if params[:applied_for] == nil
+      flash[:notice] = "You have no favorites to apply for"
+      redirect_to "/pets"
+    else
+      application = Application.new(application_params)
+      if application.save
+        remove_app_pets
+        flash[:notice] = "Your application has been submitted"
+        redirect_to "/favorites"
+      else
+        @pets = Pet.find(favorites.contents.keys)
+        flash[:notice] = "Please fill in the required fields"
+        render :new
+      end
+    end
   end
 
   private
