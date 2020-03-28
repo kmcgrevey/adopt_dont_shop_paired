@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "As visitor" do
   describe "I see a favorites index page" do
     it "that shows every pet that has been favorited" do
-      
+
       shelter_1 = Shelter.create!(name: "Burt's Barn",
                            address: "123 Sesame Street",
                            city: "New York",
@@ -21,7 +21,7 @@ RSpec.describe "As visitor" do
                             description: "Rubber baby bacon booties!",
                             approx_age: 1,
                             sex: "male")
-                            
+
       pet_3 = shelter_1.pets.create!(image: "https://www.thesun.co.uk/wp-content/uploads/2019/10/NINTCHDBPICT000528091420.jpg?strip=all&w=960",
                             name: "Francisco",
                             description: "What, behind the rabbit!?",
@@ -30,13 +30,13 @@ RSpec.describe "As visitor" do
                             status: "Pending")
 
       visit "/pets/#{pet_1.id}"
-      
+
       click_button "Favorite"
-      
+
       expect(page).to have_content("Favorites: 1")
 
       visit "/pets/#{pet_2.id}"
-      
+
       click_button "Favorite"
 
       visit "/favorites"
@@ -54,7 +54,7 @@ RSpec.describe "As visitor" do
       expect(page).to have_content("#{pet_1.name}")
       expect(page).to have_css("img[src*='#{pet_1.image}']")
       expect(page).to have_content("#{pet_1.description}")
-    end 
+    end
 
     it "when I click favorites indicator in nav bar" do
       shelter_1 = Shelter.create!(name: "Burt's Barn",
@@ -68,9 +68,9 @@ RSpec.describe "As visitor" do
                             description: "A face only everyone could love!",
                             approx_age: 1,
                             sex: "female")
-      
+
       visit "/pets/#{pet_1.id}"
-      
+
       click_button "Favorite"
 
       within ".topnav" do
@@ -80,8 +80,5 @@ RSpec.describe "As visitor" do
       expect(current_path).to eq('/favorites')
       expect(page).to have_content(pet_1.name)
     end
-
-
-
   end
 end
