@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+ .topnav {
+  background-color: grey;
+  text-align: center;
+  overflow: hidden;
+  padding: 5px 5px 5px 5px ;
+  height: 5vw;
+  font-family: Arial;
+}
