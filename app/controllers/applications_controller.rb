@@ -6,15 +6,18 @@ class ApplicationsController < ApplicationController
 
   def create
     Application.create(application_params)
-    # need to remove pets applied for from favorites # <--own method??
-    # flash "Your application has been submitted"
-    # redirect_to "/favorites"
-
-    # params[:applied_for] # <-- ???
+    remove_app_pets
+    flash[:notice] = "Your application has been submitted"
+    
+    redirect_to "/favorites"
   end
-
-  # need application_params
+  
   private
+  
+  def remove_app_pets
+    app_pets = params[:applied_for]
+    app_pets.each {|pet| favorites.contents.delete(pet)}
+  end
 
   def application_params
     params.permit(:name, :address, :city, :state, :zip, :phone, :description)
