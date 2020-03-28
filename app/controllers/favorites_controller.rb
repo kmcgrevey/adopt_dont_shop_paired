@@ -22,6 +22,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy_favs
-    binding.pry
+    session[:favorites] = Hash.new
+    redirect_to '/favorites'
   end
 end
