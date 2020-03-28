@@ -63,7 +63,9 @@ RSpec.describe "test delete shelters", type: :feature do
 
     expect(page).to have_content(parkside_shelter.name)
 
-    click_link "Delete Shelter"
+    within "#shelter-#{parkside_shelter.id}" do
+      click_link "Delete Shelter"
+    end
 
     expect(page).to_not have_content(parkside_shelter.name)
     expect(page).to_not have_content(review_1.title)
