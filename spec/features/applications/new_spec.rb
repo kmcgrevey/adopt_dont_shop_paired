@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "new applications can be made", type: :feature do
-  it "has a link to an application form for each pet on favorites index" do
+  it "when I select desired pets fill in form and click submit" do
 
     shelter_1 = Shelter.create!(name: "Burt's Barn",
                          address: "123 Sesame Street",
@@ -51,12 +51,11 @@ RSpec.describe "new applications can be made", type: :feature do
     expect(page).to have_content("#{pet_3.name}")
 
     within "#checkbox-#{pet_1.id}" do
-      check "#{pet_1.name}"
-      # check 'Penelope'
+      check "applied_for_"
     end
 
     within "#checkbox-#{pet_2.id}" do
-      check "#{pet_2.name}"
+      check "applied_for_"
     end
 
     fill_in "Name", with: "John Hutchinson"
@@ -64,7 +63,7 @@ RSpec.describe "new applications can be made", type: :feature do
     fill_in "City", with: "Philadelphia"
     fill_in "State", with: "Pennsylvania"
     fill_in "Zip", with: "19050"
-    fill_in "Phone Number", with: "215-367-8891"
+    fill_in "Phone", with: "215-367-8891"
     fill_in "Description", with: "I am loving and will provide a good home"
 
     click_button "Submit"
