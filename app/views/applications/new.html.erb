@@ -1,0 +1,34 @@
+<h1>New Application</h1>
+  <%= form_tag '/applications' do %>
+    <% @pets.each do |pet| %>
+      <p id="checkbox-<%= pet.id %>"><%= check_box_tag "applied_for[]", pet.id %>
+      <%= label_tag pet.name %></br>
+    <% end %>
+    </br>
+    </br>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+      <br/>
+    <%= label_tag :address %>
+    <%= text_field_tag :address %>
+      <br/>
+    <%= label_tag :city %>
+    <%= text_field_tag :city %>
+      <br/>
+    <%= label_tag :state %>
+    <%= text_field_tag :state %>
+      <br/>
+    <%= label_tag :zip %>
+    <%= text_field_tag :zip %>
+      <br/>
+    <%= label_tag :phone %>
+    <%= text_field_tag :phone %>
+      <br/>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+      <br/>
+      <br/>
+    <%= submit_tag 'Submit' %>
+      <br/>
+      <br/>
+<% end %>

@@ -42,7 +42,7 @@ RSpec.describe "new applications can be made", type: :feature do
 
     visit "/favorites"
 
-    click_button "Apply For Adoption"
+    click_link "Apply For Adoption"
 
     expect(current_path).to eq("/applications/new")
 
@@ -50,13 +50,14 @@ RSpec.describe "new applications can be made", type: :feature do
     expect(page).to have_content("#{pet_2.name}")
     expect(page).to have_content("#{pet_3.name}")
 
-    # within "#applications-#{pet_2.id}" do
-    check "#{pet_1.name}"
-    # end
+    within "#checkbox-#{pet_1.id}" do
+      check "#{pet_1.name}"
+      # check 'Penelope'
+    end
 
-    # within "#applications-#{pet_2.id}" do
-    check "#{pet_2.name}"
-    # end
+    within "#checkbox-#{pet_2.id}" do
+      check "#{pet_2.name}"
+    end
 
     fill_in "Name", with: "John Hutchinson"
     fill_in "Address", with: "4089 S. Broadway Street"
