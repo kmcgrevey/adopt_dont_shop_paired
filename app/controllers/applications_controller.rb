@@ -20,6 +20,10 @@ class ApplicationsController < ApplicationController
         render :new
       end
     end
+
+    def show
+      @application = Application.find(params[:id])
+    end
   end
 
   private
