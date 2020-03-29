@@ -20,10 +20,14 @@ class ApplicationsController < ApplicationController
         render :new
       end
     end
+  end
 
-    def show
-      @application = Application.find(params[:id])
-    end
+  def show
+    @application = Application.find(params[:id])
+  end
+
+  def index
+    @pet = Pet.find(params[:pet_id])
   end
 
   private
@@ -36,5 +40,4 @@ class ApplicationsController < ApplicationController
   def application_params
     params.permit(:name, :address, :city, :state, :zip, :phone, :description)
   end
-
 end

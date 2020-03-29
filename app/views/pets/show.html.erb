@@ -1,27 +1,27 @@
 <body style="background-color:lightblue;font-family:arial;text-align:center">
   <%= link_to "Pets Index", "/pets" %>
   <%= link_to "Shelters Index", "/shelters" %>
-  
+
   <h1> <%= @pet.name %> </h1>
-    
+
   <img src= <%= @pet.image %> alt= <%= @pet.name %>>
   <p> <%= @pet.description %></p>
   <p>Age: <%= @pet.approx_age %></p>
   <p>Sex: <%= @pet.sex %></p>
   <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %>
   <p>Status: <%= @pet.status %></p>
-    
+
   <% if favorites.contents.include?(@pet.id.to_s) %>
     <%= button_to "Remove From Favorites", "/favorites/#{@pet.id}", method: :delete %>
   <% else %>
     <%= button_to "Favorite", "/favorites/#{@pet.id}", method: :patch %>
   <% end %>
-  
-  
+
+  <%= link_to "All Applications", "/pets/#{@pet.id}/applications" %>
   <%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
   <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
   <br/>
   <br/>
-  
+
   <%= link_to "Back to Pets", "/pets/" %>
 </body>
