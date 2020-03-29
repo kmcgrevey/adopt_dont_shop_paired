@@ -13,5 +13,6 @@
   <% @application.pets.each do |pet| %>
   <section id="app_pet-<%=pet.id%>">
     <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
+    <%= button_to "Approve Application", "/pets/#{pet.id}" %>
   </section>
   <% end %>

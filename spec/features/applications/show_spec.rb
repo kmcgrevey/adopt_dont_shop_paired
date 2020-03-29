@@ -90,10 +90,11 @@ RSpec.describe "test applications show page" do
 
     visit "applications/#{application_1.id}"
 
-    within "#app_pet-#{pet_1.id}"
+    within "#app_pet-#{pet_1.id}" do
       click_button ("Approve Application")
     end
 
     expect(current_path).to eq("pets/#{pet_1.id}")
     expect(page).to have_content("Pending")
+  end
 end
