@@ -141,7 +141,7 @@ RSpec.describe "test applications show page" do
       click_link ("Approve Application")
     end
     #NEED TO MODIFY/CHECK!
-    within "#app_pet-#{pet_2.id}" do 
+    within "#app_pet-#{pet_2.id}" do
       click_link ("Approve Application")
     end
 
@@ -149,3 +149,5 @@ RSpec.describe "test applications show page" do
     expect(page).to have_content("Pending")
   end
 end
+
+  # <%= link_to "Approve Application", "/applications/#{@application.id}/pets/#{pet.id}", method: :patch do %>
