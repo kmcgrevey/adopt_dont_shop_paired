@@ -34,7 +34,8 @@ RSpec.describe "test user can create new shelters", type: :feature do
     fill_in "State", with: ""
     fill_in "Zip", with: ""
 
-    expect(page).to have_content("Please fill in State")
-    expect(page).to have_content("Please fill in Zip")
+    click_button "Create Shelter"
+
+    expect(page).to have_content("State can't be blank and Zip can't be blank")
   end
 end
