@@ -22,6 +22,14 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def update
+    pet = Pet.find(params[:pet_id])
+    application = Application.find(params[:app_id])
+    pet.update_column(:status, "Pending")
+    flash[:notice] = "On hold for #{application.name}"
+    redirect_to "/pets/#{pet.id}"
+end
+
   def show
     @application = Application.find(params[:id])
   end
