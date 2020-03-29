@@ -66,4 +66,56 @@ RSpec.describe "test pets show page", type: :feature do
     expect(page).to_not have_content(caesar.shelter.name)
     expect(page).to_not have_content(caesar.description)
   end
+
+  it "has a link to view all applications for this pet and the link gives us the names of all applicants" do
+
+    parkside_shelter = Shelter.create(name: "Parkside Shelter",
+                                      address: "1234 Market Street",
+                                      city: "Denver",
+                                      state: "Colorado",
+                                      zip: "80230")
+
+    caesar = Pet.create(image: "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg",
+                        name: "Caesar",
+                        approx_age: "2",
+                        city: "Denver",
+                        sex: "Male",
+                        shelter: parkside_shelter,
+                        description: "This little rascal is fiesty and cute as a button!")
+
+    application_1 = Application.create!(name: "John Hutchinson",
+                                address: "4089 S. Broadway Street",
+                                city: "Philadelphia",
+                                state: "Pennsylvania",
+                                zip: "19050",
+                                phone: "215-367-8891",
+                                description: "I am loving and will provide a good home")
+
+    application_2 = Application.create!(name: "Mike Johnson",
+                                address: "1039 Charles Street",
+                                city: "Baltimore",
+                                state: "Maryland",
+                                zip: "20239",
+                                phone: "410-709-3981",
+                                description: "I am possibly the singlest greatest pet owner in the history of owning pets.")
+
+    application_1.pets << [caesar]
+    application_2.pets << [caesar]
+
+    visit "/pets/#{caesar.id}"
+
+    click_link "All Applications"
+
+    expect(page).to have_link("#{application_1.name}")
+    expect(page).to have_link("#{application_2.name}")
+
+    click_link "#{application_1.name}"
+
+    expect(page).to have_content("#{application_1.name}")
+    expect(page).to have_content("#{application_1.address}")
+    expect(page).to have_content("#{application_1.city}")
+    expect(page).to have_content("#{application_1.state}")
+    expect(page).to have_content("#{application_1.zip}")
+    expect(page).to have_content("#{application_1.description}")
+  end
 end
