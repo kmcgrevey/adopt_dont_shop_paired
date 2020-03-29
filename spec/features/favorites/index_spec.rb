@@ -148,8 +148,6 @@ RSpec.describe "As visitor" do
 
       expect(current_path).to eq("/favorites")
 
-      save_and_open_page
-
     within "#applied_for" do
       expect(page).to have_content("#{pet_1.name}")
       expect(page).to have_content("#{pet_2.name}")

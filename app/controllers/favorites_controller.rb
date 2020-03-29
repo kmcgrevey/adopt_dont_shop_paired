@@ -16,8 +16,9 @@ class FavoritesController < ApplicationController
 
     # @applied_pets = []
     # @fav_pets.each do |pet|
-      # if pet.status != "Adoptable"
-        # @applied_pets << pet
+    #   if pet.status != "Adoptable"
+    #     @applied_pets << pet
+    #   end
     # end
   end
 
