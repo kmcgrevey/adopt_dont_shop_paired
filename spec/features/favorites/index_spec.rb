@@ -148,9 +148,14 @@ RSpec.describe "As visitor" do
       click_button "Submit"
 
       expect(current_path).to eq("/favorites")
+
+      # save_and_open_page
+
+    # within "#applied-#{pet_1.id}" do
       expect(page).to have_content("#{pet_1.name}")
       expect(page).to have_content("#{pet_2.name}")
       expect(page).to_not have_content("#{pet_3.name}")
+    # end
 
       click_link "#{pet_1.name}"
 
