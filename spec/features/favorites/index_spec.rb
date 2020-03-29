@@ -106,8 +106,7 @@ RSpec.describe "As visitor" do
                           name: "Francisco",
                           description: "What, behind the rabbit!?",
                           approx_age: 3,
-                          sex: "male",
-                          status: "Pending")
+                          sex: "male")
 
       visit "/pets/#{pet_1.id}"
 
@@ -149,13 +148,13 @@ RSpec.describe "As visitor" do
 
       expect(current_path).to eq("/favorites")
 
-      # save_and_open_page
+      save_and_open_page
 
-    # within "#applied-#{pet_1.id}" do
+    within "#applied_for" do
       expect(page).to have_content("#{pet_1.name}")
       expect(page).to have_content("#{pet_2.name}")
       expect(page).to_not have_content("#{pet_3.name}")
-    # end
+    end
 
       click_link "#{pet_1.name}"
 

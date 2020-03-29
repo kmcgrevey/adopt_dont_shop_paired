@@ -12,22 +12,14 @@ class FavoritesController < ApplicationController
 
   def index
     @fav_pets = Pet.where(id: favorites.contents.keys)
+    @applied_pets = @fave_pets.include?{|pet| (status != "adoptable")}
+
     # @applied_pets = []
     # @fav_pets.each do |pet|
-    #   if pet.status == "Pending"
-    #     @applied_pets << pet
-    #   end
-    # end
+      # if pet.status != "Adoptable"
+        # @applied_pets << pet
+    end
   end
-  # <% if @applied_pets.count == 0 %>
-  #   <h3>You haven't applied for the adoption of any pets</h3>
-  # <% else %>
-  #   <% @applied_pets.each do |pet| %>
-  #       <section id="applied-<%=pet.id%>">
-  #         <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
-  #         <br/>
-  #         <br/>
-  # <% end %>
 
   def destroy
     pet = Pet.find(params[:pet_id])
