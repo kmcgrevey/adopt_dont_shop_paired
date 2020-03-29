@@ -11,6 +11,11 @@ class ApplicationsController < ApplicationController
     else
       application = Application.new(application_params)
       if application.save
+        applied_for = params[:applied_for]
+        applied_for.each do |pet_id|
+          pet = Pet.find(pet_id)
+          application.application_pets.create!(pet_id: pet.id, application_id: application.id)
+      end
         remove_app_pets
         flash[:notice] = "Your application has been submitted"
         redirect_to "/favorites"

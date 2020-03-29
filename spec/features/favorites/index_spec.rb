@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "As visitor" do
   describe "I see a favorites index page" do
-    it "that shows every pet that has been favorited" do
+    xit "that shows every pet that has been favorited" do
 
       shelter_1 = Shelter.create!(name: "Burt's Barn",
                            address: "123 Sesame Street",
@@ -56,7 +56,7 @@ RSpec.describe "As visitor" do
       expect(page).to have_content("#{pet_1.description}")
     end
 
-    it "when I click favorites indicator in nav bar" do
+    xit "when I click favorites indicator in nav bar" do
       shelter_1 = Shelter.create!(name: "Burt's Barn",
                            address: "123 Sesame Street",
                            city: "New York",
@@ -82,7 +82,7 @@ RSpec.describe "As visitor" do
     end
   end
 
-  xit "has a section listing all of the pets with applications on them" do
+  it "has a section listing all of the pets with applications on them" do
 
     shelter_1 = Shelter.create!(name: "Burt's Barn",
                          address: "123 Sesame Street",

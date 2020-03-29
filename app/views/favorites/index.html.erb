@@ -15,4 +15,17 @@
             <br/>
           </section>
       <% end  %>
+
+  <h3>Pets Applied For</h3>
+    <section id="applied_for">
+    <% if @applied_pets == [] %>
+      <h3>You haven't applied for the adoption of any pets</h3>
+    <% else %>
+      <% @applied_pets.each do |pet| %>
+        <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
+          <br/>
+          <br/>
+      <% end %>
+    <% end  %>
+</section>
 <% end  %>

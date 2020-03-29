@@ -12,7 +12,11 @@ class FavoritesController < ApplicationController
 
   def index
     @fav_pets = Pet.where(id: favorites.contents.keys)
-    # @applied_pets = @fave_pets.include?{|pet| (status != "adoptable")}
+    require "pry"; binding.pry
+    @applied_pets = Pet.joins(:application_pets).order(:id)
+
+    #each over each application and call application.pets on it
+    #shovel into a new array
 
     # @applied_pets = []
     # @fav_pets.each do |pet|
