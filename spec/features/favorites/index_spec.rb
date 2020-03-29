@@ -82,7 +82,7 @@ RSpec.describe "As visitor" do
     end
   end
 
-  it "has a section listing all of the pets with applications on them" do
+  xit "has a section listing all of the pets with applications on them" do
 
     shelter_1 = Shelter.create!(name: "Burt's Barn",
                          address: "123 Sesame Street",

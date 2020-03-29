@@ -12,13 +12,13 @@ class FavoritesController < ApplicationController
 
   def index
     @fav_pets = Pet.where(id: favorites.contents.keys)
-    @applied_pets = @fave_pets.include?{|pet| (status != "adoptable")}
+    # @applied_pets = @fave_pets.include?{|pet| (status != "adoptable")}
 
     # @applied_pets = []
     # @fav_pets.each do |pet|
       # if pet.status != "Adoptable"
         # @applied_pets << pet
-    end
+    # end
   end
 
   def destroy
