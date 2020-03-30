@@ -1,35 +1,33 @@
-  <body style="background-color:lightblue;font-family:arial;">
-    <header style="font-family:arial;text-align:center">
-      <%= link_to "Pets Index", "/pets" %>
-      <%= link_to "Shelters Index", "/shelters" %>
-    </header>
+<body style="background-color:lightblue;font-family:arial;">
+    <br/>
+  <h1 style="text-align:center;font-size:40px"> <%= @shelter.name %> </h1>
+    <br/>
+  <div style="text-align:center">
+    <p> <%= @shelter.address %></p>
+    <p> <%= @shelter.city %></p>
+    <p> <%= @shelter.state %></p>
+    <p> <%= @shelter.zip %></p>
+    <p> <%= @shelter.pets.count %> <%= "Adoptable Pet(s)"%></p>
       <br/>
-    <h1 style="text-align:center;font-size:40px"> <%= @shelter.name %> </h1>
       <br/>
-    <div style="text-align:center">
-      <p> <%= @shelter.address %></p>
-      <p> <%= @shelter.city %></p>
-      <p> <%= @shelter.state %></p>
-      <p> <%= @shelter.zip %></p>
-      <p> <%= @shelter.pets.count %> <%= "Adoptable Pet(s)"%></p>
-        <br/>
-        <br/>
-      
-      <h2>Reviews</h2>
-      <% @shelter.reviews.each do |review| %>
-      <section id="review-<%= review.id %>">
-        <h3><%= review.title %></h3>
-        <p>Rating: <%= review.rating %></p>
-        <p><%= review.content %></p>
-        <img src= <%= review.picture %> alt= <%= review.title %>>
-        <%= button_to "Edit Review", "/reviews/#{review.id}/edit", method: :get %>
-        <%= button_to "Delete Review", "/reviews/#{review.id}", method: :delete %>
-      </section>
-          <br/>
-          <br/>
-      <% end %>
-      
-      <%= button_to "New Review", "/shelters/#{@shelter.id}/reviews/new", method: :get %>
-      <%= link_to "Our Pets", "/shelters/#{@shelter.id}/pets" %>
-      <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
-      <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
+    
+  <h2>Reviews</h2>
+  <% @shelter.reviews.each do |review| %>
+  <section id="review-<%= review.id %>">
+    <h3><%= review.title %></h3>
+    <p>Rating: <%= review.rating %></p>
+    <p><%= review.content %></p>
+    <img src= <%= review.picture %> alt= <%= review.title %>>
+    <%= button_to "Edit Review", "/reviews/#{review.id}/edit", method: :get %>
+    <%= button_to "Delete Review", "/reviews/#{review.id}", method: :delete %>
+  </section>
+      <br/>
+      <br/>
+  <% end %>
+  
+  <%= button_to "New Review", "/shelters/#{@shelter.id}/reviews/new", method: :get %>
+  <%= link_to "Our Pets", "/shelters/#{@shelter.id}/pets" %>
+  <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
+  <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
+  </div>
+  </body>

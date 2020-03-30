@@ -13,5 +13,6 @@
   <% @application.pets.each do |pet| %>
   <section id="app_pet-<%=pet.id%>">
     <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
+    <%= button_to "Approve Application", "/applications/#{@application.id}/pets/#{pet.id}", method: :patch %>
   </section>
   <% end %>

@@ -51,7 +51,7 @@ RSpec.describe "test applications show page" do
     expect(page).to have_link("#{pet_2.name}")
   end
 
-  xit "shows a link to approve pet's applications, the link takes you to pet show page, shows adopter, and changes status to pending" do
+  it "shows a link to approve pet's applications, the link takes you to pet show page, shows adopter, and changes status to pending" do
 
     shelter_1 = Shelter.create!(name: "Burt's Barn",
                          address: "123 Sesame Street",
@@ -75,8 +75,7 @@ RSpec.describe "test applications show page" do
                           name: "Francisco",
                           description: "What, behind the rabbit!?",
                           approx_age: 3,
-                          sex: "male",
-                          status: "Pending")
+                          sex: "male")
 
     application_1 = Application.create!(name: "John Hutchinson",
                                 address: "4089 S. Broadway Street",
@@ -88,13 +87,17 @@ RSpec.describe "test applications show page" do
 
     application_1.pets << [pet_1, pet_2]
 
-    visit "applications/#{application_1.id}"
+    visit "/pets/#{pet_1.id}"
+
+    expect(page).to have_content("Adoptable")
+
+    visit "/applications/#{application_1.id}"
 
     within "#app_pet-#{pet_1.id}" do
-      click_link ("Approve Application")
+      click_button ("Approve Application")
     end
 
-    expect(current_path).to eq("pets/#{pet_1.id}")
+    expect(current_path).to eq("/pets/#{pet_1.id}")
     expect(page).to have_content("Pending")
   end
 
