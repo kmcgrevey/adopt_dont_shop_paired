@@ -90,10 +90,6 @@ RSpec.describe "test shelters show page", type: :feature do
 #     visit "/shelters/#{paulas_shelter.id}"
 #
 #
-#
-#
-#
-#
 # # count of pets that are at that shelter
 # # average shelter review rating
 # # number of applications on file for that shelter
