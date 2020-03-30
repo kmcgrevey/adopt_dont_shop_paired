@@ -28,7 +28,7 @@ class ShelterController < ApplicationController
   def update
     @shelter_to_edit = Shelter.find(params[:id])
     if @shelter_to_edit.update(shelter_params)
-      redirect_to "/shelters/#{@shelter_to_edit.id}}"
+      redirect_to "/shelters/#{@shelter_to_edit.id}"
     else
       flash.now[:error] = @shelter_to_edit.errors.full_messages.to_sentence
       render :edit
