@@ -33,7 +33,7 @@ class ApplicationsController < ApplicationController
     pet.update_column(:status, "Pending")
     flash[:notice] = "On hold for #{application.name}"
     redirect_to "/pets/#{pet.id}"
-end
+  end
 
   def show
     @application = Application.find(params[:id])
@@ -44,7 +44,7 @@ end
   end
 
   private
-  
+
   def application_params
     params.permit(:name, :address, :city, :state, :zip, :phone, :description)
   end
@@ -53,5 +53,4 @@ end
     app_pets = params[:applied_for]
     app_pets.each {|pet| favorites.contents.delete(pet)}
   end
-
 end

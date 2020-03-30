@@ -30,8 +30,8 @@ RSpec.describe "As visitor" do
       visit '/favorites'
 
       expect(page).to have_content("Favorites: 2")
-      expect(page).to have_content("#{pet_1.name}")
-      expect(page).to have_content("#{pet_2.name}")
+      expect(page).to have_link("#{pet_1.name}")
+      expect(page).to have_link("#{pet_2.name}")
 
       within "#favorites-#{pet_1.id}" do
         click_button "Remove From Favorites"
@@ -40,8 +40,8 @@ RSpec.describe "As visitor" do
       visit '/favorites'
 
       expect(page).to have_content("Favorites: 1")
-      expect(page).not_to have_content("#{pet_1.name}")
-      expect(page).to have_content("#{pet_2.name}")
+      expect(page).not_to have_link("#{pet_1.name}")
+      expect(page).to have_link("#{pet_2.name}")
     end
 
     it "I see a message when I have no favorites" do

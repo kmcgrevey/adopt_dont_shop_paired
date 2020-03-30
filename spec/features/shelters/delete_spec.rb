@@ -17,7 +17,7 @@ RSpec.describe "test delete shelters", type: :feature do
     caesar = Pet.create(image: "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg",
                         name: "Caesar",
                         approx_age: "4",
-                        city: "Denver",
+                        description: "Denver",
                         sex: "Male",
                         shelter: parkside_shelter)
 

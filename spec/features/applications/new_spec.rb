@@ -69,7 +69,7 @@ RSpec.describe "new applications can be made", type: :feature do
     click_button "Submit"
 
     expect(current_path).to eq("/favorites")
-    
+
     expect(page).to have_content("Your application has been submitted")
     expect(page).to have_link("#{pet_3.name}")
 
