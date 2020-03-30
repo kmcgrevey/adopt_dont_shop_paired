@@ -12,18 +12,7 @@ class FavoritesController < ApplicationController
 
   def index
     @fav_pets = Pet.where(id: favorites.contents.keys)
-    require "pry"; binding.pry
-    @applied_pets = Pet.joins(:application_pets).order(:id)
-
-    #each over each application and call application.pets on it
-    #shovel into a new array
-
-    # @applied_pets = []
-    # @fav_pets.each do |pet|
-    #   if pet.status != "Adoptable"
-    #     @applied_pets << pet
-    #   end
-    # end
+    @applied_pets = pets_with_app
   end
 
   def destroy
@@ -36,5 +25,13 @@ class FavoritesController < ApplicationController
   def destroy_favs
     session[:favorites] = Hash.new
     redirect_to '/favorites'
+  end
+
+  def pets_with_app
+    if Application.all == []
+      0
+    else
+      Pet.distinct.joins(:application_pets)
+    end
   end
 end
