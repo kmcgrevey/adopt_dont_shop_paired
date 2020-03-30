@@ -48,5 +48,41 @@ RSpec.describe Shelter, type: :model do
 
       expect(paulas_shelter.average_rating).to eq(4)
     end
+
+    it '.number_of_apps' do
+
+      paulas_shelter = Shelter.create!(name: "Paula's Precious Puppy Shelter",
+                              address: "1234 Market Street",
+                              city: "Denver",
+                              state: "Colorado",
+                              zip: "80014")
+
+      pet_1 = paulas_shelter.pets.create!(image: "https://assets.change.org/photos/3/yk/di/kLYkdIaPKknZpoD-800x450-noPad.jpg?1519383791",
+                              name: "Penelope",
+                              description: "A face only everyone could love!",
+                              approx_age: 1,
+                              sex: "female")
+
+      application_1 = Application.create!(name: "John Hutchinson",
+                                  address: "4089 S. Broadway Street",
+                                  city: "Philadelphia",
+                                  state: "Pennsylvania",
+                                  zip: "19050",
+                                  phone: "215-367-8891",
+                                  description: "I am loving and will provide a good home")
+
+      application_2 = Application.create!(name: "Mike Jones",
+                                  address: "8091 Charles Street",
+                                  city: "Baltimore",
+                                  state: "Maryland",
+                                  zip: "20239",
+                                  phone: "410-743-8819",
+                                  description: "I am the single greatest pet owner in the history of owning pets")
+
+      application_1.pets << pet_1
+      application_2.pets << pet_1
+
+      expect(paulas_shelter.number_of_apps).to eq(2)
+    end
   end
 end

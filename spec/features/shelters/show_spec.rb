@@ -90,6 +90,6 @@ RSpec.describe "test shelters show page", type: :feature do
 
     expect(page).to have_content("Pet Count: 3")
     expect(page).to have_content("Average Rating: 3.5")
-    expect(page).to have_content("Number of Applications On File: 2")
+    expect(page).to have_content("Number Of Applications On File: 5")
   end
 end
