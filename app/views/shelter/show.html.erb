@@ -10,7 +10,11 @@
     <p> <%= @shelter.pets.count %> <%= "Adoptable Pet(s)"%></p>
       <br/>
       <br/>
-    
+    <h3>Pet Count: <%= @shelter.pet_count %></h3>
+    <h3>Average Rating: <%= @shelter.average_rating %></h3>
+    <h3>Number Of Applications On File: <%= @shelter.number_of_apps %></h3>
+    <br/>
+    <br/>
   <h2>Reviews</h2>
   <% @shelter.reviews.each do |review| %>
   <section id="review-<%= review.id %>">
@@ -24,7 +28,7 @@
       <br/>
       <br/>
   <% end %>
-  
+
   <%= button_to "New Review", "/shelters/#{@shelter.id}/reviews/new", method: :get %>
   <%= link_to "Our Pets", "/shelters/#{@shelter.id}/pets" %>
   <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
