@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "new applications can be made", type: :feature do
-  it "when I select desired pets fill in form and click submit" do
+  xit "when I select desired pets fill in form and click submit" do
 
     shelter_1 = Shelter.create!(name: "Burt's Barn",
                          address: "123 Sesame Street",

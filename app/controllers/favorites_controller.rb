@@ -12,7 +12,6 @@ class FavoritesController < ApplicationController
 
   def index
     @fav_pets = Pet.where(id: favorites.contents.keys)
-    require "pry"; binding.pry
     @applied_pets = Pet.joins(:application_pets).order(:id)
 
     #each over each application and call application.pets on it
