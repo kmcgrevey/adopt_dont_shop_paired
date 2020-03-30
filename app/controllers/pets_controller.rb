@@ -32,7 +32,8 @@ class PetsController < ApplicationController
 
   def destroy
     pet_to_delete = Pet.find(params[:pet_id])
-    pet_to_delete.destroy
+    favorites.contents.delete(pet_to_delete.id.to_s)
+    pet_to_delete.destroy    
     redirect_to "/pets/"
   end
 
