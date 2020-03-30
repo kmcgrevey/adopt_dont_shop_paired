@@ -13,8 +13,14 @@ class PetsController < ApplicationController
   end
 
   def update
-    pet_to_edit = Pet.update(params[:pet_id], pet_params)
-    redirect_to "/pets/#{params[:pet_id]}"
+    @pet_to_edit = Pet.update(params[:pet_id], pet_params)
+    if @pet_to_edit.save
+      redirect_to "/pets/#{params[:pet_id]}"
+    else
+      flash.now[:error] = @pet_to_edit.errors.full_messages.to_sentence
+      render :edit
+      # redirect_to "/pets/#{pet_to_edit.id}/edit"
+    end
   end
 
   def destroy
@@ -28,4 +34,13 @@ class PetsController < ApplicationController
   def pet_params
     params.permit(:image, :name, :description, :approx_age, :sex)
   end
+end
+
+
+shelter = Shelter.new(shelter_params)
+if shelter.save
+  redirect_to "/shelters"
+else
+  flash.now[:error] = shelter.errors.full_messages.to_sentence
+  render :new
 end
