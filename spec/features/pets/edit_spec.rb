@@ -48,7 +48,7 @@ RSpec.describe "test pet info can be updated", type: :feature do
     expect(page).to_not have_content("Male")
   end
 
-  xit "gives a flash message for incomplete forms" do
+  it "gives a flash message for incomplete forms" do
 
     paulas_shelter = Shelter.create(name: "Paula's Precious Puppy Shelter",
                             address: "1234 Market Street",
@@ -59,11 +59,9 @@ RSpec.describe "test pet info can be updated", type: :feature do
     hadrian = Pet.create(image: "https://upload.wikimedia.org/wikipedia/commons/3/34/Labrador_on_Quantock_%282175262184%29.jpg",
                         name: "Hadrian",
                         approx_age: "9",
-                        city: "Denver",
+                        description: "Denver",
                         sex: "Male",
-                        shelter: paulas_shelter,
-                        description: "Hadrian is loyal and friendly",
-                        status: "Adoptable")
+                        shelter: paulas_shelter)
 
 
     visit "/pets/#{hadrian.id}"
@@ -79,6 +77,7 @@ RSpec.describe "test pet info can be updated", type: :feature do
     fill_in "Description", with: ""
 
     click_button "Update Pet"
+
 
     expect(page).to have_content("Description can't be blank and Sex can't be blank")
   end

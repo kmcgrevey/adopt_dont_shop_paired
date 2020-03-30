@@ -13,19 +13,11 @@ class PetsController < ApplicationController
   end
 
   def update
-    # @pet_to_edit = Pet.update(params[:pet_id], pet_params)
-    # if @pet_to_edit.save
-    #   redirect_to "/pets/#{params[:pet_id]}"
-    # else
-    #   flash.now[:error] = @pet_to_edit.errors.full_messages.to_sentence
-    #   render :edit
-    # end
-
-    pet_to_edit = Pet.find(params[:pet_id])
-    if pet_to_edit.update(pet_params)
+    @pet_to_edit = Pet.find(params[:pet_id])
+    if @pet_to_edit.update(pet_params)
       redirect_to "/pets/#{params[:pet_id]}"
     else
-      flash.now[:error] = pet_to_edit.errors.full_messages.to_sentence
+      flash.now[:error] = @pet_to_edit.errors.full_messages.to_sentence
       render :edit
     end
   end
@@ -33,7 +25,7 @@ class PetsController < ApplicationController
   def destroy
     pet_to_delete = Pet.find(params[:pet_id])
     favorites.contents.delete(pet_to_delete.id.to_s)
-    pet_to_delete.destroy    
+    pet_to_delete.destroy
     redirect_to "/pets/"
   end
 

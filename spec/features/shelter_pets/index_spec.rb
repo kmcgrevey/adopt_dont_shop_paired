@@ -17,14 +17,14 @@ RSpec.describe "test can see adoptable pets from specific shelter", type: :featu
     caesar = Pet.create(image: "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg",
                         name: "Caesar",
                         approx_age: "4",
-                        city: "Denver",
+                        description: "Denver",
                         sex: "Male",
                         shelter: parkside_shelter)
 
     livia = Pet.create(image: "https://en.bcdn.biz/Images/2018/6/6/ae2e9240-c42a-4a81-b6d8-ac65af25b827.jpg",
                         name: "Livia",
                         approx_age: "5",
-                        city: "Columbia",
+                        description: "Columbia",
                         sex: "Female",
                         shelter: lakeside_shelter)
 
