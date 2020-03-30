@@ -69,11 +69,14 @@ RSpec.describe "new applications can be made", type: :feature do
     click_button "Submit"
 
     expect(current_path).to eq("/favorites")
+    
     expect(page).to have_content("Your application has been submitted")
+    expect(page).to have_link("#{pet_3.name}")
 
-    expect(page).to_not have_content("#{pet_1.name}")
-    expect(page).to_not have_content("#{pet_2.name}")
-    expect(page).to have_content("#{pet_3.name}")
+    within "#applied_for" do
+      expect(page).to have_link("#{pet_1.name}")
+      expect(page).to have_link("#{pet_2.name}")
+    end
   end
 
   it "user cannot apply for adoption if they have no favorites" do
