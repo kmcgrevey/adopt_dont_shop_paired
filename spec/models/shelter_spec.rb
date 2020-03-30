@@ -28,5 +28,25 @@ RSpec.describe Shelter, type: :model do
 
       expect(paulas_shelter.pet_count).to eq(2)
     end
+
+    it '.average_rating' do
+
+      paulas_shelter = Shelter.create!(name: "Paula's Precious Puppy Shelter",
+                              address: "1234 Market Street",
+                              city: "Denver",
+                              state: "Colorado",
+                              zip: "80014")
+
+      review_1 = paulas_shelter.reviews.create!(title: "Best Shelter",
+                                      rating: 5,
+                                      content: "These guys really know how to run a shelter!",
+                                      picture: "https://www.rd.com/wp-content/uploads/2019/10/puppies-1-760x506.jpg")
+
+      review_2 = paulas_shelter.reviews.create!(title: "Whatever, man",
+                                      rating: 3,
+                                      content: "The employees gave me an attitude. No one talks to me like that!")
+
+      expect(paulas_shelter.average_rating).to eq(4)
+    end
   end
 end
