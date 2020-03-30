@@ -47,6 +47,8 @@ RSpec.describe "test user can update shelters", type: :feature do
     fill_in "State", with: "Pennsylvania"
     fill_in "Zip", with: "19019"
 
+    click_button "Submit"
+
     expect(page).to have_content("Name can't be blank and Address can't be blank")
   end
 end

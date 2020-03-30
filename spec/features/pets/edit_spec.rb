@@ -78,7 +78,6 @@ RSpec.describe "test pet info can be updated", type: :feature do
 
     click_button "Update Pet"
 
-
     expect(page).to have_content("Description can't be blank and Sex can't be blank")
   end
 end
