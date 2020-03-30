@@ -53,5 +53,4 @@ class ApplicationsController < ApplicationController
     app_pets = params[:applied_for]
     app_pets.each {|pet| favorites.contents.delete(pet)}
   end
-
 end
