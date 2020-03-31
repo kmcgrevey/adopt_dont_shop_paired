@@ -15,6 +15,9 @@
       <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
       <% if pet.status == "Adoptable" %>
         <%= button_to "Approve Application", "/applications/#{@application.id}/pets/#{pet.id}", method: :patch %>
+      <% elsif pet.status == "Pending" %>
+      <!-- SCREEN OUT -- CHECK PET ALREADY HAS APPROVED APP? -->
+        <%= button_to "CANCEL Application", "/applications/#{@application.id}/pets/#{pet.id}", method: :patch %>
       <% end %>
     </section>
   <% end %>
