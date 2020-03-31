@@ -103,7 +103,7 @@ RSpec.describe "test applications show page" do
     expect(page).to have_content("On hold for #{application_1.name}")
   end
 
-  xit "has a button to approve all pets on application show page" do
+  it "has a button to approve all pets on application show page" do
 
     shelter_1 = Shelter.create!(name: "Burt's Barn",
                          address: "123 Sesame Street",
@@ -140,19 +140,17 @@ RSpec.describe "test applications show page" do
     expect(page).to have_content("Adoptable")
 
     visit "/applications/#{application_1.id}"
-    click_button "Approve All"
+    
+    click_button "Approve ALL"
 
-    visit "/applications/#{application_1.id}"
-    click_button "Approve All"
+    expect(page).to have_content("You have been approved for ALL your pets!")
 
-    expect(page).to have_content("You can only approve each pet once")
+    # MAKE BUTTONS DISAPPEAR IF ALREADY APPROVED???
 
-    visit "/applications/#{application_1.id}"
+    visit "/pets/#{pet_1.id}"
+    expect(page).to have_content("Pending")
 
-    within "#app_pet-#{pet_1.id}" do
-      click_button ("Approve Application")
-    end
-
-    expect(page).to have_content("You can only approve each pet once")
+    visit "/pets/#{pet_2.id}"
+    expect(page).to have_content("Pending")
   end
 end
