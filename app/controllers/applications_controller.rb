@@ -28,11 +28,17 @@ class ApplicationsController < ApplicationController
   end
 
   def update
-    pet = Pet.find(params[:pet_id])
     application = Application.find(params[:app_id])
-    pet.update_column(:status, "Pending")
-    flash[:notice] = "On hold for #{application.name}"
-    redirect_to "/pets/#{pet.id}"
+    pet = Pet.find(params[:pet_id])
+    if pet.status == "Adoptable"
+      pet.update_column(:status, "Pending")
+      flash[:notice] = "On hold for #{application.name}"
+      redirect_to "/pets/#{pet.id}"
+    else
+      pet.update_column(:status, "Adoptable")
+      flash[:notice] = "Your application for #{pet.name} has been CANCELLED."
+      redirect_to "/applications/#{application.id}"
+    end
   end
 
   def show
@@ -41,6 +47,13 @@ class ApplicationsController < ApplicationController
 
   def index
     @pet = Pet.find(params[:pet_id])
+  end
+
+  def update_all
+    application = Application.find(params[:id])
+    application.pets.each {|pet| pet.update_column(:status, "Pending")}
+    flash[:notice] = "You have been approved for ALL your pets!"
+    redirect_to "/applications/#{application.id}"
   end
 
   private
