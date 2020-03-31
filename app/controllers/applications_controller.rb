@@ -43,6 +43,13 @@ class ApplicationsController < ApplicationController
     @pet = Pet.find(params[:pet_id])
   end
 
+  def update_all
+    application = Application.find(params[:id])
+    application.pets.each {|pet| pet.update_column(:status, "Pending")}
+    flash[:notice] = "You have been approved for ALL your pets!"
+    redirect_to "/applications/#{application.id}"
+  end
+
   private
 
   def application_params

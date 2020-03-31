@@ -1,6 +1,5 @@
 <h1>Your Application </h1>
-
-<h3>Name: <%= @application.name %></h3>
+  <h3>Name: <%= @application.name %></h3>
   <p>Address: <%= @application.address %></p>
   <p>City: <%= @application.city %></p>
   <p>State: <%= @application.state %></p>
@@ -9,10 +8,12 @@
   <p>Description: <%= @application.description %></p>
   <br/>
   <br/>
-<h3>Pets Applied For</h3>
+
+<h2>Pets Applied For</h2>
   <% @application.pets.each do |pet| %>
-  <section id="app_pet-<%=pet.id%>">
-    <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
-    <%= button_to "Approve Application", "/applications/#{@application.id}/pets/#{pet.id}", method: :patch %>
-  </section>
+    <section id="app_pet-<%=pet.id%>">
+      <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
+      <%= button_to "Approve Application", "/applications/#{@application.id}/pets/#{pet.id}", method: :patch %>
+    </section>
   <% end %>
+  <%= button_to "Approve ALL", "/applications/#{@application.id}", method: :patch %>
