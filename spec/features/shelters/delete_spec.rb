@@ -75,7 +75,7 @@ RSpec.describe "test delete shelters", type: :feature do
     expect(page).to_not have_content(caesar.name)
   end
 
-  it "shows a flash message if user tries to delete a shelter with an approved pet" do
+  it "does not shows a delete button on a shelter with an approved pet" do
 
     shelter_1 = Shelter.create!(name: "Burt's Barn",
                          address: "123 Sesame Street",
@@ -106,10 +106,11 @@ RSpec.describe "test delete shelters", type: :feature do
     application_1.pets << [pet_1, pet_2]
 
     visit "/shelters/#{shelter_1.id}"
+    
     expect(page).to have_link("Delete Shelter")
 
     visit "/applications/#{application_1.id}"
-
+    
     within "#app_pet-#{pet_1.id}" do
       click_button ("Approve Application")
     end
