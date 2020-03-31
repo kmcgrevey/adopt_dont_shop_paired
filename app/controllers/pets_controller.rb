@@ -24,9 +24,14 @@ class PetsController < ApplicationController
 
   def destroy
     pet_to_delete = Pet.find(params[:pet_id])
-    favorites.contents.delete(pet_to_delete.id.to_s)
-    pet_to_delete.destroy
-    redirect_to "/pets/"
+    if pet_to_delete.status == "Pending"
+      flash[:error] = "Pet cannot be deleted due to pending application status"
+        redirect_to "/pets/#{pet_to_delete.id}"
+    else
+      favorites.contents.delete(pet_to_delete.id.to_s)
+      pet_to_delete.destroy
+      redirect_to "/pets/"
+    end
   end
 
   private
