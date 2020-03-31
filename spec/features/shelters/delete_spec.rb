@@ -75,7 +75,7 @@ RSpec.describe "test delete shelters", type: :feature do
     expect(page).to_not have_content(caesar.name)
   end
 
-  xit "shows a flash message if user tries to delete a shelter with an approved pet" do
+  it "shows a flash message if user tries to delete a shelter with an approved pet" do
 
     shelter_1 = Shelter.create!(name: "Burt's Barn",
                          address: "123 Sesame Street",
@@ -89,6 +89,12 @@ RSpec.describe "test delete shelters", type: :feature do
                           approx_age: 1,
                           sex: "female")
 
+    pet_2 = shelter_1.pets.create!(image: "https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg",
+                        name: "Caesar",
+                        approx_age: "4",
+                        description: "Denver",
+                        sex: "Male")
+
     application_1 = Application.create!(name: "John Hutchinson",
                                 address: "4089 S. Broadway Street",
                                 city: "Philadelphia",
@@ -97,17 +103,18 @@ RSpec.describe "test delete shelters", type: :feature do
                                 phone: "215-367-8891",
                                 description: "I am loving and will provide a good home")
 
-    application_1.pets << [pet_1]
+    application_1.pets << [pet_1, pet_2]
 
-    visit "applications/#{application_1.id}"
+    visit "/shelters/#{shelter_1.id}"
+    expect(page).to have_link("Delete Shelter")
+
+    visit "/applications/#{application_1.id}"
 
     within "#app_pet-#{pet_1.id}" do
       click_button ("Approve Application")
     end
 
     visit "/shelters/#{shelter_1.id}"
-      click_link ("Delete Shelter")
-
-    expect(page).to have_content("A shelter with an approved pet can not be deleted")
+    expect(page).to_not have_link("Delete Shelter")
   end
 end

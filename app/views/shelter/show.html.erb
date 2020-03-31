@@ -7,7 +7,7 @@
     <p> <%= @shelter.city %></p>
     <p> <%= @shelter.state %></p>
     <p> <%= @shelter.zip %></p>
-    <p> <%= @shelter.pets.count %> <%= "Adoptable Pet(s)"%></p>
+    <p> <%= @shelter.pet_count %> <%= "Adoptable Pet(s)"%></p>
       <br/>
       <br/>
     <h3>Pet Count: <%= @shelter.pet_count %></h3>
@@ -32,6 +32,8 @@
   <%= button_to "New Review", "/shelters/#{@shelter.id}/reviews/new", method: :get %>
   <%= link_to "Our Pets", "/shelters/#{@shelter.id}/pets" %>
   <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
-  <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
+  <% if @shelter.has_apps == false %>
+    <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
+  <% end %>
   </div>
   </body>

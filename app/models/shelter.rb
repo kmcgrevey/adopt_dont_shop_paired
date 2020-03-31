@@ -15,4 +15,8 @@ class Shelter < ApplicationRecord
   def number_of_apps
     Application.joins(:pets).count
   end
+
+  def has_apps
+    require "pry"; binding.pry
+  end
 end
