@@ -152,7 +152,7 @@ RSpec.describe "test applications show page" do
     expect(page).to have_content("Pending")
   end
 
-  xit "will only allow one approved application per pet" do
+  it "will only allow one approved application per pet" do
  
     shelter_1 = Shelter.create!(name: "Burt's Barn",
                          address: "123 Sesame Street",
@@ -203,9 +203,9 @@ RSpec.describe "test applications show page" do
     end
 
     visit "/pets/#{pet_1.id}/applications"
+    
     expect(page).to have_link(application_1.name)
     expect(page).to have_link(application_2.name)
-
     
     click_link "#{application_2.name}"
     # visit "/applications/#{application_2.id}" # visit application_2

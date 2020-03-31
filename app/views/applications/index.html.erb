@@ -4,6 +4,6 @@
   <h3><%= "There are no applications for this pet" %></h3>
 <% else %>
   <% @pet.applications.each do |application| %>
-    <%= link_to "#{application.name}", "/applications/#{application.id}" %>
+    <p><%= link_to "#{application.name}", "/applications/#{application.id}" %></p>
   <% end %>
 <% end %>
