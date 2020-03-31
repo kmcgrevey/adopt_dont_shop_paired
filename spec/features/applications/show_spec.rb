@@ -166,12 +166,6 @@ RSpec.describe "test applications show page" do
                           approx_age: 1,
                           sex: "female")
 
-    # pet_2 = shelter_1.pets.create!(image: "https://external-preview.redd.it/P4X2K5llPbMkRkmFkycSPdDGAp051xJl0UF50bZRId4.jpg?auto=webp&s=5231b2f36d623b3258d36adbfbaf9be305f0d419",
-    #                       name: "Petey",
-    #                       description: "Rubber baby bacon booties!",
-    #                       approx_age: 1,
-    #                       sex: "male")
-
     application_1 = Application.create!(name: "John Hutchinson",
                                 address: "4089 S. Broadway Street",
                                 city: "Philadelphia",
@@ -213,5 +207,74 @@ RSpec.describe "test applications show page" do
     within "#app_pet-#{pet_1.id}" do
       expect(page).to_not have_button("Approve Application")
     end
+  end
+
+  it "can have an application be revoked" do
+    
+    shelter_1 = Shelter.create!(name: "Burt's Barn",
+                            address: "123 Sesame Street",
+                            city: "New York",
+                            state: "NY",
+                            zip: "12345")
+
+    pet_1 = shelter_1.pets.create!(image: "https://assets.change.org/photos/3/yk/di/kLYkdIaPKknZpoD-800x450-noPad.jpg?1519383791",
+                          name: "Penelope",
+                          description: "A face only everyone could love!",
+                          approx_age: 1,
+                          sex: "female")
+
+    application_1 = Application.create!(name: "John Hutchinson",
+                                address: "4089 S. Broadway Street",
+                                city: "Philadelphia",
+                                state: "Pennsylvania",
+                                zip: "19050",
+                                phone: "215-367-8891",
+                                description: "I am loving and will provide a good home")
+    application_2 = Application.create!(name: "Ira Ida",
+                                address: "123 Main",
+                                city: "Centerville",
+                                state: "Idaho",
+                                zip: "19999",
+                                phone: "123-456-7890",
+                                description: "I like potatoes")
+ 
+    ApplicationPet.create!(application_id: application_1.id, pet_id: pet_1.id)
+    ApplicationPet.create!(application_id: application_2.id, pet_id: pet_1.id)
+
+    visit "/applications/#{application_1.id}" 
+    
+    within "#app_pet-#{pet_1.id}" do
+      click_button "Approve Application" 
+    end
+    
+    visit "/applications/#{application_2.id}" 
+    
+    within "#app_pet-#{pet_1.id}" do
+      expect(page).to_not have_button("Approve Application")
+      expect(page).to_not have_button("CANCEL Application")
+    end
+
+    visit "/applications/#{application_1.id}" 
+    
+    within "#app_pet-#{pet_1.id}" do
+      expect(page).to_not have_button("Approve Application")
+      click_button "CANCEL Application" 
+    end
+
+    expect(current_path).to eq("/applications/#{application_1.id}")
+    
+    within "#app_pet-#{pet_1.id}" do
+      expect(page).to have_button("Approve Application")
+    end
+    
+    visit "/applications/#{application_2.id}" 
+    
+    within "#app_pet-#{pet_1.id}" do
+      expect(page).to have_button("Approve Application")
+    end
+
+    visit "/pets/#{pet_1.id}"
+    
+    expect(page).to have_content("Status: Adoptable")
   end
 end
