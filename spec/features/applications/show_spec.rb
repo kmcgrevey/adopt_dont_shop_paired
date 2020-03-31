@@ -142,10 +142,17 @@ RSpec.describe "test applications show page" do
     visit "/applications/#{application_1.id}"
     click_button "Approve All"
 
-    visit "/pets/#{pet_1.id}"
-    expect(page).to have_content("Pending")
+    visit "/applications/#{application_1.id}"
+    click_button "Approve All"
 
-    visit "/pets/#{pet_2.id}"
-    expect(page).to have_content("Pending")
+    expect(page).to have_content("You can only approve each pet once")
+
+    visit "/applications/#{application_1.id}"
+
+    within "#app_pet-#{pet_1.id}" do
+      click_button ("Approve Application")
+    end
+
+    expect(page).to have_content("You can only approve each pet once")
   end
 end

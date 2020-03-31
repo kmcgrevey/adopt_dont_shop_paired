@@ -5,7 +5,6 @@ class FavoritesController < ApplicationController
     pet_id_str = pet.id.to_s
     session[:favorites] ||= Hash.new
     session[:favorites][pet_id_str] ||= 1
-    # session[:favorites][pet_id_str] ||= pet
     flash[:notice] = "#{pet.name} has been added to your favorites"
     redirect_to "/pets/#{pet.id}"
   end
