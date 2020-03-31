@@ -27,8 +27,7 @@ pet3 = shelter2.pets.create!(image: "https://www.thesun.co.uk/wp-content/uploads
                              name: "Francisco",
                              description: "What, behind the rabbit!?",
                              approx_age: 3,
-                             sex: "male",
-                             status: "Pending")
+                             sex: "male")
 
 review1 = shelter1.reviews.create!(title: "Best Shelter",
                                     rating: 5,
