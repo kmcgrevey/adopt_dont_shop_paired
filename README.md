@@ -51,7 +51,9 @@ Contributers:
 
   Ok, so how do we actually get this app onto a web browser?
   
-  Simply type 'rails s' in your CLI, and you will now be able to view the code by navigating to 'localhost:3000' in your web broswer.
+  Simply type 'rails s' in your CLI, and you will now be able to view the code by navigating to 'localhost:3000' in your web broswer!
+  
+  Ta dah! And you're done!
   
 
 #### FAQ
