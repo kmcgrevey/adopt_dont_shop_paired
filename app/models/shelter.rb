@@ -17,8 +17,6 @@ class Shelter < ApplicationRecord
   end
 
   def has_apps
-    # false
-    # true
     # pets.joins(:applications)
     # NEED ACTIVERECORD METHOD
     status = []
@@ -26,6 +24,5 @@ class Shelter < ApplicationRecord
       status << pet.status
     end
     status.include? "Pending"
-
   end
 end
