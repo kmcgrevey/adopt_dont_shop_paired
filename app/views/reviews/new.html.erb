@@ -1,4 +1,5 @@
 <body style="background-color:lightblue;font-family:arial;text-align:center">
+<h1>New Review for <%= @shelter.name %></h1>
     <br/>
     <br/>
     <br/>
@@ -6,8 +7,16 @@
     <%= label_tag :title %>
     <%= text_field_tag :title %>
       <br/>
-    <%= label_tag :rating %>
-    <%= text_field_tag :rating %>
+    <%= radio_button_tag(:rating, 1) %>
+    <%= label_tag 1 %>
+    <%= radio_button_tag(:rating, 2) %>
+    <%= label_tag 2 %>
+    <%= radio_button_tag(:rating, 3) %>
+    <%= label_tag 3 %>
+    <%= radio_button_tag(:rating, 4) %>
+    <%= label_tag 4 %>
+    <%= radio_button_tag(:rating, 5) %>
+    <%= label_tag 5 %>
       <br/>
     <%= label_tag :content %>
     <%= text_field_tag :content %>

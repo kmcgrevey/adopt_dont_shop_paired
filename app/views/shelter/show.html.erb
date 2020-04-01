@@ -12,8 +12,14 @@
     <h3>Average Rating: <%= @shelter.average_rating %></h3>
     <h3>Number Of Applications On File: <%= @shelter.number_of_apps %></h3>
     <br/>
+  <%= link_to "Our Pets", "/shelters/#{@shelter.id}/pets" %>
+  <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
+  <% if @shelter.has_apps == false %>
+    <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
+  <% end %>
     <br/>
   <h2>Reviews</h2>
+  <%= button_to "New Review", "/shelters/#{@shelter.id}/reviews/new", method: :get %>
   <% @shelter.reviews.each do |review| %>
   <section id="review-<%= review.id %>">
     <h3><%= review.title %></h3>
@@ -27,11 +33,5 @@
       <br/>
   <% end %>
 
-  <%= button_to "New Review", "/shelters/#{@shelter.id}/reviews/new", method: :get %>
-  <%= link_to "Our Pets", "/shelters/#{@shelter.id}/pets" %>
-  <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
-  <% if @shelter.has_apps == false %>
-    <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
-  <% end %>
   </div>
   </body>
