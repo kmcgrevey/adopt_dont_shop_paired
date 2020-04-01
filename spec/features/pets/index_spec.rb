@@ -34,14 +34,12 @@ RSpec.describe "test pets index page", type: :feature do
 
     expect(page).to have_css("img[src*='#{caesar.image}']")
     expect(page).to have_content(caesar.name)
-    expect(page).to have_content(caesar.city)
     expect(page).to have_content(caesar.approx_age)
     expect(page).to have_content(caesar.sex)
     expect(page).to have_content(caesar.shelter.name)
 
     expect(page).to have_css("img[src*='#{livia.image}']")
     expect(page).to have_content(livia.name)
-    expect(page).to have_content(livia.city)
     expect(page).to have_content(livia.approx_age)
     expect(page).to have_content(livia.sex)
     expect(page).to have_content(livia.shelter.name)
