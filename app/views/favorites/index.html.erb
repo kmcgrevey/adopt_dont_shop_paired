@@ -1,3 +1,5 @@
+<body style="background-color:lightblue">
+
 <h1>Favorite Pets</h1>
 <%= link_to "Remove All Favorites", '/favorites', method: :delete%>
 <%= link_to "Apply For Adoption", '/applications/new' %>
@@ -6,15 +8,14 @@
   <h3>You Currently Have No Favorite Pets.</h3>
 <% else %>
   <% @fav_pets.each do |pet| %>
-        <section id="favorites-<%=pet.id%>">
-          <img style="img-align:center;"><%= image_tag pet.image %></img>
-            <br/>
-          <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
+    <section class = polaroid id="favorites-<%=pet.id%>">
+      <div class= container><%= image_tag pet.image %></div>
+        <div class = petinfo>
+          <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %><h3>
           <%= button_to "Remove From Favorites", "favorite_pets/#{pet.id}", method: :delete %>
-            <br/>
-            <br/>
-          </section>
-      <% end  %>
+        </div>
+    </section>
+  <% end  %>
 <% end  %>
 
 <h1>Pets Applied For</h1> 
@@ -23,9 +24,7 @@
     <h3>You haven't applied for the adoption of any pets</h3>
   <% else %>
     <% @applied_pets.each do |pet| %>
-      <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
-        <br/>
-        <br/>
+      <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
     <% end %>
   <% end  %>
 </section>
