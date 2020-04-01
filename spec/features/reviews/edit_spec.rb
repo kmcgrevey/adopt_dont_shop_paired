@@ -22,7 +22,7 @@ RSpec.describe "test reviews can be edited", type: :feature do
     expect(current_path).to eq("/reviews/#{review_1.id}/edit")
 
     fill_in :title, with: "Jolliest and Most Joyful Home"
-    fill_in :rating, with: 4
+    choose(option: 4)
     fill_in :content, with: "The employees truly care about my pet!"
 
     click_button "Update Review"
@@ -52,7 +52,7 @@ RSpec.describe "test reviews can be edited", type: :feature do
     visit "/reviews/#{review_1.id}/edit"
 
     fill_in :title, with: ""
-    fill_in :rating, with: 4
+    choose(option: 4)
     fill_in :content, with: ""
 
     click_button "Update Review"

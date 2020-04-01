@@ -15,10 +15,67 @@
  */
 
  .topnav {
-  background-color: grey;
-  text-align: center;
+  background-color: rgba(48, 52, 58, 0.413);
+  
   overflow: hidden;
   padding: 5px 5px 5px 5px ;
-  height: 5vw;
+  height: 6vw;
   font-family: Arial;
+}
+
+section.polaroid {
+  width: 40%;
+  background-color: 	rgba(48, 52, 58, 0.413);
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 25px 0 rgba(0, 0, 0, 0.19);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+img {width: 100%;
+     margin-right: auto;
+   }
+
+div.petinfo{
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  font-family: arial;
+  color: white
+  /* position: absolute; */
+  /* float: left; */
+}
+
+h1 {
+  font-family: Impact;
+  font-size: 40px;
+}
+
+h3 {
+  font-family: Impact;
+  font-size: 25px;
+}
+
+h5 {
+  font-family: Monaco;
+  font-size: 18px;
+}
+
+footer {
+  background-color: grey;
+  color: white;
+  width: 100%;
+  bottom: 0px;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.1vw;
+  text-align: left;
+  padding: 2%;
+}
+
+.notice-flash {
+  padding: 10px;
+  background-color: orange;
+  color: white;
 }

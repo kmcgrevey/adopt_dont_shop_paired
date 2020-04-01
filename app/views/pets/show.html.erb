@@ -1,22 +1,29 @@
-<body style="background-color:lightblue;font-family:arial;text-align:center">
-  <h1> <%= @pet.name %> </h1>
+<body style="background-color:lightblue;text-align:center">
+  
+  <h1 style="text-align:center">About Me</h1>
 
-  <img src= <%= @pet.image %> alt= <%= @pet.name %>>
-  <p> <%= @pet.description %></p>
-  <p>Age: <%= @pet.approx_age %></p>
-  <p>Sex: <%= @pet.sex %></p>
-  <p>Status: <%= @pet.status %></p>
-  <p>Shelter: <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %>
+  <section class = polaroid id='show-pet-<%=@pet.id %>'>
+    <div class = container><%= image_tag @pet.image %></div>
+      <div class = petinfo>
+        <h3><%= @pet.name %></h3>
+        <h5> <%= @pet.description %></h5>
+        <p>Age: <%= @pet.approx_age %></p>
+        <p>Sex: <%= @pet.sex %></p>
+        <p>Adoption Status: <%= @pet.status %></p>
+        <p>Shelter: <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %>
+          <br/>
+        <% if favorites.contents.include?(@pet.id.to_s) %>
+          <%= button_to "Remove From Favorites", "/favorites/#{@pet.id}", method: :delete %>
+        <% else %>
+          <p><%= button_to "Favorite", "/favorites/#{@pet.id}", method: :patch %></p>
+        <% end %>
+      </div>
+    </div>
+  </section>
 
-  <% if favorites.contents.include?(@pet.id.to_s) %>
-    <%= button_to "Remove From Favorites", "/favorites/#{@pet.id}", method: :delete %>
-  <% else %>
-    <%= button_to "Favorite", "/favorites/#{@pet.id}", method: :patch %>
-  <% end %>
-
-  <%= link_to "All Applications", "/pets/#{@pet.id}/applications" %>
-  <%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
-  <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
-  <br/>
-  <br/>
+    <%= link_to "All Applications", "/pets/#{@pet.id}/applications" %>
+    <%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
+    <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
+    <br/>
+    <br/>
 </body>

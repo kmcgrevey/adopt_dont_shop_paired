@@ -1,21 +1,25 @@
-<body style="background-color:lightblue;"">
+<body style="background-color:lightblue;text-align:center">
     <br/>
-  <h1 style="font-family:arial;font-size:40px;text-align:center"><%= @shelter.name %> Pets</h1>
+  <h1 style="text-align:center"><%= @shelter.name %> Pets</h1>
     <br/>
   <div style="text-align:center;font-family:arial">
     <% @shelter.pets.each do |pet| %>
-      <img style="img-align:center;"><%= image_tag pet.image %></img>
-        <br/>
-      <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
-      <p>Approx Age: <%= pet.approx_age %></p>
-      <p>Sex: <%= pet.sex %></p>
-      <p>Adoption Status: <%= pet.status %></p>
+      <section class = polaroid id='pet-<%=pet.id %>'>
+        <div class = container><%= image_tag pet.image %></div>
+          <div class = petinfo>
+            <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
+            <p>Approx Age: <%= pet.approx_age %></p>
+            <p>Sex: <%= pet.sex %></p>
+            <p>Adoption Status: <%= pet.status %></p>
+          </div>
+        </div>
+      </section>
     <% end %>
+  </div>
         <br/>
       <h2><%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %></h2>
         <br/>
         <br/>
       <%= link_to "Back to Shelter", "/shelters/#{@shelter.id}" %>
-  </div>
 </body>
 
