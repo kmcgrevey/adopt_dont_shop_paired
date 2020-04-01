@@ -183,7 +183,6 @@ RSpec.describe "test applications show page" do
  
     ApplicationPet.create!(application_id: application_1.id, pet_id: pet_1.id)
     ApplicationPet.create!(application_id: application_2.id, pet_id: pet_1.id)
-    # ApplicationPet.create!(application_id: application_2.id, pet_id: pet_2.id)
     
     visit "/pets/#{pet_1.id}/applications"
     
@@ -202,7 +201,6 @@ RSpec.describe "test applications show page" do
     expect(page).to have_link(application_2.name)
     
     click_link "#{application_2.name}"
-    # visit "/applications/#{application_2.id}" # visit application_2
     
     within "#app_pet-#{pet_1.id}" do
       expect(page).to_not have_button("Approve Application")
@@ -251,7 +249,6 @@ RSpec.describe "test applications show page" do
     
     within "#app_pet-#{pet_1.id}" do
       expect(page).to_not have_button("Approve Application")
-      # expect(page).to_not have_button("CANCEL Application")
     end
 
     visit "/applications/#{application_1.id}" 
