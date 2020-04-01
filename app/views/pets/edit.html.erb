@@ -4,19 +4,19 @@
     <br/>
   <%= form_tag "/pets/#{@pet_to_edit.id}", method: :patch do %>
   <%= label_tag :image %>
-  <%= text_field_tag :image %>
+  <%= text_field_tag :image, "#{@pet_to_edit.image}" %>
     <br/>
   <%= label_tag :name %>
-  <%= text_field_tag :name %>
+  <%= text_field_tag :name, "#{@pet_to_edit.name}" %>
     <br/>
   <%= label_tag :approx_age %>
-  <%= text_field_tag :approx_age %>
+  <%= text_field_tag :approx_age, "#{@pet_to_edit.approx_age}" %>
     <br/>
   <%= label_tag :sex %>
-  <%= text_field_tag :sex %>
+  <%= text_field_tag :sex, "#{@pet_to_edit.sex}" %>
     <br/>
   <%= label_tag :description %>
-  <%= text_field_tag :description %>    
+  <%= text_field_tag :description, "#{@pet_to_edit.description}" %>    
     <br/>
     <br/>
   <%= submit_tag 'Update Pet' %>

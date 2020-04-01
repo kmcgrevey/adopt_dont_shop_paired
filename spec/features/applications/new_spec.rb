@@ -25,8 +25,7 @@ RSpec.describe "new applications can be made", type: :feature do
                           name: "Francisco",
                           description: "What, behind the rabbit!?",
                           approx_age: 3,
-                          sex: "male",
-                          status: "Pending")
+                          sex: "male")
 
     visit "/pets/#{pet_1.id}"
 
@@ -45,7 +44,6 @@ RSpec.describe "new applications can be made", type: :feature do
     click_link "Apply For Adoption"
 
     expect(current_path).to eq("/applications/new")
-
     expect(page).to have_content("#{pet_1.name}")
     expect(page).to have_content("#{pet_2.name}")
     expect(page).to have_content("#{pet_3.name}")

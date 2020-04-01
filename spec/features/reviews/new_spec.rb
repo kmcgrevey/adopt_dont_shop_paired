@@ -14,7 +14,7 @@ RSpec.describe "test new reviews can be made from shelter show page", type: :fea
     expect(current_path).to eq("/shelters/#{lakeside_shelter.id}/reviews/new")
 
       fill_in :title, with: "Mediocre At Best"
-      fill_in :rating, with: 2
+      choose(option: 2)
       fill_in :content, with: "Just meh. Nothing special here"
       fill_in :picture, with: "https://www.rd.com/wp-content/uploads/2019/10/puppies-1-760x506.jpg"
 

@@ -1,5 +1,7 @@
 class Pet < ApplicationRecord
   validates_presence_of :image, :name, :description, :approx_age, :sex
+  validates_numericality_of :approx_age, in: 0..100
+
 
   belongs_to :shelter
 

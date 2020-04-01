@@ -10,17 +10,17 @@
   <br/>
 
 <h2>Pets Applied For</h2>
+  <%= button_to "Approve ALL", "/applications/#{@application.id}", method: :patch %>
+  <br/>
+  <br/>
   <% @application.pets.each do |pet| %>
     <section id="app_pet-<%=pet.id%>">
       <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
       <% if pet.status == "Adoptable" %>
         <%= button_to "Approve Application", "/applications/#{@application.id}/pets/#{pet.id}", method: :patch %>
-      <% elsif pet.status == "Pending" %>
-      <!-- SCREEN OUT -- CHECK PET ALREADY HAS APPROVED APP? -->
+      <% else pet.status == "Pending" %>
         <%= button_to "CANCEL Application", "/applications/#{@application.id}/pets/#{pet.id}", method: :patch %>
       <% end %>
     </section>
   <% end %>
  
-  <!-- NEED TO SCREEN THIS IF ANY PET IS NOT ADOPTABLE -->
-  <%= button_to "Approve ALL", "/applications/#{@application.id}", method: :patch %>

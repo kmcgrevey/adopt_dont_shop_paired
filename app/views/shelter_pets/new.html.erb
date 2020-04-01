@@ -15,8 +15,10 @@
     <%= label_tag :approx_age %>
     <%= text_field_tag :approx_age %>
       <br/>
-    <%= label_tag :sex %>
-    <%= text_field_tag :sex %>
+    <%= radio_button_tag(:sex, "Female") %>
+    <%= label_tag "Female" %>
+    <%= radio_button_tag(:sex, "Male") %>
+    <%= label_tag "Male" %>
       <br/>
       <br/>
     <%= submit_tag 'Create Pet' %>
