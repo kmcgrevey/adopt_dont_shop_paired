@@ -1,7 +1,5 @@
 <body style="background-color:lightblue;"">
-    <br/>
   <h1 style="text-align:center"> All Pets </h1>
-    <br/>
   <div style="text-align:center">
     <% @pets.each do |pet| %>
       <section class = polaroid id="pets-<%=pet.id%>">
@@ -15,7 +13,6 @@
               <br/>
             <%= link_to "Edit Pet", "/pets/#{pet.id}/edit" %>
             <%= link_to "Delete Pet", "/pets/#{pet.id}", method: :delete %>
-              <br/>
               <br/>
           </div>
         </div>
