@@ -10,7 +10,12 @@
     <br/>
 
     <h3>Pet Count: <%= @shelter.pet_count %></h3>
-    <h3>Average Rating: <%= @shelter.average_rating.round(1) %></h3>
+    <% if @shelter.average_rating == nil %>
+      <h3>Average Rating: No reviews</h3>
+    <% else %>
+      <h3>Average Rating: <%= @shelter.average_rating.round(1) %></h3>
+    <% end %>
+
     <h3>Number Of Applications On File: <%= @shelter.number_of_apps %></h3>
     <br/>
 
