@@ -2,7 +2,7 @@
   <%= form_tag '/applications' do %>
     <% @pets.each do |pet| %>
       <p id="checkbox-<%= pet.id %>"><%= check_box_tag "applied_for[]", pet.id %>
-      <%= label_tag pet.name %></p>
+      <%= link_to "#{pet.name}", "/pets/#{pet.id}"%></p>
     <% end %>
     </br>
     </br>
