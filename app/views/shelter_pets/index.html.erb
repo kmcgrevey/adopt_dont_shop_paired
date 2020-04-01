@@ -6,18 +6,16 @@
     <% @shelter.pets.each do |pet| %>
       <img style="img-align:center;"><%= image_tag pet.image %></img>
         <br/>
-      <p style="font-size:30px"><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></p>
-        <h5 style="font-size:20px">Age: <%= pet.approx_age %></h5>
-        <h5 style="font-size:20px">Sex: <%= pet.sex %></h5>
-      <% end %>
+      <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
+      <p>Approx Age: <%= pet.approx_age %></p>
+      <p>Sex: <%= pet.sex %></p>
+      <p>Adoption Status: <%= pet.status %></p>
+    <% end %>
         <br/>
-      <p style="font-size:25px"><%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %></p>
+      <h2><%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %></h2>
         <br/>
         <br/>
       <%= link_to "Back to Shelter", "/shelters/#{@shelter.id}" %>
-        <br/>
-      <br/>
-    <br/>
-  <br/>
   </div>
 </body>
+
