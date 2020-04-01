@@ -27,8 +27,8 @@ RSpec.describe "test shelters show page", type: :feature do
     expect(page).to_not have_content(lakeside_shelter.name)
 
     click_link "Our Pets"
-
-    expect(page).to have_content("Adoptable Pets")
+    
+    expect(page).to have_content("Parkside Shelter Pets")
     expect(page).to have_content("Create Pet")
   end
 
