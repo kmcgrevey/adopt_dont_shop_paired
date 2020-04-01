@@ -1,4 +1,5 @@
-<body style="background-color:lightblue">
+<body style="background-color:lightblue;text-align:center">
+  
   <h1 style="text-align:center">About Me</h1>
 
   <section class = polaroid id='show-pet-<%=@pet.id %>'>
@@ -10,13 +11,13 @@
         <p>Sex: <%= @pet.sex %></p>
         <p>Adoption Status: <%= @pet.status %></p>
         <p>Shelter: <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %>
-      </div>
+          <br/>
         <% if favorites.contents.include?(@pet.id.to_s) %>
           <%= button_to "Remove From Favorites", "/favorites/#{@pet.id}", method: :delete %>
         <% else %>
           <p><%= button_to "Favorite", "/favorites/#{@pet.id}", method: :patch %></p>
         <% end %>
-        <br/>
+      </div>
     </div>
   </section>
 

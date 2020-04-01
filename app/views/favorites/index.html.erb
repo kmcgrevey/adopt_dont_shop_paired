@@ -1,4 +1,4 @@
-<body style="background-color:lightblue">
+<body style="background-color:lightblue;text-align:center">
 
 <h1>Favorite Pets</h1>
 <%= link_to "Remove All Favorites", '/favorites', method: :delete%>
@@ -17,7 +17,7 @@
     </section>
   <% end  %>
 <% end  %>
-
+  <br/>
 <h1>Pets Applied For</h1> 
 <section id="applied_for">
   <% if @applied_pets == 0 %>
@@ -28,3 +28,4 @@
     <% end %>
   <% end  %>
 </section>
+</body>
