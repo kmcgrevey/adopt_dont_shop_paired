@@ -1,7 +1,7 @@
 <h1>New Application</h1>
   <%= form_tag '/applications' do %>
     <% if @pets.all? {|pet| pet[:status] == "Pending" } %>
-      <h3>You have no pets eligible to apply for.</h3>
+      <h3>There are no pets eligible to apply for.</h3>
     <% else %>
       <% @pets.each do |pet| %>
         <% if pet.status == "Adoptable" %>
