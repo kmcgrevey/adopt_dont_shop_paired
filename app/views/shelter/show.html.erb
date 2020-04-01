@@ -9,7 +9,7 @@
     <p> <%= @shelter.zip %></p>
       <br/>
     <h3>Pet Count: <%= @shelter.pet_count %></h3>
-    <h3>Average Rating: <%= @shelter.average_rating %></h3>
+    <h3>Average Rating: <%= @shelter.average_rating.round(1) %></h3>
     <h3>Number Of Applications On File: <%= @shelter.number_of_apps %></h3>
     <br/>
   <%= link_to "Our Pets", "/shelters/#{@shelter.id}/pets" %>
