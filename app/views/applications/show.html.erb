@@ -10,6 +10,10 @@
   <br/>
 
 <h2>Pets Applied For</h2>
+  <!-- NEED TO SCREEN THIS IF ANY PET IS NOT ADOPTABLE -->
+  <%= button_to "Approve ALL", "/applications/#{@application.id}", method: :patch %>
+  <br/>
+  <br/>
   <% @application.pets.each do |pet| %>
     <section id="app_pet-<%=pet.id%>">
       <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
@@ -22,5 +26,3 @@
     </section>
   <% end %>
  
-  <!-- NEED TO SCREEN THIS IF ANY PET IS NOT ADOPTABLE -->
-  <%= button_to "Approve ALL", "/applications/#{@application.id}", method: :patch %>
