@@ -3,7 +3,7 @@
 <%= link_to "Apply For Adoption", '/applications/new' %>
 
 <% if @fav_pets.count == 0 %>
-  <h1>You Currently Have No Favorite Pets.</h1>
+  <h3>You Currently Have No Favorite Pets.</h3>
 <% else %>
   <% @fav_pets.each do |pet| %>
         <section id="favorites-<%=pet.id%>">
