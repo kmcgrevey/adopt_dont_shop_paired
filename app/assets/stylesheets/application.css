@@ -79,3 +79,47 @@ footer {
   background-color: orange;
   color: white;
 }
+
+.logo{
+  width: 60px;
+  length: 10px;
+  height: 50px;
+}
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+.header-left {
+  float: left;
+}
+
+/* Style the header with a grey background and some padding */
+.header {
+  overflow: hidden;
+  background-color:rgba(48, 52, 58, 0.413);
+  padding: 5px 5px 5px ;
+  height: 70px;
+  font-family: Arial;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.nav-title{
+  font-family: Impact;
+  font-size: 25px;
+  color: black;
+  position: absolute;
+ 
+}
