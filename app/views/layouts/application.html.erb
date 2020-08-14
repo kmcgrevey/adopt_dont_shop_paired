@@ -8,18 +8,21 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <% flash.each do |type, message| %>
-    <p><%= message %></p>
-  <% end %>
-
-    <nav class="topnav">
-      <p style= "text-align: center"><%= link_to "Welcome Page", "/" %>
-      <%= link_to "Pet Index", "/pets" %>
-      <%= link_to "Shelter Index", "/shelters" %></p>
-    <p style= "text-align: right"><%= link_to "Favorites: #{favorites.total_count}", "/favorites" %></p>
+    <nav class="header">
+      <div class='nav-title'>Adopt Don't Shop</div>
+      <div class="header-right">
+        <a><%= link_to "Welcome Page", "/" %></a>
+        <a><%= link_to "Pet Index", "/pets" %></a>
+        <a><%= link_to "Shelter Index", "/shelters" %><a>
+        <a>&star;<%= link_to "Favorites: #{favorites.total_count}", "/favorites" %></a>
+      </div>
     </nav>
 
   <body>
+    <% flash.each do |type, message| %>
+      <p><%= message %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

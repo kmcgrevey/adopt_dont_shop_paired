@@ -73,7 +73,7 @@ RSpec.describe "As visitor" do
 
       click_button "Favorite"
 
-      within ".topnav" do
+      within ".header" do
         click_link "Favorites"
       end
 
