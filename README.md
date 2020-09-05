@@ -1,70 +1,74 @@
-<h1 align = center> Adopt Don't Shop (The McGrevey-Lynch Petopia) </h1> 
+# __Adopt Don't Shop__
+# _aka_ 'The McGrevey-Lynch Petopia'
 
-Contributers: 
-[Michael Alex Lynch](https://github.com/mlynch5187) ,
-[Kevin McGrevey](https://github.com/kmcgrevey)
+## Description
 
-#### Welcome to Adopt Don't Shop
+**Adopt Don't Shop** is a fictional platform that allows a vistor to browse, favorite, then apply to adopt pets from various shelters. Reviews can also be created for feedback to the individual shelters. Built as a paired project while attending [Turing School of Software and Design](https://turing.io/), the app demonstrates Ruby on Rails **MVC** design patterns, **CRUD** functionality for pets, shelters, reviews, etc. and was developed using **TDD** (test driven design) practices.
+   
+![Screenshot](public/images/grab_favorite_8-14-20.png)  
+  
+## Deployment Link
+- https://mcgrevey-lynch-petopia.herokuapp.com/
+  
+## Local Setup Instructions
+#### Ruby and Rails Setup
 
-  There's no need to shop when you can simply adopt. There are pets are located all over the country, in a variety of different shelters. Whether you are looking for a pet that loves the outdoors, or a pet who just loves to cuddle, we can help match you with a new best friend!
+- Clone this repo to your local machine using SSH:
+```
+  git clone git@github.com:kmcgrevey/adopt_dont_shop_paired.git
+```
+- Install dependencies from the Gemfile:
+```
+bundle install
+```
 
-  In this app you will be able to browse a variety of pets and pet shelters. If you see pets you like, you can add them to your favorites list. You can also apply for pets, and receive approval through this app. Lastly, you can see a wide range of shelters, each with their own pets, reviews, and ratings. Visit our app at (https://mcgrevey-lynch-petopia.herokuapp.com/).
-  
-#### Downloading Your App to Your Device
+#### Database Setup  
 
-  To get this app on your device, simply visit our GitHub repo at https://github.com/kmcgrevey/adopt_dont_shop_paired/edit/master. 
+![Tables](public/images/adopt_paired_tables.png)
   
-  At the top of the page click on the 'fork' button.
-  
-  This will make a copy of the app on your device!
-  
-  Now that we have forked the app, we'll need to clone it to your local device.
-  
-  Open the directory you'd like to clone to in your command line interface (such as Terminal on a Mac) and type 'git clone' followed by a space with the clone url. 
-  
-  It should look something like this in your CLI:
-  
-  'git clone https://github.com/kmcgrevey/adopt_dont_shop_paired.git'
-  
-  
-#### App Setup
+- Create the database:
+```
+rake db:create
+```
+- Run ActiveRecord migrations to add the tables to database:
+``` 
+rake db:migrate
+```
+- Add some data (_and cute pets!_) to get you started:
+```
+rake db:seed
+```
 
-  The first things we'll need to do is make sure we have the right software installed to run Adopt Don't Shop.
-  
-  Type 'bundle install' in your CLI, and you will see your CLI install many 'gem' files. These files allow the app's code to function properly.
-  
- Next, we will need to create the database that stores some of our app's information. 
- 
- First, type 'rake db:create' in your CLI. This command creates the actual database for the app. 
- 
- Once that is done, you'll want to enter 'rake db:migrate' into your CLI. 
- 
- This command essentially creates a new 'version' of your app in the database. Lastly, we'll run 'rake db:seed'. 
-  
-  Your database is now setup!
-  
-  We'll check that everything is running smoothly by running 'bundle exec rspec' in your CLI. This will run a variety of tests on Adopt Don't Shop to check functionality. You should see all tests pass at 100% coverage!
-  
-  Now Adopt Don't Shop is ready for action! You can now open the file in a text editor such as Atom or VSCode and play with the code to your heart's content.
-  
-#### Check Out Adopt Don't Shop Online
+#### Starting Rails Server
+- To run server on `localhost:3000/`:
+```
+rails s
+```
 
-  Ok, so how do we actually get this app onto a web browser?
-  
-  Simply type 'rails s' in your CLI, and you will now be able to view the code by navigating to 'localhost:3000' in your web broswer!
-  
-  Ta dah! And you're done!
-  
+## Testing and Coverage
+- To run the entire testing suite:
+```
+bundle exec rspec
+```
+- To generate coverage report (viewable in your browser):
+```
+open coverage/index.html
+```
 
-#### FAQ
+## Contributors
 
-  - Our code has been created to follow Create Read Update Delete (CRUD) functionality and Test Driven Design (TDD).
+- [Kevin McGrevey](https://github.com/kmcgrevey)  
+- [Michael Alex Lynch](https://github.com/mlynch5187)
   
-  - Our primary goal was to have a functioning website that is user friendly, logical, and free of pesky bugs.
-  
-  - We have left the app in a prime state for adding CSS styling, and improving the appearance for the viewer.
-  
-  - Please reach out to either of the contributors above with further questions or contents!
+## Technologies and Frameworks
+
+- Language: Ruby 2.6.3
+- Framework: Rails 5.1.7
+- Testing: RSpec, Capybara, SimpleCov
+- Styling: CSS (external and in-line)
+- Deployment: Heroku
+- Project Management: Github Projects
+- Communication: Slack, Tuple
   
 
   
