@@ -1,14 +1,12 @@
 <body style="background-color:lightblue;"">
   <h1 style="text-align:center"> All Pets </h1>
-  <div class="album py-5 bg-transparent">
+  <div class="card-deck">
     <div class="container">
       <div class="row">
- 
         <% @pets.each do |pet| %>
           <div class="col-md-4" id="pets-<%=pet.id%>">
             <div class="card bg-dark text-white mb-4 shadow">
-              <div class="card-img-top"><%= image_tag pet.image %></div>
-              
+              <img src=<%=pet.image%> class="card-img-top">
               <div class="card-body">
                 <h3><%= link_to pet.name, "/pets/#{pet.id}" %></h3>
                 <p>Age: <%= pet.approx_age %></p>
@@ -19,16 +17,12 @@
                     <%= link_to "Edit Pet", "/pets/#{pet.id}/edit", class: 'btn btn-sm btn-outline-secondary' %>
                     <%= link_to "Delete Pet", "/pets/#{pet.id}", method: :delete, class: 'btn btn-sm btn-outline-secondary' %>
                   </div>
-            
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
-        
+        <% end %>       
       </div>
     </div>
-  </div>
-        
-
+  </div>       
 </body>
