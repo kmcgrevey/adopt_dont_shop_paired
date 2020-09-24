@@ -8,15 +8,15 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-    <nav class="header">
-      <div class='nav-title'>Adopt Don't Shop</div>
-      <div class="header-right">
-        <a><%= link_to "Welcome Page", "/" %></a>
-        <a><%= link_to "Pet Index", "/pets" %></a>
-        <a><%= link_to "Shelter Index", "/shelters" %><a>
-        <a>&star;<%= link_to "Favorites: #{favorites.total_count}", "/favorites" %></a>
-      </div>
-    </nav>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand" id='nav-title'>Adopt Don't Shop</a> 
+    <div class="navbar-nav ml-auto align-items-center">
+      <a class="nav-link"><%= link_to "Welcome Page", "/" %></a>
+      <a class="nav-link"><%= link_to "Pet Index", "/pets" %></a>
+      <a class="nav-link"><%= link_to "Shelter Index", "/shelters" %><a>
+      <a class="nav-link"><%= link_to "Favorites: #{favorites.total_count}", "/favorites", class: 'btn btn-primary' %></a>
+    </div>
+  </nav>
 
   <body>
     <% flash.each do |type, message| %>

@@ -117,10 +117,10 @@ footer {
   position: relative;
 }
 
-.nav-title{
+#nav-title{
   font-family: Impact;
   font-size: 25px;
-  color: black;
+  color: white;
   position: absolute;
  
 }
@@ -129,4 +129,8 @@ footer {
     width: 100%;
     height: 15vw;
     object-fit: cover;
+}
+
+.navbar {
+  min-height: 64px;
 }
