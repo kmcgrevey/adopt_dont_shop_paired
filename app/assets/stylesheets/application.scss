@@ -133,3 +133,24 @@ footer {
 .navbar {
   min-height: 64px;
 }
+
+body.home {
+  background: url(asset_path(golden_pup_sleeping)) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+  text-align: center;
+  color: white;
+}
+
+.cover-container {
+  max-width: 42em;
+  display: flex;
+}
+
+html,
+body {
+  height: 100%;
+}
