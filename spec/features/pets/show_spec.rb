@@ -104,7 +104,7 @@ RSpec.describe "test pets show page", type: :feature do
 
     visit "/pets/#{caesar.id}"
 
-    click_link "All Applications"
+    click_link "Applications"
 
     expect(page).to have_link("#{application_1.name}")
     expect(page).to have_link("#{application_2.name}")

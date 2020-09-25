@@ -1,29 +1,45 @@
-<body style="background-color:lightblue;text-align:center">
+<body style="background-color:lightblue;">
   
   <h1 style="text-align:center">About Me</h1>
 
-  <section class = polaroid id='show-pet-<%=@pet.id %>'>
-    <div class = container><%= image_tag @pet.image %></div>
-      <div class = petinfo>
-        <h3><%= @pet.name %></h3>
-        <h5> <%= @pet.description %></h5>
-        <p>Age: <%= @pet.approx_age %></p>
-        <p>Sex: <%= @pet.sex %></p>
-        <p>Adoption Status: <%= @pet.status %></p>
-        <p>Shelter: <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %>
-          <br/>
-        <% if favorites.contents.include?(@pet.id.to_s) %>
-          <%= button_to "Remove From Favorites", "/favorites/#{@pet.id}", method: :delete %>
-        <% else %>
-          <p><%= button_to "Favorite", "/favorites/#{@pet.id}", method: :patch %></p>
-        <% end %>
-      </div>
-    </div>
-  </section>
+  <div class="card-group mx-3">
+   
+        <div class="card bg-dark text-white mb-4 shadow" id='show-pet-<%=@pet.id %>'>
+          <img src=<%= @pet.image %>>
+        </div>
+       
+        <div class="card bg-dark text-white mb-4 shadow">
+            <div class="card-body">
+              <h1 class="card-title"><%= @pet.name %></h1>
+              <h5 class="card-text"> <%= @pet.description %></h5>
+           
+              <p class="card-text">Age: <%= @pet.approx_age %></p>
+              <p class="card-text">Sex: <%= @pet.sex %></p>
+              <p class="card-text">Adoption Status: <%= @pet.status %></p>
+              <p class="card-text">Shelter: <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %></p>
+      
+             </br>
+              <div class="btn-group">
+                <%= link_to "Applications", "/pets/#{@pet.id}/applications", class: 'btn btn-outline-secondary' %>
+              <% if favorites.contents.include?(@pet.id.to_s) %>
+                <%= button_to "Remove From Favorites", "/favorites/#{@pet.id}", method: :delete, class: 'btn btn-primary' %>
+              <% else %>
+                <%= button_to "Favorite", "/favorites/#{@pet.id}", method: :patch, class: 'btn btn-primary' %>
+              <% end %>
+                <%= link_to "Update Pet", "/pets/#{@pet.id}/edit", class: 'btn btn-outline-secondary' %>
+                <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete, class: 'btn btn-outline-secondary' %>
+              </div>
 
-    <%= link_to "All Applications", "/pets/#{@pet.id}/applications" %>
-    <%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
-    <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
+            </div>
+
+        </div>
+      
+    
+  </div>
+
+    
     <br/>
     <br/>
 </body>
+
+                  
