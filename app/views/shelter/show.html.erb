@@ -1,48 +1,61 @@
-<body style="background-color:lightblue;font-family:arial;">
+<body style="background-color:lightblue;">
     <br/>
-  <h1 style="text-align:center;font-size:40px"> <%= @shelter.name %> </h1>
+  <h1 style="text-align:center;"><%= @shelter.name %></h1>
     <br/>
-  <div style="text-align:center">
-    <p> <%= @shelter.address %></p>
-    <p> <%= @shelter.city %></p>
-    <p> <%= @shelter.state %></p>
-    <p> <%= @shelter.zip %></p>
-    <br/>
-
-    <h3>Pet Count: <%= @shelter.pet_count %></h3>
-    <% if @shelter.average_rating == nil %>
-      <h3>Average Rating: No reviews</h3>
-    <% else %>
-      <h3>Average Rating: <%= @shelter.average_rating.round(1) %></h3>
-    <% end %>
-
-    <h3>Number Of Applications On File: <%= @shelter.number_of_apps %></h3>
-    <br/>
-
-    <%= link_to "Our Pets", "/shelters/#{@shelter.id}/pets" %>
-    <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
-    <% if @shelter.has_apps == false %>
-      <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
-    <% end %>
-    <br/>
-
-    <h2>Reviews</h2>
-    <%= button_to "New Review", "/shelters/#{@shelter.id}/reviews/new", method: :get %>
-    
-    <% @shelter.reviews.each do |review| %>
-      <section id="review-<%= review.id %>">
-        <h3><%= review.title %></h3>
-        <% if review.picture %>
-          <p><%= image_tag review.picture, :style => "width: 35%"%></p>
+  <div class="card text-center text-dark border-dark mb-2 w-75 bg-transparent mx-auto">
+    <div class="card-body">
+      <%= @shelter.address %> | 
+      <%= @shelter.city %>, <%= @shelter.state %> | 
+      <%= @shelter.zip %>
+    </div>
+   
+    <ul class="list-group w-75 mx-auto">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Pet Count
+        <span class="badge badge-primary"><%= @shelter.pet_count %></span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Average Rating
+        <% if @shelter.average_rating != 0 %>
+          <span class="badge badge-primary"><%= @shelter.average_rating.round(1) %></span>
+        <% else %>
+          <span class="badge badge-primary">No Reviews</span>
         <% end %>
-        <p>Rating: <%= review.rating %></p>
-        <p><%= review.content %></p>
-        <%= button_to "Edit Review", "/reviews/#{review.id}/edit", method: :get %>
-        <%= button_to "Delete Review", "/reviews/#{review.id}", method: :delete %>
-      </section>
-    <br/>
-    <br/>
-    <% end %>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Number Of Applications On File
+        <span class="badge badge-primary"><%= @shelter.number_of_apps %></span>
+      </li>
+    </ul>
 
+    <div class="btn-group mt-4">
+      <%= link_to "Our Pets", "/shelters/#{@shelter.id}/pets", class: 'btn btn-sm btn-primary' %>
+      <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit", class: 'btn btn-sm btn-outline-dark' %>
+      <% if @shelter.has_apps == false %>
+        <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete, class: 'btn btn-sm btn-outline-dark' %>
+      <% end %>
+    </div>
   </div>
-  </body>
+    <br/>
+    <br/>
+
+  <h2>Reviews</h2>
+  <%= button_to "New Review", "/shelters/#{@shelter.id}/reviews/new", method: :get %>
+  
+  <% @shelter.reviews.each do |review| %>
+    <section id="review-<%= review.id %>">
+      <h3><%= review.title %></h3>
+      <% if review.picture %>
+        <p><%= image_tag review.picture, :style => "width: 35%"%></p>
+      <% end %>
+      <p>Rating: <%= review.rating %></p>
+      <p><%= review.content %></p>
+      <%= button_to "Edit Review", "/reviews/#{review.id}/edit", method: :get %>
+      <%= button_to "Delete Review", "/reviews/#{review.id}", method: :delete %>
+    </section>
+      <br/>
+      <br/>
+  <% end %>
+
+
+</body>
