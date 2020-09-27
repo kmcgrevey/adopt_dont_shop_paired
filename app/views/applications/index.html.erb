@@ -1,9 +1,12 @@
-<h1>Applications For <%= "#{@pet.name}" %></h1>
-
-<% if @pet.applications == [] %>
-  <h3><%= "There are no applications for this pet" %></h3>
-<% else %>
-  <% @pet.applications.each do |application| %>
-    <p><%= link_to "#{application.name}", "/applications/#{application.id}" %></p>
+<div style="text-align:center;">
+    </br>
+  <h1>Applications For <%= "#{@pet.name}" %></h1>
+    </br>
+  <% if @pet.applications == [] %>
+    <h3><%= "There are no applications for this pet" %></h3>
+  <% else %>
+    <% @pet.applications.each do |application| %>
+      <p><%= link_to "#{application.name}", "/applications/#{application.id}" %></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
