@@ -34,7 +34,7 @@ RSpec.describe "As visitor" do
       expect(page).to have_link("#{pet_2.name}")
 
       within "#favorites-#{pet_1.id}" do
-        click_button "Remove From Favorites"
+        click_on "Remove From Favorites"
       end
 
       visit '/favorites'

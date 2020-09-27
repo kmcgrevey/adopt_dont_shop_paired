@@ -1,31 +1,50 @@
-<body style="background-color:lightblue;text-align:center">
-
-<h1>Favorite Pets</h1>
-<%= link_to "Remove All Favorites", '/favorites', method: :delete%>
-<%= link_to "Apply For Adoption", '/applications/new' %>
-
-<% if @fav_pets.count == 0 %>
-  <h3>You Currently Have No Favorite Pets.</h3>
-<% else %>
-  <% @fav_pets.each do |pet| %>
-    <section class = polaroid id="favorites-<%=pet.id%>">
-      <div class= container><%= image_tag pet.image %></div>
-        <div class = petinfo>
-          <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %><h3>
-          <%= button_to "Remove From Favorites", "favorite_pets/#{pet.id}", method: :delete %>
-        </div>
-    </section>
-  <% end  %>
-<% end  %>
-  <br/>
-<h1>Pets Applied For</h1> 
-<section id="applied_for">
-  <% if @applied_pets == 0 %>
-    <h3>You haven't applied for the adoption of any pets</h3>
+<body style="background-color:lightblue;">
+    </br>
+  <h1 style="text-align:center">Favorite Pets</h1>
+    </br>
+  <% if @fav_pets.count == 0 %>
+    <div class="card text-dark border-dark mb-2 w-75 bg-transparent mx-auto">
+      <div class="card-body d-flex justify-content-center">
+          You Currently Have No Favorite Pets.
+      </div>
+    </div>
   <% else %>
-    <% @applied_pets.each do |pet| %>
-      <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
-    <% end %>
+    <% @fav_pets.each do |pet| %>
+      <div class="card text-dark border-dark mb-2 w-75 bg-transparent mx-auto" id="favorites-<%=pet.id%>">
+        <div class="row ml-2">
+          <div class="col-md-8 my-auto">
+                <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
+                <%= link_to "Remove From Favorites", "favorite_pets/#{pet.id}", method: :delete, class: 'btn btn-sm btn-outline-dark' %>
+          </div>
+          <div style="width: 200px">
+            <div class="mw-100 my-2 mr-2" style="width: 200px;">
+              <img src=<%= pet.image %>>
+            </div>
+          </div>  
+        </div>
+      </div>
+    <% end  %>
   <% end  %>
-</section>
+  <div class="d-flex justify-content-center">
+    <div class="btn-group w-75">
+      <%= link_to "Remove All Favorites", '/favorites', method: :delete, class: 'btn btn-outline-dark' %>
+      <%= link_to "Apply For Adoption", '/applications/new', class: 'btn btn-primary' %>
+    </div>
+  </div>
+    </br>
+  <h1 style="text-align:center">Pets Applied For</h1>
+    </br>
+  <section id="applied_for">
+    <% if @applied_pets == 0 %>
+      <h3>You haven't applied for the adoption of any pets</h3>
+    <% else %>
+      <% @applied_pets.each do |pet| %>
+        <div class="card text-dark border-dark mb-2 w-75 bg-transparent mx-auto">
+          <div class="card-body">
+            <h3 class="my-auto"><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
+          </div>
+        </div>
+      <% end %>
+    <% end  %>
+  </section>
 </body>
