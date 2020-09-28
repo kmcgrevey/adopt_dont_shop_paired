@@ -45,7 +45,7 @@ RSpec.describe "As visitor" do
 
       expect(page).to have_content("Favorites: 0")
       
-      click_button "Favorite"
+      click_on "Favorite"
       
       expect(page).to have_content("Favorites: 1")
       expect(page).to have_content("Penelope has been added to your favorites")

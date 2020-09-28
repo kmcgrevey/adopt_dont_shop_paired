@@ -21,11 +21,11 @@ RSpec.describe "As visitor" do
 
       visit "/pets/#{pet_1.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
       visit "/pets/#{pet_2.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
       visit '/favorites'
 
@@ -70,11 +70,11 @@ RSpec.describe "As visitor" do
 
       visit "/pets/#{pet_1.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
       visit "/pets/#{pet_2.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
       visit '/favorites'
 
@@ -97,11 +97,11 @@ RSpec.describe "As visitor" do
 
       visit "/pets/#{pet_1.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
       expect(page).to have_content("Favorites: 1")
 
-      click_button "Remove From Favorites"
+      click_on "Remove From Favorites"
 
       expect(page).to have_content("Penelope has been removed from your favorites.")
       expect(page).to have_content("Favorites: 0")

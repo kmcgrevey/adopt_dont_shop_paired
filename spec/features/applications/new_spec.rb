@@ -29,15 +29,15 @@ RSpec.describe "new applications can be made", type: :feature do
 
     visit "/pets/#{pet_1.id}"
 
-    click_button "Favorite"
+    click_on "Favorite"
 
     visit "/pets/#{pet_2.id}"
 
-    click_button "Favorite"
+    click_on "Favorite"
 
     visit "/pets/#{pet_3.id}"
 
-    click_button "Favorite"
+    click_on "Favorite"
 
     visit "/favorites"
 
@@ -103,7 +103,7 @@ RSpec.describe "new applications can be made", type: :feature do
 
     visit "/pets/#{pet_1.id}"
 
-    click_button "Favorite"
+    click_on "Favorite"
 
     visit "/favorites"
 
