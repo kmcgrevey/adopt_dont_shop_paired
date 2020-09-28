@@ -33,8 +33,8 @@
       <% else %>
         <%= link_to "Favorite", "/favorites/#{@pet.id}", method: :patch, class: 'btn btn-primary' %>
       <% end %>
-        <%= link_to "Update Pet", "/pets/#{@pet.id}/edit", class: 'btn btn-outline-dark' %>
-        <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete, class: 'btn btn-outline-dark' %>
+        <%= link_to "Update Pet", "/pets/#{@pet.id}/edit", class: 'btn btn-dark' %>
+        <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete, class: 'btn btn-dark' %>
     </div>
   </div>
 </body>

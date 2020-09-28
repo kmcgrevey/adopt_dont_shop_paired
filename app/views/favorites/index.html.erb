@@ -3,18 +3,18 @@
   <h1 style="text-align:center">Favorite Pets</h1>
     </br>
   <% if @fav_pets.count == 0 %>
-    <div class="card text-dark border-dark mb-2 w-75 bg-transparent mx-auto">
+    <div class="card text-dark border-dark border-2 mb-2 w-75 bg-transparent mx-auto">
       <div class="card-body d-flex justify-content-center">
           You Currently Have No Favorite Pets.
       </div>
     </div>
   <% else %>
     <% @fav_pets.each do |pet| %>
-      <div class="card text-dark border-dark mb-2 w-75 bg-transparent mx-auto" id="favorites-<%=pet.id%>">
+      <div class="card text-dark border-dark border-2 mb-2 w-75 bg-transparent mx-auto" id="favorites-<%=pet.id%>">
         <div class="row ml-2">
           <div class="col-md-8 my-auto">
                 <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
-                <%= link_to "Remove From Favorites", "favorite_pets/#{pet.id}", method: :delete, class: 'btn btn-sm btn-outline-dark' %>
+                <%= link_to "Remove From Favorites", "favorite_pets/#{pet.id}", method: :delete, class: 'btn btn-sm btn-dark' %>
           </div>
           <div style="width: 200px">
             <div class="mw-100 my-2 mr-2" style="width: 200px;">
@@ -27,8 +27,8 @@
   <% end  %>
   <div class="d-flex justify-content-center">
     <div class="btn-group w-75">
-      <%= link_to "Remove All Favorites", '/favorites', method: :delete, class: 'btn btn-outline-dark' %>
-      <%= link_to "Apply For Adoption", '/applications/new', class: 'btn btn-primary' %>
+      <%= link_to "Remove All Favorites", '/favorites', method: :delete, class: 'btn btn-dark' %>
+      <%= link_to "Apply For Adoption", '/applications/new', class: 'btn btn-primary border-2' %>
     </div>
   </div>
     </br>
@@ -39,7 +39,7 @@
       <h3>You haven't applied for the adoption of any pets</h3>
     <% else %>
       <% @applied_pets.each do |pet| %>
-        <div class="card text-dark border-dark mb-2 w-75 bg-transparent mx-auto">
+        <div class="card text-dark border-dark border-2 mb-2 w-75 bg-transparent mx-auto">
           <div class="card-body">
             <h3 class="my-auto"><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
           </div>

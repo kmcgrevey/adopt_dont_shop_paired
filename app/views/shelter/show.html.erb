@@ -2,7 +2,7 @@
     <br/>
   <h1 style="text-align:center;"><%= @shelter.name %></h1>
     <br/>
-  <div class="card text-center text-dark border-dark mb-2 w-75 bg-transparent mx-auto">
+  <div class="card text-center text-dark border-dark border-2 mb-2 w-75 bg-transparent mx-auto">
     <div class="card-body font-weight-bold">
       <%= @shelter.address %> | 
       <%= @shelter.city %>, <%= @shelter.state %> | 
@@ -30,9 +30,9 @@
 
     <div class="btn-group mt-4">
       <%= link_to "Our Pets", "/shelters/#{@shelter.id}/pets", class: 'btn btn-sm btn-primary' %>
-      <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit", class: 'btn btn-sm btn-outline-dark' %>
+      <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit", class: 'btn btn-sm btn-dark' %>
       <% if @shelter.has_apps == false %>
-        <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete, class: 'btn btn-sm btn-outline-dark' %>
+        <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete, class: 'btn btn-sm btn-outline-dark border-2' %>
       <% end %>
     </div>
   </div>
