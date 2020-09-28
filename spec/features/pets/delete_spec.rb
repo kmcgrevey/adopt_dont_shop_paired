@@ -59,11 +59,11 @@ RSpec.describe "test delete pets", type: :feature do
 
       visit "/pets/#{caesar.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
       visit "/pets/#{livia.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
       visit "/favorites"
 

@@ -1,4 +1,6 @@
-<h1>New Application</h1>
+<div style="text-align:center;">
+    </br>
+  <h1>New Application</h1>
   <%= form_tag '/applications' do %>
     <% if @pets.all? {|pet| pet[:status] == "Pending" } %>
       <h3>There are no pets eligible to apply for.</h3>
@@ -14,32 +16,24 @@
     <%= label_tag :name %>
     <%= text_field_tag :name %>
       <br/>
-      <br/>
     <%= label_tag :address %>
     <%= text_field_tag :address %>
-      <br/>
       <br/>
     <%= label_tag :city %>
     <%= text_field_tag :city %>
       <br/>
-      <br/>
     <%= label_tag :state %>
     <%= text_field_tag :state %>
-      <br/>
       <br/>
     <%= label_tag :zip %>
     <%= text_field_tag :zip %>
       <br/>
-      <br/>
     <%= label_tag :phone %>
     <%= text_field_tag :phone %>
-      <br/>
       <br/>
     <%= label_tag :description %>
     <%= text_area_tag :description %>
       <br/>
-      <br/>
     <%= submit_tag 'Submit' %>
-      <br/>
-      <br/>
-<% end %>
+  <% end %>
+</div>

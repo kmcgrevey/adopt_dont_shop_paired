@@ -29,7 +29,7 @@ RSpec.describe "test reviews can be deleted", type: :feature do
       expect(page).to have_content("#{review_2.title}")
       expect(page).to have_content("#{review_2.content}")
 
-      click_button "Delete Review"
+      click_on "Delete Review"
     end
 
       expect(current_path).to eq("/shelters/#{paulas_shelter.id}")

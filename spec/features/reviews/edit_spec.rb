@@ -16,7 +16,7 @@ RSpec.describe "test reviews can be edited", type: :feature do
 
     visit "/shelters/#{paulas_shelter.id}"
     within "#review-#{review_1.id}" do
-      click_button "Edit Review"
+      click_on "Edit Review"
     end
 
     expect(current_path).to eq("/reviews/#{review_1.id}/edit")

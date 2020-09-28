@@ -88,8 +88,8 @@ RSpec.describe "test shelters show page", type: :feature do
 
     visit "/shelters/#{paulas_shelter.id}"
 
-    expect(page).to have_content("Pet Count: 3")
-    expect(page).to have_content("Average Rating: 3.5")
-    expect(page).to have_content("Number Of Applications On File: 5")
+    expect(page).to have_content("Pet Count 3")
+    expect(page).to have_content("Average Rating 3.5")
+    expect(page).to have_content("Number Of Applications On File 5")
   end
 end

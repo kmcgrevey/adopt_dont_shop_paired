@@ -31,13 +31,13 @@ RSpec.describe "As visitor" do
 
       visit "/pets/#{pet_1.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
       expect(page).to have_content("Favorites: 1")
 
       visit "/pets/#{pet_2.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
       visit "/favorites"
 
@@ -71,9 +71,9 @@ RSpec.describe "As visitor" do
 
       visit "/pets/#{pet_1.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
-      within ".header" do
+      within ".navbar" do
         click_link "Favorites"
       end
 
@@ -110,17 +110,17 @@ RSpec.describe "As visitor" do
 
       visit "/pets/#{pet_1.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
       expect(page).to have_content("Favorites: 1")
 
       visit "/pets/#{pet_2.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
       visit "/pets/#{pet_3.id}"
 
-      click_button "Favorite"
+      click_on "Favorite"
 
       visit "/favorites"
 
