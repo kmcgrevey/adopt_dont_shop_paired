@@ -1,11 +1,15 @@
 # __Adopt Don't Shop__
 # _aka_ 'The McGrevey-Lynch Petopia'
 
+![Screenshot](public/images/adopt_home_2020-09-28.png)  
+
 ## Description
 
-**Adopt Don't Shop** is a fictional platform that allows a vistor to browse, favorite, then apply to adopt pets from various shelters. Reviews can also be created for feedback to the individual shelters. Built as a paired project while attending [Turing School of Software and Design](https://turing.io/), the app demonstrates Ruby on Rails **MVC** design patterns, **CRUD** functionality for pets, shelters, reviews, etc. and was developed using **TDD** (test driven design) practices.
+**Adopt Don't Shop** is a fictional platform that allows a vistor to browse, favorite, then apply to adopt pets from various shelters. Reviews can also be created for feedback to the individual shelters. Built as a paired project while attending [Turing School of Software and Design](https://turing.io/), the app demonstrates Ruby on Rails **MVC** design patterns, **CRUD** functionality for pets, shelters, reviews, etc. and was developed using **TDD** (test driven design) practices.  
    
-![Screenshot](public/images/grab_favorite_8-14-20.png)  
+![Screenshot](public/images/adopt_pets_2020-09-28.png)  
+
+![Screenshot](public/images/adopt_favorite_2020-09-28.png)  
   
 ## Deployment Link
 - https://mcgrevey-lynch-petopia.herokuapp.com/
@@ -65,7 +69,7 @@ open coverage/index.html
 - Language: Ruby 2.6.3
 - Framework: Rails 5.1.7
 - Testing: RSpec, Capybara, SimpleCov
-- Styling: CSS (external and in-line)
+- Styling: CSS (external and in-line), Bootstrap
 - Deployment: Heroku
 - Project Management: Github Projects
 - Communication: Slack, Tuple
