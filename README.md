@@ -1,14 +1,17 @@
 # __Adopt Don't Shop__
 # _aka_ 'The McGrevey-Lynch Petopia'
 
-![Screenshot](public/images/adopt_home_2020-09-28.png)  
+#### Welcome Page
+![Screenshot](public/images/adopt_home_2020-09-28.png)
 
 ## Description
 
 **Adopt Don't Shop** is a fictional platform that allows a vistor to browse, favorite, then apply to adopt pets from various shelters. Reviews can also be created for feedback to the individual shelters. Built as a paired project while attending [Turing School of Software and Design](https://turing.io/), the app demonstrates Ruby on Rails **MVC** design patterns, **CRUD** functionality for pets, shelters, reviews, etc. and was developed using **TDD** (test driven design) practices.  
-   
+
+#### Pet Index Page
 ![Screenshot](public/images/adopt_pets_2020-09-28.png)  
 
+#### Pet Show Page
 ![Screenshot](public/images/adopt_favorite_2020-09-28.png)  
   
 ## Deployment Link
