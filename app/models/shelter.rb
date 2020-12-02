@@ -20,12 +20,6 @@ class Shelter < ApplicationRecord
   end
 
   def has_apps
-    # pets.joins(:applications)
-    # NEED ACTIVERECORD METHOD
-    status = []
-    pets.each do |pet|
-      status << pet.status
-    end
-    status.include? "Pending"
+    pets.pluck(:status).include?("Pending")
   end
 end
