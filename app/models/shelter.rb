@@ -13,7 +13,10 @@ class Shelter < ApplicationRecord
   end
 
   def number_of_apps
-    Application.joins(:pets).count
+    pets.joins(:application_pets)
+        .select('application_pets.id')
+        .distinct
+        .count
   end
 
   def has_apps
